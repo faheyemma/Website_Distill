@@ -15,9 +15,32 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
+```{r code}
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+```
+
+## Week 10 Workbook 
+
+1. Using the nzl dataset or another dataset of your choice, write a varying intercept/varying slope model.
+
+Johannes outline: 
+depression x productivity - slope model. But diff places have diff levels of productivity (varying intercepts). Baseline level differs over diff countries. 
+
+Can also have varying slopes, relationship between productivity and depression differ across diff countries. 
+
+Better estimation with multiple lines than just fitting one line. 
+
+Fit the nz1 - each 5 waves (so should have 5 lines). 
+
+```{r, question}
 
 
-Here you can push a normal thing. This creates new pages. 
+
+```
+
+Note the nzl dataset now includes 2845 individuals who have responded to at least five waves of the NZAVS. The dataset now includes relationship satisfaction Your.Personal.Relationships and employment security Emp.JobSecure
+
+
+Add to the bio: 
+# Let's do some mind thinking 
+# if in doubt message someone
