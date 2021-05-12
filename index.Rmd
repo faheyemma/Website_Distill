@@ -16,4 +16,6 @@ site: distill::distill_website
 ---
  
 I am a enter fact. in [city].  
-Currently I work on the Oculus team at Facebook. I love talking about X, Y, Z, and causal inference. Always think with your mind.  
+Currently I work on the Oculus team at Facebook. I love talking about X, Y, Z, and causal inference. 
+1. Always think with your mind.  
+2. Stop thinking 
