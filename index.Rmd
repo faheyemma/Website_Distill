@@ -1,0 +1,19 @@
+---
+title: "Emma Fahey"
+image: "owlimage.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/emma-fahey-ba8210115/"
+  - label: Twitter
+    url: "https://twitter.com/"
+  - label: GitHub
+    url: "https://github.com/faheyemma"
+  - label: Email
+    url: "faheyemma@myvuw.ac.nz"
+output:
+  postcards::jolla
+site: distill::distill_website
+---
+ 
+I am a enter fact. in [city].  
+Currently I work on the Oculus team at Facebook. I love talking about X, Y, Z, and causal inference. Always think with your mind.  
