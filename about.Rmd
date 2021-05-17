@@ -1,7 +1,7 @@
 ---
 title: "About this site"
 description: |
-  Some additional details about the website
+  This site is primarily used for the fulfillment of the 447 R course at Victoria University of Wellington. 
 ---
 
 ```{r setup, include=FALSE}

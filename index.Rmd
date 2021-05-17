@@ -4,8 +4,8 @@ image: "owlimage.jpg"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/emma-fahey-ba8210115/"
-  - label: Twitter
-    url: "https://twitter.com/"
+  - label: Instagram
+    url: "https://www.instagram.com/emzfalcon/"
   - label: GitHub
     url: "https://github.com/faheyemma"
   - label: Email
@@ -15,7 +15,13 @@ output:
 site: distill::distill_website
 ---
  
-I am a enter fact. in [city].  
-Currently I work on the Oculus team at Facebook. I love talking about X, Y, Z, and causal inference. 
-1. Always think with your mind.  
-2. Stop thinking 
+I am currently based in the windy capital of New Zealand, Wellington.
+I am a governmental advisor and love to talk about Harry Potter, FPL or anything not related to R coding! \  
+Here are some key quotes from our resident R instructor: 
+
+
+*1. Always think with your mind.*
+
+*2. Let's do some mind thinking.* 
+
+*3. Stop thinking.*  

@@ -1,19 +1,19 @@
 [
   {
     "path": "posts/2021-05-12-welcome/",
-    "title": "welcome",
-    "description": "A short description of the post.",
+    "title": "An Example of a Varying Slope Model",
+    "description": "Workbook 10 for the fulfillment of 447 course (VUW).",
     "author": [
       {
-        "name": "Unknown",
+        "name": "Emma Fahey",
         "url": {}
       }
     ],
     "date": "2021-05-12",
     "categories": [],
-    "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\nHere you can push a normal thing. This creates new pages.\r\n\r\n\r\n\r\n",
+    "contents": "\r\nWeek 10 Workbook\r\nUsing the nzl dataset or another dataset of your choice, write a varying intercept/varying slope model.\r\nThe variables I have identified to answer this question are Personal Relationships and Agreeableness. This is due to the potential association between the variables over the years (waves). I hypothesize that as agreeableness increase, personal relationships should also increase. I expect these variables to change slightly over years as people develop and grow.\r\nBrief Methods\r\nThe data for this short report is taken from the New Zealand Attitudes and Values over time dataset (NZAVS). This dataset includes 2845 individuals that have responded on at least five different years to both personal relationship and agreeableness questions.\r\nWe fit the variables to a varying slope model to try and determine if the relationship between agreeableness and personal relationships changes over time. Each slope represents a different wave of the data (or different year that data was collected).\r\nFinally, we fit the model to a conditional effects graph to check that the two variables do indeed associate with each other in some way.\r\n\r\n\r\n \r\n\r\n\r\nAGREEABLENESS\r\n\r\n\r\nPredictors\r\n\r\n\r\nEstimates\r\n\r\n\r\nCI (95%)\r\n\r\n\r\nIntercept\r\n\r\n\r\n4.82\r\n\r\n\r\n4.76 – 4.87\r\n\r\n\r\nYour.Personal.Relationships\r\n\r\n\r\n0.07\r\n\r\n\r\n0.06 – 0.08\r\n\r\n\r\nRandom Effects\r\n\r\n\r\nσ2\r\n\r\n0.89\r\n\r\n\r\nτ00Wave\r\n\r\n0.00\r\n\r\n\r\nτ11Wave.Your.Personal.Relationships\r\n\r\n0.00\r\n\r\n\r\nρ01\r\n\r\n \r\n\r\n\r\nρ01\r\n\r\n \r\n\r\n\r\nICC\r\n\r\n\r\n0.00\r\n\r\n\r\nN Wave\r\n\r\n11\r\n\r\n\r\nObservations\r\n\r\n\r\n22067\r\n\r\n\r\nMarginal R2 / Conditional R2\r\n\r\n0.023 / 0.023\r\n\r\n\r\n\r\nThe above model does not appear to fit the model perfectly, so we then attempted to remove the random slope to see if we could generate a model that fits data better. The below model and graph is the result:\r\n\r\n\r\n \r\n\r\n\r\nAGREEABLENESS\r\n\r\n\r\nPredictors\r\n\r\n\r\nEstimates\r\n\r\n\r\nCI (95%)\r\n\r\n\r\nIntercept\r\n\r\n\r\n4.82\r\n\r\n\r\n4.77 – 4.87\r\n\r\n\r\nYour.Personal.Relationships\r\n\r\n\r\n0.07\r\n\r\n\r\n0.06 – 0.07\r\n\r\n\r\nRandom Effects\r\n\r\n\r\nσ2\r\n\r\n0.89\r\n\r\n\r\nτ00Wave\r\n\r\n0.00\r\n\r\n\r\nICC\r\n\r\n\r\n0.00\r\n\r\n\r\nN Wave\r\n\r\n11\r\n\r\n\r\nObservations\r\n\r\n\r\n22067\r\n\r\n\r\nMarginal R2 / Conditional R2\r\n\r\n0.023 / 0.023\r\n\r\n\r\n\r\nDiscussion\r\nBoth models above do not appear to fit the data particularly well and we can interpret that the models explanatory power is weak (R2 = 0.02, 89% CI [0.02, 0.03], adj. R2 = 0.02).\r\nFrom the conditional effects graph above, however, we can see that there may be a relationship between the two variables as this graph shows that as personal relationships increase, so do does agreeableness ratings or scores. Perhaps this relationship is simply consistent over time, which is why no large difference was found over the years in the varying slope models.\r\nThe other limitation of the models fit could be due to the dataset containing the same individuals over several years. Perhaps with different populations, ethnicities and/or countries measures there may be a more varying degree in the way these two variables associate.\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-05-12T16:46:02+12:00",
+    "last_modified": "2021-05-17T17:29:15+12:00",
     "input_file": {}
   }
 ]

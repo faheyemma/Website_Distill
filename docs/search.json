@@ -3,24 +3,24 @@
     {
       "path": "about.html",
       "title": "About this site",
-      "description": "Some additional details about the website",
+      "description": "This site is primarily used for the fulfillment of the 447 R course at Victoria University of Wellington. ",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-05-12T17:37:12+12:00"
+      "last_modified": "2021-05-17T17:55:09+12:00"
     },
     {
       "path": "blog.html",
       "title": "Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-05-12T17:37:14+12:00"
+      "last_modified": "2021-05-17T17:55:09+12:00"
     },
     {
       "path": "index.html",
       "title": "Emma Fahey",
       "author": [],
-      "contents": "\r\n\r\n          \r\n          \r\n          Emma Website\r\n          \r\n          \r\n          Home\r\n          About\r\n          Blog\r\n          ☰\r\n          \r\n          \r\n      \r\n        \r\n          \r\n            Emma Fahey\r\n          \r\n          \r\n            \r\n              I am a enter fact. in [city].\r\n              Currently I work on the Oculus team at Facebook. I love talking about X, Y, Z, and causal inference. 1. Always think with your mind.\r\n              2. Stop thinking\r\n            \r\n            \r\n              I am a enter fact. in [city].\r\n              Currently I work on the Oculus team at Facebook. I love talking about X, Y, Z, and causal inference. 1. Always think with your mind.\r\n              2. Stop thinking\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Twitter\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Twitter\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Email\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
-      "last_modified": "2021-05-12T17:37:14+12:00"
+      "contents": "\r\n\r\n          \r\n          \r\n          Emma Website\r\n          \r\n          \r\n          Home\r\n          About\r\n          Blog\r\n          ☰\r\n          \r\n          \r\n      \r\n        \r\n          \r\n            Emma Fahey\r\n          \r\n          \r\n            \r\n              I am currently based in the windy capital of New Zealand, Wellington. I am a governmental advisor and love to talk about Harry Potter, FPL or anything not related to R coding!   Here are some key quotes from our resident R instructor:\r\n              1. Always think with your mind.\r\n              2. Let’s do some mind thinking.\r\n              3. Stop thinking.\r\n            \r\n            \r\n              I am currently based in the windy capital of New Zealand, Wellington. I am a governmental advisor and love to talk about Harry Potter, FPL or anything not related to R coding!   Here are some key quotes from our resident R instructor:\r\n              1. Always think with your mind.\r\n              2. Let’s do some mind thinking.\r\n              3. Stop thinking.\r\n            \r\n          \r\n\r\n          \r\n            \r\n              \r\n                  \r\n                    \r\n                      LinkedIn\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Instagram\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      GitHub\r\n                    \r\n                  \r\n                \r\n                                \r\n                  \r\n                    \r\n                      Email\r\n                    \r\n                  \r\n                \r\n                              \r\n          \r\n\r\n          \r\n            \r\n              \r\n                                \r\n                  \r\n                    LinkedIn\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Instagram\r\n                  \r\n                \r\n                                \r\n                  \r\n                    GitHub\r\n                  \r\n                \r\n                                \r\n                  \r\n                    Email\r\n                  \r\n                \r\n                              \r\n            \r\n          \r\n        \r\n      \r\n    \r\n\r\n    \r\n    \r\n    ",
+      "last_modified": "2021-05-17T17:55:09+12:00"
     }
   ],
   "collections": ["posts/posts.json"]

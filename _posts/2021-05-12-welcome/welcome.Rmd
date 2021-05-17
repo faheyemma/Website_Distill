@@ -1,9 +1,9 @@
 ---
-title: "welcome"
+title: "An Example of a Varying Slope Model"
 description: |
-  A short description of the post.
+  Workbook 10 for the fulfillment of 447 course (VUW).
 author:
-  - name: Unknown
+  - name: Emma Fahey
 date: 05-12-2021
 output:
   distill::distill_article:
@@ -15,7 +15,121 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r code}
+```{r code, include=FALSE}
+# libraries 
+library(dplyr)
+library(lubridate)
+
+
+# read data
+
+nz_0 <- as.data.frame(readr::read_csv2(
+  url(
+    "https://raw.githubusercontent.com/go-bayes/psych-447/main/data/nzj.csv"
+  )
+))
+
+# to re-level kessler 6 variables
+f <-
+  c(
+    "None Of The Time",
+    "A Little Of The Time",
+    "Some Of The Time",
+    "Most Of The Time",
+    "All Of The Time"
+  )
+
+# get data into shape
+nz_cr <- nz_0 %>%
+  dplyr::mutate_if(is.character, factor) %>%
+  dplyr::select(
+    -c(
+      SWB.Kessler01,
+      SWB.Kessler02,
+      SWB.Kessler03,
+      SWB.Kessler04,
+      SWB.Kessler05,
+      SWB.Kessler06
+    )
+  ) %>% 
+  dplyr::mutate(Wave = as.factor(Wave)) %>%
+  dplyr::mutate(FeelHopeless = forcats::fct_relevel(FeelHopeless, f)) %>%
+  dplyr::mutate(FeelDepressed = forcats::fct_relevel(FeelDepressed, f)) %>%
+  dplyr::mutate(FeelRestless = forcats::fct_relevel(FeelRestless, f)) %>%
+  dplyr::mutate(EverythingIsEffort = forcats::fct_relevel(EverythingIsEffort, f)) %>%
+  dplyr::mutate(FeelWorthless = forcats::fct_relevel(FeelWorthless, f)) %>%
+  dplyr::mutate(FeelNervous = forcats::fct_relevel(FeelNervous, f)) %>%
+  dplyr::mutate(Wave = as.factor(Wave)) %>%
+  dplyr::mutate(male_id = as.factor(Male)) %>%
+  dplyr::mutate(date = make_date(year = 2009, month = 6, day = 30) + TSCORE) %>%
+  dplyr::mutate(
+    FeelWorthless_int = as.integer(FeelWorthless),
+    FeelNervous_int =  as.integer(FeelNervous),
+    FeelHopeless_int =  as.integer(FeelHopeless),
+    EverythingIsEffort_int =  as.integer(EverythingIsEffort),
+    FeelRestless_int =  as.integer(FeelRestless),
+    FeelDepressed_int =  as.integer(FeelDepressed),
+    HLTH.Fatigue_int = as.integer(HLTH.Fatigue + 1)
+  ) %>%
+  dplyr::mutate(yearS = TSCORE - min(TSCORE, na.rm = TRUE)) %>%
+  dplyr::mutate(KESSLER6sum = as.integer(KESSLER6sum))
+
+## if you do anything with covid (warning, such a model would be tricky)
+
+ord_dates_class <- c("Baseline",
+                     "PreCOVID",
+                     "JanFeb",
+                     "EarlyMarch",
+                     "Lockdown",
+                     "PostLockdown")
+
+nzl <- nz_cr %>%
+  dplyr::filter(YearMeasured == 1) %>%
+  dplyr::mutate(yearS = (TSCORE - min(TSCORE)/365)) %>%
+  dplyr::mutate(WSCORE = as.factor(WSCORE)) %>%
+  dplyr::mutate(Covid_Timeline =
+                  as.factor(ifelse(
+                    TSCORE %in% 3896:3921,
+                    # feb 29 - march 25th
+                    "EarlyMarch",
+                    ifelse(
+                      TSCORE %in% 3922:3954,
+                      "Lockdown",
+                      #march 26- Mon 27 April 2020
+                      ifelse(
+                        TSCORE > 3954,
+                        # after april 27th 20202
+                        "PostLockdown",
+                        ifelse(
+                          TSCORE %in% 3842:3895,
+                          # jan 6 to feb 28
+                          "JanFeb",
+                          ifelse(TSCORE %in% 3665:3841 &
+                                   Wave == 2019,
+                                 "PreCOVID",
+                                 "Baseline"  # 3672 TSCORE or  20 July 2019))))))))
+                          )
+                        )
+                      )
+                    ))))%>%
+  dplyr::mutate(Covid_Timeline = forcats::fct_relevel(Covid_Timeline, ord_dates_class))
+
+library("tidyverse")
+library("patchwork")
+library("lubridate")
+library("kableExtra")
+library("gtsummary")
+library("lubridate")
+library("ggdag")
+library("brms")
+library("rstan")
+library("rstanarm")
+library("bayesplot")
+library("easystats")
+library("kableExtra")
+library("broom")
+library("tidybayes")
+library("bmlm")
 
 ```
 
@@ -23,24 +137,103 @@ knitr::opts_chunk$set(echo = FALSE)
 
 1. Using the nzl dataset or another dataset of your choice, write a varying intercept/varying slope model.
 
-Johannes outline: 
-depression x productivity - slope model. But diff places have diff levels of productivity (varying intercepts). Baseline level differs over diff countries. 
+The variables I have identified to answer this question are Personal Relationships and Agreeableness. This is due to the potential association between the variables over the years (waves). I hypothesize that as agreeableness increase, personal relationships should also increase. I expect these variables to change slightly over years as people develop and grow. 
 
-Can also have varying slopes, relationship between productivity and depression differ across diff countries. 
+### Brief Methods 
+The data for this short report is taken from the New Zealand Attitudes and Values over time dataset (NZAVS). This dataset includes 2845 individuals that have responded on at least five different years to both personal relationship and agreeableness questions. 
 
-Better estimation with multiple lines than just fitting one line. 
+We fit the variables to a varying slope model to try and determine if the relationship between agreeableness and personal relationships changes over time. Each slope represents a different wave of the data (or different year that data was collected). 
 
-Fit the nz1 - each 5 waves (so should have 5 lines). 
+Finally, we fit the model to a conditional effects graph to check that the two variables do indeed associate with each other in some way. 
 
-```{r, question}
 
+```{r, question, include=FALSE}
+
+# first need to select variables 
+nz5 <- nz_cr %>% 
+  select(Wave, Your.Personal.Relationships, AGREEABLENESS)
+
+# x ~ 1 + y + (1 + y | category)
+# x - Agreeable  
+# y - your personal relationships 
+# category - Wave
+
+# varying slope code 
+vslope2 <-
+  brm(
+    AGREEABLENESS ~ 1 + Your.Personal.Relationships + (1 + Your.Personal.Relationships | Wave),
+    file = here::here("models", "multi-var-slopes"),
+    data = nz5,
+    family = gaussian
+  )
+
+# print the output 
+options(width = 120)
+summary(vslope2, prior = TRUE)
 
 
 ```
 
-Note the nzl dataset now includes 2845 individuals who have responded to at least five waves of the NZAVS. The dataset now includes relationship satisfaction Your.Personal.Relationships and employment security Emp.JobSecure
+```{r code to include 1}
+
+# create a table of the output to understand 
+sjPlot::tab_model(vslope2)
+
+# create a graph of the output 
+p2 <- brms::mcmc_plot(vslope2, 
+               type = "areas",
+               prob = .89)
+p2
+
+```
 
 
-Add to the bio: 
-# Let's do some mind thinking 
-# if in doubt message someone
+The above model does not appear to fit the model perfectly, so we then attempted to remove the random slope to see if we could generate a model that fits data better. The below model and graph is the result: 
+
+
+```{r, take 2, include=FALSE}
+
+# removing the random slope to see if the model will fit better. 
+
+vslope3 <-
+  brm(
+    AGREEABLENESS ~ 1 + Your.Personal.Relationships + (1 | Wave),
+    file = here::here("models", "multi-var-slope3"),
+    data = nz5,
+    family = gaussian
+  )
+
+ 
+# print the output 
+options(width = 120)
+summary(vslope3, prior = TRUE)
+
+
+```
+
+```{r code to include 2}
+
+# create a table of the output to understand 
+sjPlot::tab_model(vslope3)
+
+# create a graph of the output 
+p3 <- brms::mcmc_plot(vslope3, 
+               type = "areas",
+               prob = .89)
+p3
+
+#this second model fits slightly better on graph, but is still difficult to interpret. 
+
+conditional_effects(vslope3) # conditional effects graph 
+
+```
+
+
+
+### Discussion 
+
+Both models above do not appear to fit the data particularly well and we can interpret that the models explanatory power is weak (R2 = 0.02, 89% CI [0.02, 0.03], adj. R2 = 0.02).
+
+From the conditional effects graph above, however, we can see that there may be a relationship between the two variables as this graph shows that as personal relationships increase, so do does agreeableness ratings or scores. Perhaps this relationship is simply consistent over time, which is why no large difference was found over the years in the varying slope models. 
+
+The other limitation of the models fit could be due to the dataset containing the same individuals over several years. Perhaps with different populations, ethnicities and/or countries measures there may be a more varying degree in the way these two variables associate. 
