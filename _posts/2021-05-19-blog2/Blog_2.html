@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["Blog_2_files/anchor-4.2.2/anchor.min.js","Blog_2_files/bowser-1.9.3/bowser.min.js","Blog_2_files/distill-2.2.21/template.v2.js","Blog_2_files/figure-html5/question 1-1.png","Blog_2_files/figure-html5/question 1-2.png","Blog_2_files/figure-html5/question 2-1.png","Blog_2_files/figure-html5/question 2-2.png","Blog_2_files/figure-html5/question 2-3.png","Blog_2_files/header-attrs-2.8/header-attrs.js","Blog_2_files/jquery-1.11.3/jquery.min.js","Blog_2_files/popper-2.6.0/popper.min.js","Blog_2_files/tippy-6.2.7/tippy-bundle.umd.min.js","Blog_2_files/tippy-6.2.7/tippy-light-border.css","Blog_2_files/tippy-6.2.7/tippy.css","Blog_2_files/tippy-6.2.7/tippy.umd.min.js","Blog_2_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1478,10 +1478,135 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>What is the difference between prediction and causal inference: give an example of how regression may be use useful for each task. Make sure your explanation includes a DAG.</p>
-<p>Explain “collider confounding” (or “collider bias”), and explain how collider bias can spoil inference. Make sure that your explanation includes a DAG.</p>
-<p>Using the nzl dataset, select at least five demongraphic/ideological variables that might be related to an exposure variable and and outcome variable of your choice. Create a DAG and identify which variables you should include to obtain an unbiased estimate of the causal effect of your exposure variable on your outcome variable. Test your model and interpret the results.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p><em>Three questions will be answered in this lab</em></p>
+<ol type="1">
+<li>What is the difference between prediction and causal inference: give an example of how regression may be use useful for each task. Make sure your explanation includes a DAG.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># this code chunk runs a successful dag. </span>
+
+<span class='co'># data is nz_cr</span>
+
+<span class='co'># y = life meaning LIFEMEANING</span>
+<span class='co'># x = Religiousity Relid</span>
+<span class='co'># z = Agreeableness AGREEABLENESS</span>
+
+<span class='co'># use this code in the main methods section of report (after descriptive stats.)</span>
+
+<span class='co'># code for DAG </span>
+<span class='va'>ggdag_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/dagify.html'>dagify</a></span><span class='op'>(</span><span class='va'>LIFEMEANING</span> <span class='op'>~</span> <span class='va'>AGREEABLENESS</span>,
+                       <span class='va'>Relid</span> <span class='op'>~</span> <span class='va'>AGREEABLENESS</span>,
+                       exposure <span class='op'>=</span> <span class='st'>"Relid"</span>,
+                       outcome <span class='op'>=</span> <span class='st'>"LIFEMEANING"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/tidy_dagitty.html'>tidy_dagitty</a></span><span class='op'>(</span>layout <span class='op'>=</span> <span class='st'>"tree"</span><span class='op'>)</span>
+
+<span class='co'># plot the DAG</span>
+<span class='va'>ggdag_1</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/ggdag.html'>ggdag</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/theme_dag_blank.html'>theme_dag_blank</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="Blog_2_files/figure-html5/question%201-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># then we ask ggdag which variables we need to include if we are to obtain an unbiased estimate of the outcome from the exposure:</span>
+
+<span class='fu'>ggdag</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/adjustment_sets.html'>ggdag_adjustment_set</a></span><span class='op'>(</span> <span class='va'>ggdag_1</span> <span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/theme_dag_blank.html'>theme_dag_blank</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="Blog_2_files/figure-html5/question%201-2.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#The graph tells us to obtain an unbiased estimate of Y on X we must condition on Z (agreeableness). </span>
+<span class='co'># And indeed, when we included the omitted variable Z in our simulated dateset it breaks the association between X and Y:</span>
+
+<span class='va'>m1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>LIFEMEANING</span> <span class='op'>~</span> <span class='va'>Relid</span> <span class='op'>+</span> <span class='va'>AGREEABLENESS</span>, data <span class='op'>=</span> <span class='va'>nz_cr</span><span class='op'>)</span>
+
+<span class='fu'>parameters</span><span class='fu'>::</span><span class='fu'><a href='https://easystats.github.io/parameters/reference/model_parameters.html'>model_parameters</a></span><span class='op'>(</span><span class='va'>m1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Parameter     | Coefficient |       SE |       95% CI | t(4287) |      p
+------------------------------------------------------------------------
+(Intercept)   |        3.94 |     0.09 | [3.77, 4.12] |   43.15 | &lt; .001
+Relid         |        0.06 | 6.32e-03 | [0.04, 0.07] |    8.99 | &lt; .001
+AGREEABLENESS |        0.27 |     0.02 | [0.24, 0.30] |   15.91 | &lt; .001</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>report</span><span class='fu'>::</span><span class='fu'><a href='https://easystats.github.io/report/reference/report.html'>report</a></span><span class='op'>(</span><span class='va'>m1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>We fitted a linear model (estimated using OLS) to predict LIFEMEANING with Relid and AGREEABLENESS (formula: LIFEMEANING ~ Relid + AGREEABLENESS). The model explains a statistically significant and weak proportion of variance (R2 = 0.08, F(2, 4287) = 183.65, p &lt; .001, adj. R2 = 0.08). The model&#39;s intercept, corresponding to Relid = 0 and AGREEABLENESS = 0, is at 3.94 (95% CI [3.77, 4.12], t(4287) = 43.15, p &lt; .001). Within this model:
+
+  - The effect of Relid is statistically significant and positive (beta = 0.06, 95% CI [0.04, 0.07], t(4287) = 8.99, p &lt; .001; Std. beta = 0.13, 95% CI [0.10, 0.16])
+  - The effect of AGREEABLENESS is statistically significant and positive (beta = 0.27, 95% CI [0.24, 0.30], t(4287) = 15.91, p &lt; .001; Std. beta = 0.23, 95% CI [0.21, 0.26])
+
+Standardized parameters were obtained by fitting the model on a standardized version of the dataset.</code></pre>
+</div>
+<ol start="2" type="1">
+<li>Explain “collider confounding” (or “collider bias”), and explain how collider bias can spoil inference. Make sure that your explanation includes a DAG.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># collider code explanation </span>
+<span class='co'># Imagine in science there is no relationship between the newsworthiness (N) of science and its trustworthiness (T). Imagine further that selection (S) committees make decisions on the basis of the both newsworthiness and the trustworthiness of scientific proposals.</span>
+
+<span class='co'># collider code </span>
+
+<span class='co'># s could be employment, gender, something 0 or 1. </span>
+<span class='co'># height and religiousness on employment  </span>
+
+<span class='co'># n = height (HLTH.Height)</span>
+<span class='co'># T = religiousity (Relid) </span>
+<span class='co'># s = employment (Employed)</span>
+
+<span class='va'>dag_sd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/dagify.html'>dagify</a></span><span class='op'>(</span><span class='va'>Employed</span> <span class='op'>~</span> <span class='va'>HLTH.Height</span>,
+                 <span class='va'>Employed</span> <span class='op'>~</span> <span class='va'>Relid</span>,
+                 labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Employed"</span> <span class='op'>=</span> <span class='st'>"Employed"</span>,
+                            <span class='st'>"HLTH.Height"</span> <span class='op'>=</span> <span class='st'>"Height"</span>,
+                            <span class='st'>"Relid"</span> <span class='op'>=</span> <span class='st'>"Religiousity"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/tidy_dagitty.html'>tidy_dagitty</a></span><span class='op'>(</span>layout <span class='op'>=</span> <span class='st'>"nicely"</span><span class='op'>)</span>
+
+<span class='co'># Graph</span>
+<span class='va'>dag_sd</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/ggdag.html'>ggdag</a></span><span class='op'>(</span>text <span class='op'>=</span> <span class='cn'>FALSE</span>, use_labels <span class='op'>=</span> <span class='st'>"label"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/theme_dag_blank.html'>theme_dag_blank</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="Blog_2_files/figure-html5/question%202-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># next section </span>
+<span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/d_relationship.html'>ggdag_dseparated</a></span><span class='op'>(</span>
+  <span class='va'>dag_sd</span>,
+  from <span class='op'>=</span> <span class='st'>"Relid"</span>,
+  to <span class='op'>=</span> <span class='st'>"HLTH.Height"</span>,
+  controlling_for <span class='op'>=</span> <span class='st'>"Employed"</span>,
+  text <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  use_labels <span class='op'>=</span> <span class='st'>"label"</span>, 
+<span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/theme_dag_blank.html'>theme_dag_blank</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="Blog_2_files/figure-html5/question%202-2.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># code for finding colliders</span>
+<span class='fu'>ggdag</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/colliders.html'>ggdag_collider</a></span><span class='op'>(</span><span class='va'>dag_sd</span>,
+                      text <span class='op'>=</span> <span class='cn'>FALSE</span>,
+                      use_labels <span class='op'>=</span> <span class='st'>"label"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/ggdag/man/theme_dag_blank.html'>theme_dag_blank</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="Blog_2_files/figure-html5/question%202-3.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># the end - then explain that. </span>
+</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Using the nzl dataset, select at least five demongraphic/ideological variables that might be related to an exposure variable and and outcome variable of your choice. Create a DAG and identify which variables you should include to obtain an unbiased estimate of the causal effect of your exposure variable on your outcome variable. Test your model and interpret the results.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
