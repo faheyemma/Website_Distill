@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-05-19-blog2/",
+    "title": "DAGs",
+    "description": "Workbook 11 for the fulfillment of PSYC447 course (VUW).",
+    "author": [
+      {
+        "name": "Emma Fahey",
+        "url": {}
+      }
+    ],
+    "date": "2021-05-19",
+    "categories": [],
+    "contents": "\r\nWhat is the difference between prediction and causal inference: give an example of how regression may be use useful for each task. Make sure your explanation includes a DAG.\r\nExplain “collider confounding” (or “collider bias”), and explain how collider bias can spoil inference. Make sure that your explanation includes a DAG.\r\nUsing the nzl dataset, select at least five demongraphic/ideological variables that might be related to an exposure variable and and outcome variable of your choice. Create a DAG and identify which variables you should include to obtain an unbiased estimate of the causal effect of your exposure variable on your outcome variable. Test your model and interpret the results.\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-05-19T16:02:39+12:00",
+    "input_file": "Blog_2.knit.md"
+  },
+  {
     "path": "posts/2021-05-12-welcome/",
     "title": "An Example of a Varying Slope Model",
     "description": "Workbook 10 for the fulfillment of 447 course (VUW).",

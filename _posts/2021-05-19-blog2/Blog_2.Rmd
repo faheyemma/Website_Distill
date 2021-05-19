@@ -1,0 +1,234 @@
+---
+title: "DAGs"
+description: |
+  Workbook 11 for the fulfillment of PSYC447 course (VUW).
+author:
+  - name: Emma Fahey
+date: 05-19-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries and code, include=FALSE}
+
+### Libraries
+library("tidyverse")
+library("patchwork")
+library("lubridate")
+library("kableExtra")
+library("gtsummary")
+library("lubridate")
+library("equatiomatic")
+library("ggdag")
+library("brms")
+library("rstan")
+library("rstanarm")
+library("bayesplot")
+library("easystats")
+library("kableExtra")
+library("broom")
+library("tidybayes")
+library("bmlm")
+# rstan options
+rstan_options(auto_write = TRUE)
+options(mc.cores = parallel::detectCores ())
+theme_set(theme_classic())
+
+# read data
+
+nz_0 <- as.data.frame(readr::read_csv2(
+  url(
+    "https://raw.githubusercontent.com/go-bayes/psych-447/main/data/nzj.csv"
+  )
+))
+
+# to re-level kessler 6 variables
+f <-
+  c(
+    "None Of The Time",
+    "A Little Of The Time",
+    "Some Of The Time",
+    "Most Of The Time",
+    "All Of The Time"
+  )
+
+# get data into shape
+nz_cr <- nz_0 %>%
+  dplyr::mutate_if(is.character, factor) %>%
+  dplyr::select(
+    -c(
+      SWB.Kessler01,
+      SWB.Kessler02,
+      SWB.Kessler03,
+      SWB.Kessler04,
+      SWB.Kessler05,
+      SWB.Kessler06
+    )
+  ) %>% 
+  dplyr::mutate(Wave = as.factor(Wave)) %>%
+  dplyr::mutate(FeelHopeless = forcats::fct_relevel(FeelHopeless, f)) %>%
+  dplyr::mutate(FeelDepressed = forcats::fct_relevel(FeelDepressed, f)) %>%
+  dplyr::mutate(FeelRestless = forcats::fct_relevel(FeelRestless, f)) %>%
+  dplyr::mutate(EverythingIsEffort = forcats::fct_relevel(EverythingIsEffort, f)) %>%
+  dplyr::mutate(FeelWorthless = forcats::fct_relevel(FeelWorthless, f)) %>%
+  dplyr::mutate(FeelNervous = forcats::fct_relevel(FeelNervous, f)) %>%
+  dplyr::mutate(Wave = as.factor(Wave)) %>%
+  dplyr::mutate(male_id = as.factor(Male)) %>%
+  dplyr::mutate(date = make_date(year = 2009, month = 6, day = 30) + TSCORE) %>%
+  dplyr::mutate(
+    FeelWorthless_int = as.integer(FeelWorthless),
+    FeelNervous_int =  as.integer(FeelNervous),
+    FeelHopeless_int =  as.integer(FeelHopeless),
+    EverythingIsEffort_int =  as.integer(EverythingIsEffort),
+    FeelRestless_int =  as.integer(FeelRestless),
+    FeelDepressed_int =  as.integer(FeelDepressed),
+    HLTH.Fatigue_int = as.integer(HLTH.Fatigue + 1)
+  ) %>%
+  dplyr::mutate( yearS = (TSCORE - min(TSCORE)/365) ) %>%
+  dplyr::mutate(KESSLER6sum = as.integer(KESSLER6sum))
+
+## if you do anything with covid (warning, such a model would be tricky)
+
+ord_dates_class <- c("Baseline",
+                     "PreCOVID",
+                     "JanFeb",
+                     "EarlyMarch",
+                     "Lockdown",
+                     "PostLockdown")
+
+nzl <- nz_cr %>%
+  dplyr::filter(YearMeasured == 1) %>%
+  dplyr::mutate(yearS = (TSCORE - min(TSCORE)/365)) %>%
+  dplyr::mutate(WSCORE = as.factor(WSCORE)) %>%
+  dplyr::mutate(Covid_Timeline =
+                  as.factor(ifelse(
+                    TSCORE %in% 3896:3921,
+                    # feb 29 - march 25th
+                    "EarlyMarch",
+                    ifelse(
+                      TSCORE %in% 3922:3954,
+                      "Lockdown",
+                      #march 26- Mon 27 April 2020
+                      ifelse(
+                        TSCORE > 3954,
+                        # after april 27th 20202
+                        "PostLockdown",
+                        ifelse(
+                          TSCORE %in% 3842:3895,
+                          # jan 6 to feb 28
+                          "JanFeb",
+                          ifelse(TSCORE %in% 3665:3841 &
+                                   Wave == 2019,
+                                 "PreCOVID",
+                                 "Baseline"  # 3672 TSCORE or  20 July 2019))))))))
+                          )
+                        )
+                      )
+                    ))))%>%
+  dplyr::mutate(Covid_Timeline = forcats::fct_relevel(Covid_Timeline, ord_dates_class))%>%
+  dplyr::mutate(Id = factor(Id))
+
+```
+
+*Three questions will be answered in this lab* 
+
+1. What is the difference between prediction and causal inference: give an example of how regression may be use useful for each task. Make sure your explanation includes a DAG.
+
+```{r, question 1}
+
+# this code chunk runs a successful dag. 
+
+# data is nz_cr
+
+# y = life meaning LIFEMEANING
+# x = Religiousity Relid
+# z = Agreeableness AGREEABLENESS
+
+# use this code in the main methods section of report (after descriptive stats.)
+
+# code for DAG 
+ggdag_1 <- dagify(LIFEMEANING ~ AGREEABLENESS,
+                       Relid ~ AGREEABLENESS,
+                       exposure = "Relid",
+                       outcome = "LIFEMEANING") %>%
+  tidy_dagitty(layout = "tree")
+
+# plot the DAG
+ggdag_1 %>%
+  ggdag() + 
+  theme_dag_blank()
+
+# then we ask ggdag which variables we need to include if we are to obtain an unbiased estimate of the outcome from the exposure:
+
+ggdag::ggdag_adjustment_set( ggdag_1 ) + 
+  theme_dag_blank()
+
+#The graph tells us to obtain an unbiased estimate of Y on X we must condition on Z (agreeableness). 
+# And indeed, when we included the omitted variable Z in our simulated dateset it breaks the association between X and Y:
+
+m1 <- lm(LIFEMEANING ~ Relid + AGREEABLENESS, data = nz_cr)
+
+parameters::model_parameters(m1)
+
+report::report(m1)
+
+```
+
+2. Explain “collider confounding” (or “collider bias”), and explain how collider bias can spoil inference. Make sure that your explanation includes a DAG.
+
+```{r, question 2}
+# collider code explanation 
+# Imagine in science there is no relationship between the newsworthiness (N) of science and its trustworthiness (T). Imagine further that selection (S) committees make decisions on the basis of the both newsworthiness and the trustworthiness of scientific proposals.
+
+# collider code 
+
+# s could be employment, gender, something 0 or 1. 
+# height and religiousness on employment  
+
+# n = height (HLTH.Height)
+# T = religiousity (Relid) 
+# s = employment (Employed)
+
+dag_sd <- dagify(Employed ~ HLTH.Height,
+                 Employed ~ Relid,
+                 labels = c("Employed" = "Employed",
+                            "HLTH.Height" = "Height",
+                            "Relid" = "Religiousity")) %>%
+  tidy_dagitty(layout = "nicely")
+
+# Graph
+dag_sd %>%
+  ggdag(text = FALSE, use_labels = "label") + 
+  theme_dag_blank()
+
+# next section 
+ggdag_dseparated(
+  dag_sd,
+  from = "Relid",
+  to = "HLTH.Height",
+  controlling_for = "Employed",
+  text = FALSE,
+  use_labels = "label", 
+) + 
+  theme_dag_blank()
+
+# code for finding colliders
+ggdag::ggdag_collider(dag_sd,
+                      text = FALSE,
+                      use_labels = "label") + 
+  theme_dag_blank()
+
+# the end - then explain that. 
+```
+
+3. Using the nzl dataset, select at least five demongraphic/ideological variables that might be related to an exposure variable and and outcome variable of your choice. Create a DAG and identify which variables you should include to obtain an unbiased estimate of the causal effect of your exposure variable on your outcome variable. Test your model and interpret the results.
+
+```{r, question 3}
+
+```
+
