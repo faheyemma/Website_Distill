@@ -139,7 +139,7 @@ nzl <- nz_cr %>%
 
 1. What is the difference between prediction and causal inference: give an example of how regression may be use useful for each task. Make sure your explanation includes a DAG.
 
-```{r, question 1}
+```{r, question 1, include=FALSE}
 
 # this code chunk runs a successful dag. 
 
@@ -166,7 +166,7 @@ ggdag_1 %>%
 # then we ask ggdag which variables we need to include if we are to obtain an unbiased estimate of the outcome from the exposure:
 
 ggdag::ggdag_adjustment_set( ggdag_1 ) + 
-  theme_dag_blank()
+  theme_dag_blank() 
 
 #The graph tells us to obtain an unbiased estimate of Y on X we must condition on Z (agreeableness). 
 # And indeed, when we included the omitted variable Z in our simulated dateset it breaks the association between X and Y:
@@ -228,7 +228,17 @@ ggdag::ggdag_collider(dag_sd,
 
 3. Using the nzl dataset, select at least five demongraphic/ideological variables that might be related to an exposure variable and and outcome variable of your choice. Create a DAG and identify which variables you should include to obtain an unbiased estimate of the causal effect of your exposure variable on your outcome variable. Test your model and interpret the results.
 
+1.  
+2. 
+3. 
+4. 
+5. 
+
+
 ```{r, question 3}
+
+
+
 
 ```
 

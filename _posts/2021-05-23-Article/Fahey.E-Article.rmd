@@ -1,0 +1,236 @@
+---
+title: "Short Article"
+description: |
+  Article title will go here.
+author:
+  - name: Emma Fahey
+date: "05/23/2021"
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+# this code can be used for each chunk where applicable 
+# code does or doesn’t display inline (echo setting)
+# figures are shown at various sizes (fig.width and fig.height settings)
+# warnings and messages are suppressed (warning and message settings)
+# computations are cached (cache setting)
+
+knitr::opts_chunk$set(fig.width=8, fig.height=5, 
+               echo=TRUE, 
+               warning=FALSE, message=FALSE, 
+               cache=TRUE)
+
+```
+
+```{r libraries and import, include=FALSE}
+
+### Libraries - delete those uneeded. 
+library("tidyverse")
+library("patchwork")
+library("lubridate")
+library("kableExtra")
+library("gtsummary")
+library("lubridate")
+library("equatiomatic")
+library("ggdag")
+library("brms")
+library("rstan")
+library("rstanarm")
+library("bayesplot")
+library("easystats")
+library("kableExtra")
+library("broom")
+library("tidybayes")
+library("bmlm")
+library("gendercoder")
+library("table1")
+library("ggplot2")
+library("lavaan")
+
+# rstan options
+rstan_options(auto_write = TRUE)
+options(mc.cores = parallel::detectCores ())
+theme_set(theme_classic())
+
+# read/import data
+df <- read_csv("processed_nature.csv") # reading the data. 
+
+df$gender_code <- gendercoder::recode_gender(df$gender) # making the gender codes uniform as were free text entries. 
+
+df <- mutate(df, age_clean = if_else(age < 1000, age, 2021 - age)) # cleaning age variable to remove extreme outliers. 
+
+# first reverse coding items for the happiness scale 
+
+df[,"shs_4"] <- lapply(df[,"shs_4_1" ], function(x){car::recode(x,"1 = 7; 2 = 6; 3 = 5; 4 = 4; 5 = 3; 6 = 2; 7 = 1")})
+
+# scales using: 
+# happiness 
+# life sat 
+# motivations 
+
+# create 3x new columns for motivation variable 
+df$motsad <- (df[c("importance_1", "importance_2", "importance_3", "importance_4", "importance_5", "importance_6", "importance_7")])
+
+df$mothap <- (df[c("importance_8", "importance_9", "importance_10", "importance_11")])
+
+df$motref <- (df[c("importance_12", "importance_12", "importance_13", "importance_14")])
+
+
+# generating mean scores for the scales. # IS THIS ACCURATE??? 
+df$motsad <- rowMeans(df[paste0("importance_", 1:7)], na.rm = T)
+df$mothap <- rowMeans(df[paste0("importance_", 8:11)], na.rm = T)
+df$motref <- rowMeans(df[paste0("importance_", 12:14)], na.rm = T)
+df$swls <- rowMeans(df[paste0("swl_", 1:5)], na.rm = T) 
+df$shs <- rowMeans(df[paste0("shs_", 1:4, "_1")], na.rm = T) 
+mean(df$age_clean)
+
+```
+
+## Introduction 
+
+
+
+## Method 
+
+```{r descriptives}
+
+# select the variables needed 
+df2 <- df %>%
+  select(gender_code, age_clean, swl_1, swl_2, swl_3, swl_4, swl_5, swls, shs_1_1, shs_2_1, shs_3_1, shs_4_1, shs, motsad, mothap, motref)
+head(df2)
+
+# table - code for descriptive stats of the scales (means etc.) 
+table1::label(df$swls) <- "Life Satisfaction"
+table1::label(df$shs) <- "Happiness"
+table1::label(df$mothap) <- "Happy Motivation"
+table1::label(df$motsad) <- "Sad Motivation"
+table1::label(df$motref) <- "Reflective Motivation"
+
+# actual table 
+table1::table1(~ swls + shs + mothap + motsad + motref, data = df2)
+
+# histograms 
+# desriptive graphs to show distribution of the data 
+p1 <-
+  qplot(df$swls, geom = "histogram") + labs(title = "Life Satisfaction") + xlab("swls")
+p2 <-
+  qplot(df$shs, geom = "histogram") + labs(title = "Happiness") + xlab("shs")
+p3 <- 
+  qplot(df$mothap, geom = "histogram") + labs(title = "Happy Motivation") + xlab("mothap")
+p4 <- 
+  qplot(df$motsad, geom = "histogram") + labs(title = "Sad Motivation") + xlab("motsad")
+p5 <- 
+  qplot(df$motref, geom = "histogram") + labs(title = "Reflective Motivation") + xlab("motref")
+
+p1 + p2 + p3 + p4 + p5
+
+
+# concern is that the 3x IVs are not normally distributed as below... Do I need to adjust the model that I use due to this? 
+
+# Can I do a DAG here or not appropriate? 
+
+```
+```{r reliabilities}
+
+print(psych::alpha(df2[paste0("swl_", 1:5)]))
+print(psych::alpha(df2[paste0("shs_", 1:4, "_1")]))
+print(psych::alpha(df[paste0("importance_", 1:7)]))
+print(psych::alpha(df[paste0("importance_", 8:11)]))
+print(psych::alpha(df[paste0("importance_", 12:14)]))
+
+
+# i think there something wrong with the reverse coding of shs.... see reliability output... How do I fix this? 
+
+# other reliability 
+
+print(ufs::scaleStructure(df2[paste0("swl_", 1:5)]))
+print(ufs::scaleStructure(df2[paste0("shs_", 1:4, "_1")]))
+print(ufs::scaleStructure(df[paste0("importance_", 1:7)]))
+print(ufs::scaleStructure(df[paste0("importance_", 8:11)]))
+print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
+
+# reliability graph 
+
+# can't do - error 
+# what is EBICglasso, should I be changing this? 
+
+
+```
+
+
+```{r basic model code}
+
+# SEM 
+
+mdl_sem <- 'swls ~ motsad + mothap + motref
+	shs ~ motsad + mothap + motref'
+	
+sem_res <- sem(mdl_sem, df2) 
+summary(sem_res, standardize = T)
+
+sem_res_strap <- sem(mdl_sem, df, se = "bootstrap") 
+summary(sem_res_strap, standardize = T) 
+
+# Bootstrapping randomly grabs part of your data and makes a new average. Allows confidence intervals. 
+# IV – 3 diff motivations X
+# DV – life sat and happy scores Y
+
+# next steps 
+# how do i graph or visually present this? Can I dag it? How do i report it? 
+# also what does it all mean? 
+
+
+```
+
+
+Text here 
+
+
+
+In chunk 2 I think - this code errors. 
+
+network1 <- bootnet::estimateNetwork(select(df2, -age_clean, -gender_code), "EBICglasso")
+qgraph::qgraph(network1$graph, layout = "spring")
+
+
+
+
+Other Code we have: 
+
+# Create table data for apa format 
+tab_01 = data.frame(
+  scale = c("BAS-T", "SR", "BDI", "ASRM", "M-SRM"),
+  high = c("46.17 (2.87)", "17.94 (1.88)", "7.11 (6.50)", 
+           "6.46 (4.01)", "11.05 (3.36)"),
+  moderate = c("37.99 (1.32)", "11.52 (1.84)", "6.18 (6.09)", 
+               "5.63 (3.69)", "11.76 (2.75)"),
+  p = c("<.001", "<.001", ".254", ".109", ".078")
+)
+
+# apa format of a table 
+kable(
+  tab_01,
+  format = "latex",
+  booktabs = TRUE,
+  escape = FALSE,
+  longtable = TRUE,
+  col.names = c("Scale", "High BAS group", "Moderate BAS group", "\\textit{p}"),
+  align = c("l", "c", "c", "c"),
+  caption = "Means and Standard Deviations of Scores on Baseline Measures"
+  ) %>%
+  row_spec(row = 0, align = "c") %>%
+  kable_styling(full_width = TRUE) %>%
+  footnote(
+    general_title = "Note.",
+    general = "Standard deviations are presented in parentheses. BAS = Behavioral Activation System; BAS-T = Behavioral Activation System-Total sores from the Behavioral Inhibition System/Behavioral Activation System Scales; SR = Sensitivity to Reward scores from the Sensitivity to Punishment and Sensitivity to Reward Questionnaire; BDI = Beck Depression Inventory scores; ASRM = Altman Self-Rating Mania Scale scores; M-SRM = Modified Social Rhythm Metric Regularity scores.",
+    threeparttable = TRUE,
+    footnote_as_chunk = TRUE
+    )
+
+
+
