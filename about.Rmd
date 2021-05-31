@@ -1,10 +1,90 @@
 ---
-title: "About this site"
+title: "Emma Fahey"
 description: |
-  This site is primarily used for the fulfillment of the 447 R course at Victoria University of Wellington. 
+  Governmetnal advisor currently completing psyhcology honours at Victoria Universtiy of Wellington. 
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## Education 
+
+Victoria University Bsc with Honours - Psychology \ 
+
+*In Progress - estimated completion 2022.* 
+
+Victoria University Bsc (Graduated 2018) \ 
+
+*Majoring in biodiversity, ecology and psychology*
+
+
+## Skills 
+
+* Proficient in R environments \ 
+
+* Great Attention to detail \ 
+
+* Fast learner \
+
+* Considerate and understanding \
+
+* Works well under pressure, independently, and in teams \ 
+
+* Resilient \ 
+
+
+
+## Work History 
+
+Advisor - Implementation - **Ministry of Justice** \ 
+
+
+*October 2019 - Present* 
+
+As an Advisor, I have been introduced to the world of implementing legislation. Scoping, report writing, and project work are just some of the tasks that I have been privy to in this varied role. During my time I have learnt about key aspects of the machinery of government and how the courts interact with the Justice system. I have had the chance to work on implementing high profile pieces of legislation and enjoyed working out the politics needed for smooth project delivery. 
+
+Team Administrator - **Ministry of Justice** \ 
+
+
+*April 2019 - October 2019 (fixed term)*
+
+The Team Administrator role operates in a fast-paced working environment where no two days are the same. Most of the workload is reactive, meaning I learnt quickly to effectively prioritise work and forecast upcoming tasks. I found this role rewarding and enjoyed working in a supportive team environment that values the end user. 
+
+Student and whanau support advisor - **Te Aho o Te Kura Pounamu** \ 
+
+
+*November 2018 - March 2019 (fixed term)* 
+
+I worked collaboratively in a team environment to efficiently answer queries from the public, education community and wider government. This role regularly involved interpreting policy and translating into clear and easily understandable way. I also provided both technical and informative troubleshooting, helping people to see all options that may be available to them. 
+
+**Working Abroad** \ 
+
+
+*May 2018 – October 2018*
+
+Traveling and working in Europe. I spent four and a half months travelling and volunteering on farms, biodynamic community food-share groups and helping in vineyards and gardening communities. The travel and exposure greatly opened my mind to different cultures and ways of life.
+
+Registration officer – **Department of Internal Affairs** \ 
+
+
+*November 2016 – March 2017 (fixed term – extended)* 
+
+The Registration officer role involves registering and dealing with errors of fact for births, deaths and marriages. I worked in a tight-knit established team to work towards DIA’s goal of bringing all communities together and had a wide variety of interactions with the public sector. Key aspects of this role were: customer service, data entry, logic, high-level decision making, quality assurance, and managing confidentiality.
+
+
+## Voluntary Work 
+
+**Research Assistant** - Victoria Universtiy under the instruction of Rachel Shaw \ 
+
+
+*Late 2016 - 2018* 
+
+Helping in the collation of research data during the breeding season of the North Island Robin at Zealandia wildlife reserve. This included following the instruction of lead researchers and working together with them and fellow undergraduates to observe breeding behaviours and find nests. 
+
+**Volunteer, archives** – Forest and Bird, Wellington \  
+
+
+*May to July 2017* 
+
+I volunteered in the storeroom, helping to archive and organise old journal articles and various artefacts for forest and bird for a few hours every week. 

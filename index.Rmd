@@ -1,27 +1,21 @@
 ---
 title: "Emma Fahey"
-image: "owlimage.jpg"
+image: "coverimage.jpg"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/emma-fahey-ba8210115/"
-  - label: Instagram
-    url: "https://www.instagram.com/emzfalcon/"
   - label: GitHub
     url: "https://github.com/faheyemma"
   - label: Email
     url: "faheyemma@myvuw.ac.nz"
+  - label: Instagram
+    url: "https://www.instagram.com/emzfalcon/"
 output:
-  postcards::jolla
+  postcards::trestles
 site: distill::distill_website
 ---
  
-I am currently based in the windy capital of New Zealand, Wellington.
-I am a governmental advisor and love to talk about Harry Potter, FPL or anything not related to R coding! \  
-Here are some key quotes from our resident R instructor: 
+Based in the windy capital of New Zealand, Wellington, I am a governmental advisor currently completing honours in Psychology. 
+I love to talk about Harry Potter, FPL or anything not related to R coding! \  
 
 
-*1. Always think with your mind.*
-
-*2. Let's do some mind thinking.* 
-
-*3. Stop thinking.*  

@@ -66,7 +66,7 @@ df <- mutate(df, age_clean = if_else(age < 1000, age, 2021 - age)) # cleaning ag
 
 # first reverse coding items for the happiness scale 
 
-df[,"shs_4"] <- lapply(df[,"shs_4_1" ], function(x){car::recode(x,"1 = 7; 2 = 6; 3 = 5; 4 = 4; 5 = 3; 6 = 2; 7 = 1")})
+df[,"shs_4_1"] <- lapply(df[,"shs_4_1" ], function(x){car::recode(x,"1 = 7; 2 = 6; 3 = 5; 4 = 4; 5 = 3; 6 = 2; 7 = 1")})
 
 # scales using: 
 # happiness 
@@ -114,6 +114,9 @@ table1::label(df$motref) <- "Reflective Motivation"
 # actual table 
 table1::table1(~ swls + shs + mothap + motsad + motref, data = df2)
 
+# make df with the min, mean, sd and alpha. as per below. 
+sjPlot::tab_df(df2)
+
 # histograms 
 # desriptive graphs to show distribution of the data 
 p1 <-
@@ -143,7 +146,6 @@ print(psych::alpha(df[paste0("importance_", 1:7)]))
 print(psych::alpha(df[paste0("importance_", 8:11)]))
 print(psych::alpha(df[paste0("importance_", 12:14)]))
 
-
 # i think there something wrong with the reverse coding of shs.... see reliability output... How do I fix this? 
 
 # other reliability 
@@ -154,49 +156,67 @@ print(ufs::scaleStructure(df[paste0("importance_", 1:7)]))
 print(ufs::scaleStructure(df[paste0("importance_", 8:11)]))
 print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
 
-# reliability graph 
+# add the above to reliabilities into the apa table - code below. Need to make it work. 
 
 # can't do - error 
 # what is EBICglasso, should I be changing this? 
 
+network1 <- bootnet::estimateNetwork(select(df2, -age_clean, -gender_code, -shs, -swls), "EBICglasso")
+owl <- qgraph::qgraph(network1$graph, layout = "spring")
+
+# the above shows that happiness and life satisfaction form a connection. 
+
+ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), iter = 1000)
+
+# the above shows us that life and happ are independent constructs. 
 
 ```
 
 
 ```{r basic model code}
 
-# SEM 
+# SEM to test hypoth
 
 mdl_sem <- 'swls ~ motsad + mothap + motref
-	shs ~ motsad + mothap + motref'
-	
-sem_res <- sem(mdl_sem, df2) 
-summary(sem_res, standardize = T)
+	shs ~ motsad + mothap + motref' # this is the model 
 
-sem_res_strap <- sem(mdl_sem, df, se = "bootstrap") 
-summary(sem_res_strap, standardize = T) 
+sem_res_strap <- sem(mdl_sem, df, se = "bootstrap", estimator = "ML")  
+summary(sem_res_strap, standardize = T) # this is running a bootstrap version of the model. 
+
+
+# second one - this sees if the model differs per gender. 
+	
+sem_res_1 <- sem(mdl_sem, filter(df2, gender_code %in% c("male", "female")), estimator = "ML", group = "gender_code", se = "bootstrap") 
+sem_res_mtr <- sem(mdl_sem, filter(df2, gender_code %in% c("male", "female")), estimator = "ML", group = "gender_code", group.equal = "regressions", se = "bootstrap")
+# MLR uses approx to multuvariate data and using scaling factor to adjust qui-squared. Like a students t-test. But instead we using ML (the norm), and bootstrap. This runs the analysis 1000 times to get an average answer. 
+
+
+summary(sem_res_1, standardize = T, fit = T) 
+summary(sem_res_mtr, standardize = T, fit = T)
+# once generated these, we looking at the cfi - the differences. 
 
 # Bootstrapping randomly grabs part of your data and makes a new average. Allows confidence intervals. 
 # IV – 3 diff motivations X
 # DV – life sat and happy scores Y
 
-# next steps 
-# how do i graph or visually present this? Can I dag it? How do i report it? 
-# also what does it all mean? 
+# from this 2x sig (mothap and shs in both). 
 
+# for further analysis see the paper that is saved in 447 folder (from 'How to Run a Multi-Group CFA in R').
 
 ```
 
+# draft analysis of results 
+one significant result. mothap with more shs. plus mothap is almost sig with swls - this likely due to the high correlation between shs and swls. so motsad and motref no effect. aka it is about knowing what makes happy, not what makes sad. 
 
-Text here 
+
+# The SEM model 
+GOOGLE - what does this mean and how to interpret. 
+
+Measures comparative fit. output of the second SEM means that gender doesn't seem to impact the SEM. So we collapse the model together. Fit doesn't differ. Regression paths identical between groups.
 
 
-
-In chunk 2 I think - this code errors. 
-
-network1 <- bootnet::estimateNetwork(select(df2, -age_clean, -gender_code), "EBICglasso")
-qgraph::qgraph(network1$graph, layout = "spring")
-
+# to add in 
+correlation table of variables in the beginning of the methods. 
 
 
 
