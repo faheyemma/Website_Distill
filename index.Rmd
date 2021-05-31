@@ -15,7 +15,5 @@ output:
 site: distill::distill_website
 ---
  
-Based in the windy capital of New Zealand, Wellington, I am a governmental advisor currently completing honours in Psychology. 
-I love to talk about Harry Potter, FPL or anything not related to R coding! \  
-
-
+Based in the windy capital of New Zealand, I am a governmental advisor currently completing honours in Psychology. 
+I love hiking, cats and talking about Harry Potter, FPL or just life in general! 
