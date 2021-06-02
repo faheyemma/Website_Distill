@@ -6,8 +6,6 @@ links:
     url: "https://www.linkedin.com/in/emma-fahey-ba8210115/"
   - label: GitHub
     url: "https://github.com/faheyemma"
-  - label: Email
-    url: "faheyemma@myvuw.ac.nz"
   - label: Instagram
     url: "https://www.instagram.com/emzfalcon/"
 output:
