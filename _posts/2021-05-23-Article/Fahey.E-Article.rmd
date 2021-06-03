@@ -1,13 +1,14 @@
 ---
-title: "Short Article"
+title: "Brief Title"
 description: |
-  Article title will go here.
+  Article Actual title will go here.
 author:
   - name: Emma Fahey
-date: "05/23/2021"
+date: "06/04/2021"
 output:
   distill::distill_article:
     self_contained: false
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -25,13 +26,14 @@ knitr::opts_chunk$set(fig.width=8, fig.height=5,
 
 ```
 
-
 ```{r libraries and import, include=FALSE}
 
-### Libraries - delete those uneeded. 
+#Libraries  
 library(gendercoder)
-
-
+library(rstan)
+library(readr)
+library(dplyr)
+library(table1)
 
 # rstan options
 rstan_options(auto_write = TRUE)
@@ -66,23 +68,35 @@ mean(df$age_clean, na.rm = T)
 
 ```
 
-## Introduction 
-Enter text here once final. 
+## Introduction
 
+If I were to tell you to think of a meaningful place right now, would one come to mind? In most cases, the answer to this question would be yes. It is believed that we have an innate connection to certain places, this is defined as topophilia and has been studied for many years [@tuan1990]. Places, particularly natural ones, are known to have restorative psychological effects when visited [@ratcliffe2018;@scannell2017;@ulrich1981]. It is thought that people imbue environments with meaning arising from their current needs and wellbeing [@kerr1999]. Favourite or meaningful places have been studied as a way of environmental self-regulation, a coping mechanism to enhance subjective wellbeing and promote emotional regulation [@korpela1992; @korpela2010].
 
-## Method 
+These ideas have been taken a step further by looking at illicit emotional responses in the brain in reaction to meaningful places, providing evidence that meaningful places are unique as our brains process images of them differently to other places [@gatersleben2020;@lengen2012]. With places becoming restricted or forbidden during COVID-19, it is an important time to measure how our use of meaningful places might be affecting our wellbeing. Findings of quality of life decreasing during COVID-19 if no emotion regulation was occurring [@panayiotou2021] furthers this point. Emotion dysregulation has also been found to predict greater acute COVID-19 stress and is a vulnerability factor to poor stress responses [@tyra2021].
 
-Participants (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study.  
+Life satisfaction and happiness are frequently studied together worldwide. The two terms have been used under the heading of subjective wellbeing [@selim2008] and hedonic wellbeing [@difabio2015;@kahneman1999]. Studies include measures of cultural variation, [@bastian2014] in relation to suicide rates [@bray2006], in relation to physical health in elderly populations [@lara2020], in relation to wellbeing trends as populations age [@an2020], and more recently in response to the COVID-19 pandemic [@bozkurt2021]. Happiness in particular is rated as an important characteristic for subjective wellbeing, with college students in one study rating it on average 8.1 out of 9 for importance, compared to other wellbeing characteristics [@kim-prieto2005].
 
-Age - Mean is 19.45 (SD = 4.46). Min 17, Max 69. 
-Gender - Female 245 (80.8%), Male 47 (15.5%), non-binary (1%), 8 Missing (2.6%). 
+The current study looks at life satisfaction and happiness scores in relation to the importance or motivation to visit a meaningful place. Importance is split up into three subcategories: happy, sad, and reflective reasons to visit a place. The question is if reasons to visit a meaningful place predict subjective wellbeing. Hypotheses include (1) the motivation to visit a meaningful place in a positive mood will relate to higher subjective wellbeing scores. Conversely, if visiting for a negative reason I expect overall
+subjective wellbeing to be lower. (2) Consistent with Korpela et al. (2020), life satisfaction will be positively associated with sad and happy reasons to visit a place, but not reflective reasons.
 
-One outlier was removed from the data set for having an age over 1000. 
+## Method
 
-Add in info about procedure. 
+**Participants** (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study. The mean age of participants was 19.45 (SD = 4.46, Min = 17, Max = 69). The majority of participants were female (245, 80.8%), followed by male (47, 15.5%) and non-binary (1%), 8 participants did not supply a gender (2.6%). One outlier was removed from the data set for having an age over 1000.  
 
-blah, blah - see below for table of scale distributions 
+**Procedure.** Participants took part in the survey online through Qualtrics. The survey was broken into two sections. Part one contained the upload of a meaningful image to the participant. This was followed by open-field questions to determine the meaning of the place and two scales to determine the places importance and situational meaning. The second part of the survey included self-measures for nature connectedness and a variety of wellbeing measures. The survey took approximately 30 minutes to complete, and participants could withdraw at any time. Only the three scales described below will be used in the current report.   
 
+### Materials 
+
+**Happiness** was measured by the measure of subjective happiness scale [@lyubomirsky1999]. This scale consists of 4 items that are rated between 1 and 7. Values of the scale differed for each question. The following statement was provided before commencement "For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you." A mean happiness score for each participant was calculated by summing all items.
+
+**Life Satisfaction** was assessed using the Satisfaction with Life Scale (SWLS) [@diener1985]. Participants responded to a likert 7-point scale. The items were preceded by the statement:
+"Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding." The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items.
+
+**Reasons to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020a, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items.) The full scale can be found in the appendix. Items were grouped into the above categories and a sum score was calculated for each category.
+
+**Scale Statistics**
+
+The spread of responses to each scale are shown in figure \@ref(fig:plots). This allows us to check if scale distribution is normal to fit the assumptions of the structural equation model.  
 
 ```{r descriptives, include=FALSE}
 
@@ -117,13 +131,10 @@ p1 + p2 + p3 + p4 + p5
 
 ```
 
-Distributions of the scales is shown in figure \@ref(fig:plots)
- 
 ```{r plots, echo=FALSE, fig.cap= "Distribution of Scales"}
 plot(p1 + p2 + p3 + p4 + p5)
 ```
 
-   
 ```{r reliabilities, include=FALSE}
 
 # alpha reliability calculation 
@@ -144,8 +155,7 @@ print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
 
 ```
 
-The main descriptive statistics for each scale can be found in table 1. 
-READ A JOURNAL ARTICLE TO SEE WHAT TO WRITE HERE. 
+The main descriptive statistics for each scale can be found in table 1. READ A JOURNAL ARTICLE TO SEE WHAT TO WRITE HERE.
 
 ```{r, echo=FALSE, results='asis'}
 
@@ -159,6 +169,8 @@ tab_01 = data.frame(
   Omega = c("0.89", "0.88", "0.92", "0.96", "0.83"), 
   Coefficient_H = c("0.88", "0.87", "0.94", "0.95", "0.85")
 )
+
+library(kableExtra)
 
 # apa format of a table 
 
@@ -183,11 +195,9 @@ kable(
 
 ```
 
-## Correlations
+### Correlation Analysis
 
-Below is an image of correlations shown in figure \@ref(fig:corr)
-Correlation is run with Holm adjustment which means that it corrects for type 1 error. CHECK THIS. 
-
+Below is an image of correlations shown in figure \@ref(fig:corr) Correlation is run with Holm adjustment which means that it corrects for type 1 error. CHECK THIS.
 
 ```{r corr, echo=FALSE, fig.cap= "Correlation Plot of Scales"}
 
@@ -196,15 +206,14 @@ ggstatsplot::ggcorrmat(df, c("age_clean", "swls", "shs", "motsad", "mothap", "mo
 
 ```
 
-### Networks 
+### Networks
 
-The below is two graphs that show the connectedness of the scales used in the study. We can see that life satisfaction and happiness form a connection, as expected. The EGA graph shows that they are still separate constructs however. 
+The below is two graphs that show the connectedness of the scales used in the study. We can see that life satisfaction and happiness form a connection, as expected. The EGA graph shows that they are still separate constructs however.
 
-But the motivations subscales show that all 3 subscales are viewed as one construct, they are not independent and are strongly related. 
-
+But the motivations subscales show that all 3 subscales are viewed as one construct, they are not independent and are strongly related.
 
 Figure play: A distribution of the scales is shown in figure \@ref(fig:net1)
- 
+
 ```{r net1, echo=FALSE, fig.cap= "Network Graph"}
 # creating a network map of scale items 
 network1 <- bootnet::estimateNetwork(select(df2, -age_clean, -gender_code, -shs, -swls), "EBICglasso")
@@ -223,46 +232,28 @@ ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), iter 
 
 ```
 
-So - we have a new netowrk graph that teasing out any connectinos between the importance scale. These graphs in the appendix, but talk about them here. 
+Due to this, we ran an additional network map (see figure \@ref(fig:appen1)) and exploratory graph analysis (see figure \@ref(fig:appen2)) to see connections between the importance scale. This revealed that there are three clear constructs in the data - mothappy, motsad and motref.
 
-```{r network for mot, echo=FALSE}
+### Model Description
 
-# this shows that there are 3 seperate constructs for motivation. 
+To test between x and y - we fit a xxxx model. We expected xxxxxx. We further tested a bootstrap...
 
-df10 <- df %>%
-  select(age_clean, gender_code, importance_1, importance_2, importance_3, importance_4, importance_5, importance_6, importance_7, importance_8, importance_9, importance_10, importance_11, importance_12, importance_13, importance_14, motsad, mothap, motref)
+The IV was the three different motivations to visit a place. The DV was the life satisfaction and happiness scales.
 
-# creating a network map of scale items 
-network3 <- bootnet::estimateNetwork(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), "EBICglasso")
-owl <- qgraph::qgraph(network3$graph, layout = "spring")
-# the above shows that happiness and life satisfaction form a connection. 
+Report the model and the model stats in text.
 
-ega3 <- EGAnet::bootEGA(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), iter = 1000)
-# the above shows us that life satisfaction and happiness are independent constructs. 
-
-```
-
-## Description of Model 
-To test between x and y - we fit a xxxx model. We expected xxxxxx. We further tested a bootstrap... 
-
-The IV was the three different motivations to visit a place. 
-The DV was the life satisfaction and happiness scales. 
-
-## The SEM model 
-
-Report the model and the model stats in text. 
-
-
-GOOGLE - what does this mean and how to interpret. 
+GOOGLE - what does this mean and how to interpret.
 
 Measures comparative fit. output of the second SEM means that gender doesn't seem to impact the SEM. So we collapse the model together. Fit doesn't differ. Regression paths identical between groups.
 
-How do I report the above statistics? Just in text??? 
+How do I report the above statistics? Just in text???
 
-## Results 
-one significant result. mothap with more shs. plus mothap is almost sig with swls - this likely due to the high correlation between shs and swls. so motsad and motref no effect. aka it is about knowing what makes happy, not what makes sad. 
+## Results
+
+one significant result. mothap with more shs. plus mothap is almost sig with swls - this likely due to the high correlation between shs and swls. so motsad and motref no effect. aka it is about knowing what makes happy, not what makes sad.
 
 ```{r basic model code, include=FALSE}
+library(lavaan)
 
 # SEM to test hypoth
 
@@ -299,12 +290,40 @@ report::cite_packages()
 
 ```
 
-## Discussion 
-Enter here. 
+## Discussion
 
-### Limitations and Future Research 
-Enter here from word. 
+Enter here.
 
-## Appendix 
-Enter the other EGA graphs here. 
+### Limitations and Future Research
 
+Enter here from word.
+
+## References
+
+## Appendix
+
+Scales
+
+Figure play: A distribution of the scales is shown in figure \@ref(fig:appen1)
+
+```{r appen1, echo=FALSE, fig.cap= "Importance Graph"}
+
+# this shows that there are 3 seperate constructs for motivation. 
+
+df10 <- df %>%
+  select(age_clean, gender_code, importance_1, importance_2, importance_3, importance_4, importance_5, importance_6, importance_7, importance_8, importance_9, importance_10, importance_11, importance_12, importance_13, importance_14, motsad, mothap, motref)
+
+# creating a network map of scale items 
+network3 <- bootnet::estimateNetwork(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), "EBICglasso")
+owl <- qgraph::qgraph(network3$graph, layout = "spring")
+ 
+
+
+```
+
+```{r appen2, echo=TRUE, fig.cap= "Importance EGA"}
+
+ega3 <- EGAnet::bootEGA(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), iter = 1000)
+# the above shows us that there are 3 clear independent constructs. 
+
+```
