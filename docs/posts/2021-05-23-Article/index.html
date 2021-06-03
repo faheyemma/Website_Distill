@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["Fahey.E-Article_files/figure-html5/descriptives-1.png","processed_nature.csv"]}
+  {"type":"character","attributes":{},"value":["Fahey.E-Article_files/anchor-4.2.2/anchor.min.js","Fahey.E-Article_files/bowser-1.9.3/bowser.min.js","Fahey.E-Article_files/distill-2.2.21/template.v2.js","Fahey.E-Article_files/figure-html5/descriptives-1.png","Fahey.E-Article_files/figure-html5/network for mot-1.png","Fahey.E-Article_files/figure-html5/network for mot-2.png","Fahey.E-Article_files/figure-html5/networks-1.png","Fahey.E-Article_files/figure-html5/networks-2.png","Fahey.E-Article_files/figure-html5/plots-1.png","Fahey.E-Article_files/header-attrs-2.8/header-attrs.js","Fahey.E-Article_files/jquery-1.11.3/jquery.min.js","Fahey.E-Article_files/popper-2.6.0/popper.min.js","Fahey.E-Article_files/table1-1.0/table1_defaults.css","Fahey.E-Article_files/tippy-6.2.7/tippy-bundle.umd.min.js","Fahey.E-Article_files/tippy-6.2.7/tippy-light-border.css","Fahey.E-Article_files/tippy-6.2.7/tippy.css","Fahey.E-Article_files/tippy-6.2.7/tippy.umd.min.js","Fahey.E-Article_files/webcomponents-2.0.0/webcomponents.js","processed_nature.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2423,644 +2423,116 @@ d-appendix d-footnote-list a.footnote-backlink {
 
 <div class="d-article">
 <h2 id="introduction">Introduction</h2>
+<p>Enter text here once final.</p>
 <h2 id="method">Method</h2>
+<p>Participants (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study. Basic demographics are presented in table 1. (AGE AND GENDER). One outlier was removed from the data set for having an age over 1000.</p>
+<p>blah, blah - see below for table of scale distributions</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:plots"></span>
+<img src="Fahey.E-Article_files/figure-html5/plots-1.png" alt="Figure 1: Distribution of Scales." width="768" />
+<p class="caption">
+Figure 1: Figure 1: Distribution of Scales.
+</p>
+</div>
+</div>
+<p>A distribution of the scales is shown in figure</p>
+<h2 id="table-of-demographics">Table of Demographics</h2>
+<p>A table of the main demographics can be found here:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># select the variables needed </span>
-<span class='va'>df2</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>gender_code</span>, <span class='va'>age_clean</span>, <span class='va'>swl_1</span>, <span class='va'>swl_2</span>, <span class='va'>swl_3</span>, <span class='va'>swl_4</span>, <span class='va'>swl_5</span>, <span class='va'>swls</span>, <span class='va'>shs_1_1</span>, <span class='va'>shs_2_1</span>, <span class='va'>shs_3_1</span>, <span class='va'>shs_4_1</span>, <span class='va'>shs</span>, <span class='va'>motsad</span>, <span class='va'>mothap</span>, <span class='va'>motref</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>df2</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code># A tibble: 6 x 16
-  gender_code age_clean swl_1 swl_2 swl_3 swl_4 swl_5  swls shs_1_1
-  &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
-1 female             18     4     5     5     4     5   4.6       5
-2 female             19     4     5     5     5     7   5.2       6
-3 male               20     5     5     6     5     2   4.6       5
-4 female             18     2     5     4     3     4   3.6       5
-5 female             18     6     6     5     6     7   6         5
-6 female             24     5     4     6     3     3   4.2       4
-# ... with 7 more variables: shs_2_1 &lt;dbl&gt;, shs_3_1 &lt;dbl&gt;,
-#   shs_4_1 &lt;dbl&gt;, shs &lt;dbl&gt;, motsad &lt;dbl&gt;, mothap &lt;dbl&gt;,
-#   motref &lt;dbl&gt;</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># table - code for descriptive stats of the scales (means etc.) </span>
-<span class='fu'>table1</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/table1/man/label.html'>label</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>swls</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"Life Satisfaction"</span>
-<span class='fu'>table1</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/table1/man/label.html'>label</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>shs</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"Happiness"</span>
-<span class='fu'>table1</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/table1/man/label.html'>label</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>mothap</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"Happy Motivation"</span>
-<span class='fu'>table1</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/table1/man/label.html'>label</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>motsad</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"Sad Motivation"</span>
-<span class='fu'>table1</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/table1/man/label.html'>label</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>motref</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='st'>"Reflective Motivation"</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Create table data for apa format </span>
+<span class='va'>tab_01</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"SHS"</span>, <span class='st'>"SWLS"</span>, <span class='st'>"MotHap"</span>, <span class='st'>"MotSad"</span>, <span class='st'>"MotRef"</span><span class='op'>)</span>,
+  Mean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"4.27 (0.76)"</span>, <span class='st'>"4.49 (1.27)"</span>, <span class='st'>"5.13 (1.56)"</span>, 
+           <span class='st'>"4.04 (1.69)"</span>, <span class='st'>"4.73 (1.82)"</span><span class='op'>)</span>,
+  Alpha <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"0.87"</span>, <span class='st'>"0.84"</span>, <span class='st'>"0.90"</span>, <span class='st'>"0.94"</span>, <span class='st'>"0.82"</span><span class='op'>)</span>,
+  Omega <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"0.89"</span>, <span class='st'>"0.88"</span>, <span class='st'>"0.92"</span>, <span class='st'>"0.96"</span>, <span class='st'>"0.83"</span><span class='op'>)</span>, 
+  Coefficient_H <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"0.88"</span>, <span class='st'>"0.87"</span>, <span class='st'>"0.94"</span>, <span class='st'>"0.95"</span>, <span class='st'>"0.85"</span><span class='op'>)</span>
+<span class='op'>)</span>
 
-<span class='co'># actual table </span>
-<span class='fu'>table1</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/table1/man/table1.html'>table1</a></span><span class='op'>(</span><span class='op'>~</span> <span class='va'>swls</span> <span class='op'>+</span> <span class='va'>shs</span> <span class='op'>+</span> <span class='va'>mothap</span> <span class='op'>+</span> <span class='va'>motsad</span> <span class='op'>+</span> <span class='va'>motref</span>, data <span class='op'>=</span> <span class='va'>df2</span><span class='op'>)</span>
-</code></pre>
-</div>
-<div class="Rtable1"><table class="Rtable1">
-<thead>
-<tr>
-<th class='rowlabel firstrow lastrow'></th>
-<th class='firstrow lastrow'><span class='stratlabel'>Overall<br><span class='stratn'>(N=303)</span></span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class='rowlabel firstrow'><span class='varlabel'>swls</span></td>
-<td class='firstrow'></td>
-</tr>
-<tr>
-<td class='rowlabel'>Mean (SD)</td>
-<td>4.49 (1.27)</td>
-</tr>
-<tr>
-<td class='rowlabel'>Median [Min, Max]</td>
-<td>4.60 [1.20, 7.00]</td>
-</tr>
-<tr>
-<td class='rowlabel lastrow'>Missing</td>
-<td class='lastrow'>1 (0.3%)</td>
-</tr>
-<tr>
-<td class='rowlabel firstrow'><span class='varlabel'>shs</span></td>
-<td class='firstrow'></td>
-</tr>
-<tr>
-<td class='rowlabel'>Mean (SD)</td>
-<td>4.27 (0.759)</td>
-</tr>
-<tr>
-<td class='rowlabel'>Median [Min, Max]</td>
-<td>4.25 [1.25, 6.50]</td>
-</tr>
-<tr>
-<td class='rowlabel lastrow'>Missing</td>
-<td class='lastrow'>1 (0.3%)</td>
-</tr>
-<tr>
-<td class='rowlabel firstrow'><span class='varlabel'>mothap</span></td>
-<td class='firstrow'></td>
-</tr>
-<tr>
-<td class='rowlabel'>Mean (SD)</td>
-<td>5.13 (1.56)</td>
-</tr>
-<tr>
-<td class='rowlabel'>Median [Min, Max]</td>
-<td>5.50 [1.00, 7.00]</td>
-</tr>
-<tr>
-<td class='rowlabel lastrow'>Missing</td>
-<td class='lastrow'>1 (0.3%)</td>
-</tr>
-<tr>
-<td class='rowlabel firstrow'><span class='varlabel'>motsad</span></td>
-<td class='firstrow'></td>
-</tr>
-<tr>
-<td class='rowlabel'>Mean (SD)</td>
-<td>4.04 (1.69)</td>
-</tr>
-<tr>
-<td class='rowlabel'>Median [Min, Max]</td>
-<td>4.14 [1.00, 7.00]</td>
-</tr>
-<tr>
-<td class='rowlabel lastrow'>Missing</td>
-<td class='lastrow'>1 (0.3%)</td>
-</tr>
-<tr>
-<td class='rowlabel firstrow'><span class='varlabel'>motref</span></td>
-<td class='firstrow'></td>
-</tr>
-<tr>
-<td class='rowlabel'>Mean (SD)</td>
-<td>4.73 (1.82)</td>
-</tr>
-<tr>
-<td class='rowlabel'>Median [Min, Max]</td>
-<td>5.00 [1.00, 7.00]</td>
-</tr>
-<tr>
-<td class='rowlabel lastrow'>Missing</td>
-<td class='lastrow'>1 (0.3%)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># this code is used to create an apa table with the below code. </span>
-
-
-
-
-
-
-<span class='co'># histograms </span>
-<span class='co'># desriptive graphs to show distribution of the data </span>
-<span class='va'>p1</span> <span class='op'>&lt;-</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>swls</span>, geom <span class='op'>=</span> <span class='st'>"histogram"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Life Satisfaction"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"swls"</span><span class='op'>)</span>
-<span class='va'>p2</span> <span class='op'>&lt;-</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>shs</span>, geom <span class='op'>=</span> <span class='st'>"histogram"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Happiness"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"shs"</span><span class='op'>)</span>
-<span class='va'>p3</span> <span class='op'>&lt;-</span> 
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>mothap</span>, geom <span class='op'>=</span> <span class='st'>"histogram"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Happy Motivation"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"mothap"</span><span class='op'>)</span>
-<span class='va'>p4</span> <span class='op'>&lt;-</span> 
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>motsad</span>, geom <span class='op'>=</span> <span class='st'>"histogram"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Sad Motivation"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"motsad"</span><span class='op'>)</span>
-<span class='va'>p5</span> <span class='op'>&lt;-</span> 
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>motref</span>, geom <span class='op'>=</span> <span class='st'>"histogram"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Reflective Motivation"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"motref"</span><span class='op'>)</span>
-
-<span class='va'>p1</span> <span class='op'>+</span> <span class='va'>p2</span> <span class='op'>+</span> <span class='va'>p3</span> <span class='op'>+</span> <span class='va'>p4</span> <span class='op'>+</span> <span class='va'>p5</span>
-</code></pre>
-</div>
-<img src="Fahey.E-Article_files/figure-html5/descriptives-1.png" width="768" />
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># concern is that the 3x IVs are not normally distributed as below... Do I need to adjust the model that I use due to this? </span>
-
-<span class='co'># Can I do a DAG here or not appropriate? </span>
+<span class='co'># apa format of a table </span>
+<span class='fu'>kable</span><span class='op'>(</span>
+  <span class='va'>tab_01</span>,
+  format <span class='op'>=</span> <span class='st'>"latex"</span>,
+  booktabs <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  escape <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  longtable <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Scale"</span>, <span class='st'>"Mean"</span>, <span class='st'>"Alpha"</span>, <span class='st'>"Omega"</span>, <span class='st'>"Coefficient_H"</span><span class='op'>)</span>,
+  align <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"l"</span>, <span class='st'>"c"</span>, <span class='st'>"c"</span>, <span class='st'>"c"</span><span class='op'>)</span>,
+  caption <span class='op'>=</span> <span class='st'>"Means, Standard Deviations and reliabilities of Scales"</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>row_spec</span><span class='op'>(</span>row <span class='op'>=</span> <span class='fl'>0</span>, align <span class='op'>=</span> <span class='st'>"c"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>kable_styling</span><span class='op'>(</span>full_width <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>footnote</span><span class='op'>(</span>
+    general_title <span class='op'>=</span> <span class='st'>"Note."</span>,
+    general <span class='op'>=</span> <span class='st'>"Standard deviations are in parentheses. SHS = Subjective Happiness Scale; SWLS = Satisfaction with Life Sacle; MotHap = Happy Motivation Scale; MotSad = Sad Motivation Scale; Motref = Refletive Motivation Scale."</span>,
+    threeparttable <span class='op'>=</span> <span class='cn'>TRUE</span>,
+    footnote_as_chunk <span class='op'>=</span> <span class='cn'>TRUE</span>
+    <span class='op'>)</span>
 </code></pre>
 </div>
 </div>
+<h2 id="correlations">Correlations</h2>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>psych</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/psych/man/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>df2</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"swl_"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
+<pre><code># A tibble: 6 x 6
+  age_clean  swls   shs motsad mothap motref
+      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1        18   4.6  4.5    4.57   7      3   
+2        19   5.2  5.5    2.86   7      2.33
+3        20   4.6  5      1.14   4      1.67
+4        18   3.6  4.25   1      5.75   2   
+5        18   6    3.75   4      4      4   
+6        24   4.2  2.5    2.29   5.5    4.33</code></pre>
+<pre><code>          age_clean swls shs motsad mothap motref
+age_clean         1   NA  NA     NA     NA     NA
+swls             NA    1  NA     NA     NA     NA
+shs              NA   NA   1     NA     NA     NA
+motsad           NA   NA  NA      1     NA     NA
+mothap           NA   NA  NA     NA      1     NA
+motref           NA   NA  NA     NA     NA      1</code></pre>
+<pre><code>      [,1]  [,2]  [,3]  [,4]  [,5]  [,6]
+[1,] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+[2,] FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+[3,] FALSE FALSE FALSE  TRUE  TRUE  TRUE
+[4,] FALSE FALSE FALSE FALSE  TRUE  TRUE
+[5,] FALSE FALSE FALSE FALSE FALSE  TRUE
+[6,] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<pre><code>          age_clean swls  shs motsad mothap motref
+age_clean         1                               
+swls           &lt;NA&gt;    1                          
+shs            &lt;NA&gt; &lt;NA&gt;    1                     
+motsad         &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;      1              
+mothap         &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;   &lt;NA&gt;      1       
+motref         &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;      1</code></pre>
+<pre><code>&lt;!-- html table generated in R 4.0.4 by xtable 1.8-4 package --&gt;
+&lt;!-- Thu Jun 03 14:36:43 2021 --&gt;
+&lt;table border=1&gt;
+&lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; age_clean &lt;/th&gt; &lt;th&gt; swls &lt;/th&gt; &lt;th&gt; shs &lt;/th&gt; &lt;th&gt; motsad &lt;/th&gt; &lt;th&gt; mothap &lt;/th&gt; &lt;th&gt; motref &lt;/th&gt;  &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; age_clean &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; swls &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; shs &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; motsad &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; mothap &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; motref &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;/tr&gt;
+   &lt;/table&gt;</code></pre>
 </div>
-<pre><code>
-Reliability analysis   
-Call: psych::alpha(x = df2[paste0(&quot;swl_&quot;, 1:5)])
-
-  raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
-      0.84      0.85    0.83      0.52 5.5 0.015  4.5 1.3     0.52
-
- lower alpha upper     95% confidence boundaries
-0.81 0.84 0.87 
-
- Reliability if an item is dropped:
-      raw_alpha std.alpha G6(smc) average_r S/N alpha se  var.r med.r
-swl_1      0.79      0.79    0.76      0.49 3.8    0.020 0.0085  0.52
-swl_2      0.81      0.81    0.77      0.52 4.4    0.018 0.0059  0.52
-swl_3      0.78      0.79    0.76      0.49 3.8    0.020 0.0107  0.49
-swl_4      0.82      0.82    0.79      0.54 4.6    0.018 0.0149  0.56
-swl_5      0.85      0.85    0.81      0.58 5.5    0.014 0.0039  0.57
-
- Item statistics 
-        n raw.r std.r r.cor r.drop mean  sd
-swl_1 302  0.84  0.84  0.80   0.73  4.3 1.7
-swl_2 302  0.78  0.79  0.72   0.65  5.0 1.6
-swl_3 302  0.84  0.84  0.80   0.74  4.7 1.5
-swl_4 302  0.75  0.76  0.67   0.62  4.7 1.5
-swl_5 302  0.72  0.70  0.58   0.53  3.9 1.9
-
-Non missing response frequency for each item
-         1    2    3    4    5    6    7 miss
-swl_1 0.06 0.12 0.17 0.13 0.28 0.18 0.07    0
-swl_2 0.03 0.06 0.10 0.13 0.23 0.32 0.14    0
-swl_3 0.04 0.08 0.12 0.14 0.28 0.27 0.08    0
-swl_4 0.03 0.06 0.14 0.15 0.29 0.24 0.09    0
-swl_5 0.12 0.17 0.17 0.10 0.19 0.18 0.08    0</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>psych</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/psych/man/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>df2</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"shs_"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, <span class='st'>"_1"</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>Some items ( shs_4_1 ) were negatively correlated with the total scale and 
-probably should be reversed.  
-To do this, run the function again with the &#39;check.keys=TRUE&#39; option
-Reliability analysis   
-Call: psych::alpha(x = df2[paste0(&quot;shs_&quot;, 1:4, &quot;_1&quot;)])
-
-  raw_alpha std.alpha G6(smc) average_r  S/N   ase mean   sd median_r
-    -0.059      0.12    0.59     0.031 0.13 0.087  4.3 0.76    0.035
-
- lower alpha upper     95% confidence boundaries
--0.23 -0.06 0.11 
-
- Reliability if an item is dropped:
-        raw_alpha std.alpha G6(smc) average_r   S/N alpha se  var.r
-shs_1_1     -1.14     -0.91    0.15     -0.19 -0.48    0.208 0.5107
-shs_2_1     -1.34     -0.97    0.17     -0.20 -0.49    0.230 0.5518
-shs_3_1     -1.03     -0.68    0.28     -0.16 -0.41    0.207 0.5614
-shs_4_1      0.85      0.86    0.80      0.67  6.04    0.014 0.0014
-        med.r
-shs_1_1 -0.56
-shs_2_1 -0.61
-shs_3_1 -0.56
-shs_4_1  0.66
-
- Item statistics 
-          n raw.r std.r r.cor r.drop mean  sd
-shs_1_1 302  0.80  0.84  0.85   0.51  4.8 1.4
-shs_2_1 302  0.83  0.85  0.83   0.52  4.4 1.5
-shs_3_1 302  0.78  0.79  0.76   0.37  4.0 1.6
-shs_4_1 302 -0.33 -0.39 -0.83  -0.69  3.9 1.7
-
-Non missing response frequency for each item
-           1    2    3    4    5    6    7 miss
-shs_1_1 0.01 0.08 0.07 0.16 0.33 0.29 0.05    0
-shs_2_1 0.03 0.11 0.14 0.22 0.24 0.21 0.06    0
-shs_3_1 0.08 0.14 0.18 0.16 0.26 0.16 0.03    0
-shs_4_1 0.06 0.21 0.19 0.14 0.21 0.12 0.08    0</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>psych</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/psych/man/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"importance_"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>
-Reliability analysis   
-Call: psych::alpha(x = df[paste0(&quot;importance_&quot;, 1:7)])
-
-  raw_alpha std.alpha G6(smc) average_r S/N    ase mean  sd median_r
-      0.94      0.94    0.94      0.68  15 0.0057    4 1.7     0.67
-
- lower alpha upper     95% confidence boundaries
-0.92 0.94 0.95 
-
- Reliability if an item is dropped:
-             raw_alpha std.alpha G6(smc) average_r S/N alpha se
-importance_1      0.92      0.92    0.91      0.66  12   0.0071
-importance_2      0.92      0.92    0.92      0.67  12   0.0069
-importance_3      0.93      0.93    0.93      0.69  13   0.0064
-importance_4      0.93      0.93    0.93      0.68  13   0.0066
-importance_5      0.92      0.92    0.92      0.67  12   0.0070
-importance_6      0.93      0.93    0.93      0.68  13   0.0067
-importance_7      0.93      0.93    0.93      0.69  14   0.0063
-              var.r med.r
-importance_1 0.0025  0.66
-importance_2 0.0023  0.67
-importance_3 0.0048  0.67
-importance_4 0.0061  0.67
-importance_5 0.0055  0.66
-importance_6 0.0059  0.66
-importance_7 0.0047  0.67
-
- Item statistics 
-               n raw.r std.r r.cor r.drop mean  sd
-importance_1 302  0.89  0.89  0.89   0.85  4.6 1.8
-importance_2 302  0.87  0.88  0.87   0.82  4.5 2.0
-importance_3 302  0.82  0.82  0.78   0.75  3.8 2.1
-importance_4 302  0.84  0.84  0.81   0.78  3.8 2.0
-importance_5 302  0.87  0.87  0.85   0.82  4.1 2.0
-importance_6 302  0.85  0.85  0.81   0.79  3.8 2.0
-importance_7 302  0.81  0.81  0.76   0.73  3.7 2.0
-
-Non missing response frequency for each item
-                1    2    3    4    5    6    7 miss
-importance_1 0.10 0.06 0.10 0.13 0.23 0.23 0.15    0
-importance_2 0.13 0.09 0.09 0.10 0.21 0.23 0.17    0
-importance_3 0.19 0.16 0.12 0.12 0.15 0.14 0.12    0
-importance_4 0.19 0.16 0.13 0.13 0.13 0.15 0.12    0
-importance_5 0.15 0.10 0.14 0.15 0.17 0.18 0.12    0
-importance_6 0.19 0.14 0.17 0.12 0.13 0.14 0.13    0
-importance_7 0.19 0.17 0.14 0.11 0.15 0.13 0.11    0</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>psych</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/psych/man/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"importance_"</span>, <span class='fl'>8</span><span class='op'>:</span><span class='fl'>11</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>
-Reliability analysis   
-Call: psych::alpha(x = df[paste0(&quot;importance_&quot;, 8:11)])
-
-  raw_alpha std.alpha G6(smc) average_r S/N    ase mean  sd median_r
-       0.9      0.91    0.89      0.71 9.8 0.0098  5.1 1.6     0.71
-
- lower alpha upper     95% confidence boundaries
-0.88 0.9 0.92 
-
- Reliability if an item is dropped:
-              raw_alpha std.alpha G6(smc) average_r  S/N alpha se
-importance_8       0.86      0.87    0.84      0.69  6.7   0.0143
-importance_9       0.85      0.86    0.83      0.67  6.1   0.0159
-importance_10      0.84      0.85    0.81      0.66  5.8   0.0160
-importance_11      0.93      0.93    0.90      0.82 13.9   0.0068
-                var.r med.r
-importance_8  0.01560  0.62
-importance_9  0.02182  0.62
-importance_10 0.01470  0.62
-importance_11 0.00064  0.83
-
- Item statistics 
-                n raw.r std.r r.cor r.drop mean  sd
-importance_8  302  0.89  0.90  0.87   0.81  5.5 1.6
-importance_9  302  0.91  0.92  0.89   0.84  5.2 1.8
-importance_10 302  0.92  0.93  0.92   0.86  5.4 1.7
-importance_11 302  0.81  0.79  0.66   0.64  4.5 2.0
-
-Non missing response frequency for each item
-                 1    2    3    4    5    6    7 miss
-importance_8  0.04 0.04 0.05 0.08 0.19 0.28 0.32    0
-importance_9  0.06 0.06 0.06 0.09 0.16 0.31 0.26    0
-importance_10 0.03 0.06 0.07 0.09 0.15 0.31 0.29    0
-importance_11 0.11 0.11 0.10 0.14 0.13 0.20 0.20    0</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>psych</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/psych/man/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"importance_"</span>, <span class='fl'>12</span><span class='op'>:</span><span class='fl'>14</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>
-Reliability analysis   
-Call: psych::alpha(x = df[paste0(&quot;importance_&quot;, 12:14)])
-
-  raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
-      0.82      0.83    0.77      0.62 4.8 0.018  4.7 1.8     0.58
-
- lower alpha upper     95% confidence boundaries
-0.79 0.82 0.86 
-
- Reliability if an item is dropped:
-              raw_alpha std.alpha G6(smc) average_r S/N alpha se
-importance_12      0.82      0.82    0.70      0.70 4.6    0.021
-importance_13      0.72      0.72    0.56      0.56 2.6    0.032
-importance_14      0.73      0.74    0.58      0.58 2.8    0.030
-              var.r med.r
-importance_12    NA  0.70
-importance_13    NA  0.56
-importance_14    NA  0.58
-
- Item statistics 
-                n raw.r std.r r.cor r.drop mean  sd
-importance_12 302  0.84  0.83  0.68   0.62  4.6 2.3
-importance_13 302  0.87  0.88  0.80   0.72  5.3 1.9
-importance_14 302  0.88  0.87  0.79   0.70  4.3 2.2
-
-Non missing response frequency for each item
-                 1    2    3    4    5    6    7 miss
-importance_12 0.18 0.08 0.06 0.09 0.11 0.18 0.29    0
-importance_13 0.07 0.06 0.04 0.10 0.12 0.25 0.36    0
-importance_14 0.19 0.08 0.08 0.13 0.14 0.17 0.21    0</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># i think there something wrong with the reverse coding of shs.... see reliability output... How do I fix this? </span>
-
-<span class='co'># other reliability </span>
-
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>ufs</span><span class='fu'>::</span><span class='fu'><a href='https://r-packages.gitlab.io/ufs/reference/scaleStructure.html'>scaleStructure</a></span><span class='op'>(</span><span class='va'>df2</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"swl_"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>
-Information about this analysis:
-
-                 Dataframe: df2[paste0(&quot;swl_&quot;, 1:5)]
-                     Items: all
-              Observations: 302
-     Positive correlations: 10 out of 10 (100%)
-
-Estimates assuming interval level:
-
-             Omega (total): 0.88
-      Omega (hierarchical): 0.79
-   Revelle&#39;s omega (total): 0.88
-Greatest Lower Bound (GLB): 0.87
-             Coefficient H: 0.87
-         Coefficient alpha: 0.84
-
-(Estimates assuming ordinal level not computed, as the polychoric correlation matrix has missing values.)
-
-Note: the normal point estimate and confidence interval for omega are based on the procedure suggested by Dunn, Baguley &amp; Brunsden (2013) using the MBESS function ci.reliability, whereas the psych package point estimate was suggested in Revelle &amp; Zinbarg (2008). See the help (&#39;?scaleStructure&#39;) for more information.</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>ufs</span><span class='fu'>::</span><span class='fu'><a href='https://r-packages.gitlab.io/ufs/reference/scaleStructure.html'>scaleStructure</a></span><span class='op'>(</span><span class='va'>df2</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"shs_"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, <span class='st'>"_1"</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>
-Information about this analysis:
-
-                 Dataframe: df2[paste0(&quot;shs_&quot;, 1:4, &quot;_1&quot;)]
-                     Items: all
-              Observations: 302
-     Positive correlations: 3 out of 6 (50%)
-
-Estimates assuming interval level:
-
-             Omega (total): 0.89
-      Omega (hierarchical): 0.85
-   Revelle&#39;s omega (total): 0.89
-Greatest Lower Bound (GLB): 0.73
-             Coefficient H: 0.88
-         Coefficient alpha: -0.06
-
-(Estimates assuming ordinal level not computed, as the polychoric correlation matrix has missing values.)
-
-Note: the normal point estimate and confidence interval for omega are based on the procedure suggested by Dunn, Baguley &amp; Brunsden (2013) using the MBESS function ci.reliability, whereas the psych package point estimate was suggested in Revelle &amp; Zinbarg (2008). See the help (&#39;?scaleStructure&#39;) for more information.</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>ufs</span><span class='fu'>::</span><span class='fu'><a href='https://r-packages.gitlab.io/ufs/reference/scaleStructure.html'>scaleStructure</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"importance_"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>
-Information about this analysis:
-
-                 Dataframe: df[paste0(&quot;importance_&quot;, 1:7)]
-                     Items: all
-              Observations: 302
-     Positive correlations: 21 out of 21 (100%)
-
-Estimates assuming interval level:
-
-             Omega (total): 0.96
-      Omega (hierarchical): 0.84
-   Revelle&#39;s omega (total): 0.96
-Greatest Lower Bound (GLB): 0.96
-             Coefficient H: 0.95
-         Coefficient alpha: 0.94
-
-(Estimates assuming ordinal level not computed, as the polychoric correlation matrix has missing values.)
-
-Note: the normal point estimate and confidence interval for omega are based on the procedure suggested by Dunn, Baguley &amp; Brunsden (2013) using the MBESS function ci.reliability, whereas the psych package point estimate was suggested in Revelle &amp; Zinbarg (2008). See the help (&#39;?scaleStructure&#39;) for more information.</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>ufs</span><span class='fu'>::</span><span class='fu'><a href='https://r-packages.gitlab.io/ufs/reference/scaleStructure.html'>scaleStructure</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"importance_"</span>, <span class='fl'>8</span><span class='op'>:</span><span class='fl'>11</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>
-Information about this analysis:
-
-                 Dataframe: df[paste0(&quot;importance_&quot;, 8:11)]
-                     Items: all
-              Observations: 302
-     Positive correlations: 6 out of 6 (100%)
-
-Estimates assuming interval level:
-
-             Omega (total): 0.92
-      Omega (hierarchical): 0.05
-   Revelle&#39;s omega (total): 0.92
-Greatest Lower Bound (GLB): 0.93
-             Coefficient H: 0.94
-         Coefficient alpha: 0.9
-
-(Estimates assuming ordinal level not computed, as the polychoric correlation matrix has missing values.)
-
-Note: the normal point estimate and confidence interval for omega are based on the procedure suggested by Dunn, Baguley &amp; Brunsden (2013) using the MBESS function ci.reliability, whereas the psych package point estimate was suggested in Revelle &amp; Zinbarg (2008). See the help (&#39;?scaleStructure&#39;) for more information.</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>ufs</span><span class='fu'>::</span><span class='fu'><a href='https://r-packages.gitlab.io/ufs/reference/scaleStructure.html'>scaleStructure</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"importance_"</span>, <span class='fl'>12</span><span class='op'>:</span><span class='fl'>14</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>
-Information about this analysis:
-
-                 Dataframe: df[paste0(&quot;importance_&quot;, 12:14)]
-                     Items: all
-              Observations: 302
-     Positive correlations: 3 out of 3 (100%)
-
-Estimates assuming interval level:
-
-             Omega (total): 0.83
-      Omega (hierarchical): 0.08
-   Revelle&#39;s omega (total): 0.83
-Greatest Lower Bound (GLB): 0.84
-             Coefficient H: 0.85
-         Coefficient alpha: 0.82
-
-(Estimates assuming ordinal level not computed, as the polychoric correlation matrix has missing values.)
-
-Note: the normal point estimate and confidence interval for omega are based on the procedure suggested by Dunn, Baguley &amp; Brunsden (2013) using the MBESS function ci.reliability, whereas the psych package point estimate was suggested in Revelle &amp; Zinbarg (2008). See the help (&#39;?scaleStructure&#39;) for more information.</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># reliability graph </span>
-
-<span class='co'># can't do - error </span>
-<span class='co'># what is EBICglasso, should I be changing this? </span>
-</code></pre>
-</div>
-</div>
+<h3 id="networks">Networks</h3>
+<p>The below is two graphs that show the connectedness of the scales used in the study. We can see that life satisfaction and happiness form a connection, as expected. The ega graph shows that they are still seperate constructs however.</p>
+<p>But the motivations subscales show that all 3 subscales are viewed as one construct, they are not independant and are strongly related.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># SEM </span>
-
-<span class='va'>mdl_sem</span> <span class='op'>&lt;-</span> <span class='st'>'swls ~ motsad + mothap + motref
-  shs ~ motsad + mothap + motref'</span>
-  
-<span class='va'>sem_res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/sem.html'>sem</a></span><span class='op'>(</span><span class='va'>mdl_sem</span>, <span class='va'>df2</span><span class='op'>)</span> 
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>sem_res</span>, standardize <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
-</code></pre>
+<p><img src="Fahey.E-Article_files/figure-html5/networks-1.png" width="768" /><img src="Fahey.E-Article_files/figure-html5/networks-2.png" width="768" /></p>
 </div>
-<pre><code>lavaan 0.6-8 ended normally after 19 iterations
-
-  Estimator                                         ML
-  Optimization method                           NLMINB
-  Number of model parameters                         9
-                                                      
-                                                  Used       Total
-  Number of observations                           302         303
-                                                                  
-Model Test User Model:
-                                                      
-  Test statistic                                 0.000
-  Degrees of freedom                                 0
-
-Parameter Estimates:
-
-  Standard errors                             Standard
-  Information                                 Expected
-  Information saturated (h1) model          Structured
-
-Regressions:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
-  swls ~                                                       
-    motsad           -0.067    0.059   -1.151    0.250   -0.067
-    mothap            0.104    0.053    1.977    0.048    0.104
-    motref            0.043    0.053    0.814    0.416    0.043
-  shs ~                                                        
-    motsad           -0.042    0.034   -1.218    0.223   -0.042
-    mothap            0.109    0.031    3.573    0.000    0.109
-    motref            0.047    0.031    1.521    0.128    0.047
-  Std.all
-         
-   -0.090
-    0.127
-    0.061
-         
-   -0.093
-    0.225
-    0.112
-
-Covariances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
- .swls ~~                                                      
-   .shs               0.465    0.060    7.786    0.000    0.465
-  Std.all
-         
-    0.501
-
-Variances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
-   .swls              1.591    0.129   12.288    0.000    1.591
-   .shs               0.540    0.044   12.288    0.000    0.540
-  Std.all
-    0.983
-    0.941</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sem_res_strap</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/sem.html'>sem</a></span><span class='op'>(</span><span class='va'>mdl_sem</span>, <span class='va'>df</span>, se <span class='op'>=</span> <span class='st'>"bootstrap"</span><span class='op'>)</span> 
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>sem_res_strap</span>, standardize <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span> 
-</code></pre>
+<p>So - we have a new netowrk graph that teasing out any connectinos between the importance scale:</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Fahey.E-Article_files/figure-html5/network%20for%20mot-1.png" width="768" /><img src="Fahey.E-Article_files/figure-html5/network%20for%20mot-2.png" width="768" /></p>
 </div>
-<pre><code>lavaan 0.6-8 ended normally after 19 iterations
-
-  Estimator                                         ML
-  Optimization method                           NLMINB
-  Number of model parameters                         9
-                                                      
-                                                  Used       Total
-  Number of observations                           302         303
-                                                                  
-Model Test User Model:
-                                                      
-  Test statistic                                 0.000
-  Degrees of freedom                                 0
-
-Parameter Estimates:
-
-  Standard errors                            Bootstrap
-  Number of requested bootstrap draws             1000
-  Number of successful bootstrap draws            1000
-
-Regressions:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
-  swls ~                                                       
-    motsad           -0.067    0.064   -1.057    0.291   -0.067
-    mothap            0.104    0.058    1.786    0.074    0.104
-    motref            0.043    0.058    0.742    0.458    0.043
-  shs ~                                                        
-    motsad           -0.042    0.034   -1.240    0.215   -0.042
-    mothap            0.109    0.029    3.711    0.000    0.109
-    motref            0.047    0.031    1.527    0.127    0.047
-  Std.all
-         
-   -0.090
-    0.127
-    0.061
-         
-   -0.093
-    0.225
-    0.112
-
-Covariances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
- .swls ~~                                                      
-   .shs               0.465    0.055    8.391    0.000    0.465
-  Std.all
-         
-    0.501
-
-Variances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv
-   .swls              1.591    0.128   12.466    0.000    1.591
-   .shs               0.540    0.047   11.392    0.000    0.540
-  Std.all
-    0.983
-    0.941</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Bootstrapping randomly grabs part of your data and makes a new average. Allows confidence intervals. </span>
-<span class='co'># IV – 3 diff motivations X</span>
-<span class='co'># DV – life sat and happy scores Y</span>
-
-<span class='co'># next steps </span>
-<span class='co'># how do i graph or visually present this? Can I dag it? How do i report it? </span>
-<span class='co'># also what does it all mean? </span>
-</code></pre>
-</div>
-</div>
-<p>Text here</p>
-<p>In chunk 2 I think - this code errors.</p>
-<p>network1 &lt;- bootnet::estimateNetwork(select(df2, -age_clean, -gender_code), “EBICglasso”) qgraph::qgraph(network1$graph, layout = “spring”)</p>
-<p>Other Code we have:</p>
-<h1 id="create-table-data-for-apa-format">Create table data for apa format</h1>
-<p>tab_01 = data.frame( scale = c(“BAS-T”, “SR”, “BDI”, “ASRM”, “M-SRM”), high = c(“46.17 (2.87)”, “17.94 (1.88)”, “7.11 (6.50)”, “6.46 (4.01)”, “11.05 (3.36)”), moderate = c(“37.99 (1.32)”, “11.52 (1.84)”, “6.18 (6.09)”, “5.63 (3.69)”, “11.76 (2.75)”), p = c(“&lt;.001”, “&lt;.001”, “.254”, “.109”, “.078”) )</p>
-<h1 id="apa-format-of-a-table">apa format of a table</h1>
-<p>kable( tab_01, format = “latex”, booktabs = TRUE, escape = FALSE, longtable = TRUE, col.names = c(“Scale”, “High BAS group”, “Moderate BAS group”, “\textit{p}”), align = c(“l”, “c”, “c”, “c”), caption = “Means and Standard Deviations of Scores on Baseline Measures” ) %&gt;% row_spec(row = 0, align = “c”) %&gt;% kable_styling(full_width = TRUE) %&gt;% footnote( general_title = “Note.”, general = “Standard deviations are presented in parentheses. BAS = Behavioral Activation System; BAS-T = Behavioral Activation System-Total sores from the Behavioral Inhibition System/Behavioral Activation System Scales; SR = Sensitivity to Reward scores from the Sensitivity to Punishment and Sensitivity to Reward Questionnaire; BDI = Beck Depression Inventory scores; ASRM = Altman Self-Rating Mania Scale scores; M-SRM = Modified Social Rhythm Metric Regularity scores.”, threeparttable = TRUE, footnote_as_chunk = TRUE )</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="results">Results</h2>
+<p>one significant result. mothap with more shs. plus mothap is almost sig with swls - this likely due to the high correlation between shs and swls. so motsad and motref no effect. aka it is about knowing what makes happy, not what makes sad.</p>
+<h1 id="the-sem-model">The SEM model</h1>
+<p>GOOGLE - what does this mean and how to interpret.</p>
+<p>Measures comparative fit. output of the second SEM means that gender doesn’t seem to impact the SEM. So we collapse the model together. Fit doesn’t differ. Regression paths identical between groups.</p>
+<p>How do I report the above statistics? Just in text???</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

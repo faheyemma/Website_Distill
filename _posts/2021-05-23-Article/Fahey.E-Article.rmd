@@ -64,24 +64,17 @@ df$gender_code <- gendercoder::recode_gender(df$gender) # making the gender code
 
 df <- mutate(df, age_clean = if_else(age < 1000, age, 2021 - age)) # cleaning age variable to remove extreme outliers. 
 
-# first reverse coding items for the happiness scale 
-
+# reverse coding an item from the happiness scale 
 df[,"shs_4_1"] <- lapply(df[,"shs_4_1" ], function(x){car::recode(x,"1 = 7; 2 = 6; 3 = 5; 4 = 4; 5 = 3; 6 = 2; 7 = 1")})
 
-# scales using: 
-# happiness 
-# life sat 
-# motivations 
-
-# create 3x new columns for motivation variable 
+# create 3x new columns for motivation variable (as scale split in 3)
 df$motsad <- (df[c("importance_1", "importance_2", "importance_3", "importance_4", "importance_5", "importance_6", "importance_7")])
 
 df$mothap <- (df[c("importance_8", "importance_9", "importance_10", "importance_11")])
 
 df$motref <- (df[c("importance_12", "importance_12", "importance_13", "importance_14")])
 
-
-# generating mean scores for the scales. # IS THIS ACCURATE??? 
+# generating mean scores for the scales. 
 df$motsad <- rowMeans(df[paste0("importance_", 1:7)], na.rm = T)
 df$mothap <- rowMeans(df[paste0("importance_", 8:11)], na.rm = T)
 df$motref <- rowMeans(df[paste0("importance_", 12:14)], na.rm = T)
@@ -92,17 +85,22 @@ mean(df$age_clean)
 ```
 
 ## Introduction 
-
+Enter text here once final. 
 
 
 ## Method 
 
-```{r descriptives}
+Participants (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study. Basic demographics are presented in table 1. (AGE AND GENDER). One outlier was removed from the data set for having an age over 1000. 
+
+blah, blah - see below for table of scale distributions 
+
+
+```{r descriptives, include=FALSE}
 
 # select the variables needed 
 df2 <- df %>%
   select(gender_code, age_clean, swl_1, swl_2, swl_3, swl_4, swl_5, swls, shs_1_1, shs_2_1, shs_3_1, shs_4_1, shs, motsad, mothap, motref)
-head(df2)
+head(df2) # checking the variables 
 
 # table - code for descriptive stats of the scales (means etc.) 
 table1::label(df$swls) <- "Life Satisfaction"
@@ -114,11 +112,7 @@ table1::label(df$motref) <- "Reflective Motivation"
 # actual table 
 table1::table1(~ swls + shs + mothap + motsad + motref, data = df2)
 
-# make df with the min, mean, sd and alpha. as per below. 
-sjPlot::tab_df(df2)
-
-# histograms 
-# desriptive graphs to show distribution of the data 
+# histograms - desriptive graphs to show distribution of the data 
 p1 <-
   qplot(df$swls, geom = "histogram") + labs(title = "Life Satisfaction") + xlab("swls")
 p2 <-
@@ -132,48 +126,158 @@ p5 <-
 
 p1 + p2 + p3 + p4 + p5
 
-
-# concern is that the 3x IVs are not normally distributed as below... Do I need to adjust the model that I use due to this? 
-
-# Can I do a DAG here or not appropriate? 
-
 ```
-```{r reliabilities}
 
+```{r functions, include=FALSE}
+# A function for captioning and referencing images
+fig <- local({
+    i <- 0
+    ref <- list()
+    list(
+        cap=function(refName, text) {
+            i <<- i + 1
+            ref[[refName]] <<- i
+            paste("Figure ", i, ": ", text, sep="")
+        },
+        ref=function(refName) {
+            ref[[refName]]
+        })
+})
+```
+```{r plots, echo=FALSE, fig.cap=fig$cap("figs", "Distribution of Scales.")}
+plot(p1 + p2 + p3 + p4 + p5)
+```
+
+A distribution of the scales is shown in figure`r fig$ref("figs")`
+
+
+```{r reliabilities, include=FALSE}
+
+# alpha reliability calculation 
 print(psych::alpha(df2[paste0("swl_", 1:5)]))
 print(psych::alpha(df2[paste0("shs_", 1:4, "_1")]))
 print(psych::alpha(df[paste0("importance_", 1:7)]))
 print(psych::alpha(df[paste0("importance_", 8:11)]))
 print(psych::alpha(df[paste0("importance_", 12:14)]))
 
-# i think there something wrong with the reverse coding of shs.... see reliability output... How do I fix this? 
-
-# other reliability 
-
+# other reliability calculation 
 print(ufs::scaleStructure(df2[paste0("swl_", 1:5)]))
 print(ufs::scaleStructure(df2[paste0("shs_", 1:4, "_1")]))
 print(ufs::scaleStructure(df[paste0("importance_", 1:7)]))
 print(ufs::scaleStructure(df[paste0("importance_", 8:11)]))
 print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
 
-# add the above to reliabilities into the apa table - code below. Need to make it work. 
+# these have been added to the apa format table in the code chunk below. 
 
-# can't do - error 
-# what is EBICglasso, should I be changing this? 
+```
 
-network1 <- bootnet::estimateNetwork(select(df2, -age_clean, -gender_code, -shs, -swls), "EBICglasso")
-owl <- qgraph::qgraph(network1$graph, layout = "spring")
+## Table of Demographics 
+A table of the main demographics can be found here: 
 
-# the above shows that happiness and life satisfaction form a connection. 
+```{r apa table}
 
-ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), iter = 1000)
+# Create table data for apa format 
+tab_01 = data.frame(
+  scale = c("SHS", "SWLS", "MotHap", "MotSad", "MotRef"),
+  Mean = c("4.27 (0.76)", "4.49 (1.27)", "5.13 (1.56)", 
+           "4.04 (1.69)", "4.73 (1.82)"),
+  Alpha = c("0.87", "0.84", "0.90", "0.94", "0.82"),
+  Omega = c("0.89", "0.88", "0.92", "0.96", "0.83"), 
+  Coefficient_H = c("0.88", "0.87", "0.94", "0.95", "0.85")
+)
 
-# the above shows us that life and happ are independent constructs. 
+# apa format of a table 
+kable(
+  tab_01,
+  format = "latex",
+  booktabs = TRUE,
+  escape = FALSE,
+  longtable = TRUE,
+  col.names = c("Scale", "Mean", "Alpha", "Omega", "Coefficient_H"),
+  align = c("l", "c", "c", "c"),
+  caption = "Means, Standard Deviations and reliabilities of Scales"
+  ) %>%
+  row_spec(row = 0, align = "c") %>%
+  kable_styling(full_width = TRUE) %>%
+  footnote(
+    general_title = "Note.",
+    general = "Standard deviations are in parentheses. SHS = Subjective Happiness Scale; SWLS = Satisfaction with Life Sacle; MotHap = Happy Motivation Scale; MotSad = Sad Motivation Scale; Motref = Refletive Motivation Scale.",
+    threeparttable = TRUE,
+    footnote_as_chunk = TRUE
+    )
+
+```
+
+## Correlations 
+
+```{r correlation table, echo=FALSE}
+
+# selecting what we want to correlate 
+df3 <- df %>%
+  select(age_clean, swls, shs, motsad, mothap, motref)
+head(df3) # checking the variables 
+
+cortab <- round(cor(df3),2)
+cortab
+
+# make clearner - hide the upper triangle (replication)
+upper.tri(cortab)
+
+upper <- cortab
+upper[upper.tri(cortab)] <- ""
+upper <- as.data.frame(upper)
+upper
+
+library(xtable)
+print(xtable(upper), type="html")
 
 ```
 
 
-```{r basic model code}
+
+### Networks 
+
+The below is two graphs that show the connectedness of the scales used in the study. We can see that life satisfaction and happiness form a connection, as expected. The ega graph shows that they are still seperate constructs however. 
+
+But the motivations subscales show that all 3 subscales are viewed as one construct, they are not independant and are strongly related. 
+
+
+```{r networks, echo=FALSE}
+# creating a network map of scale items 
+network1 <- bootnet::estimateNetwork(select(df2, -age_clean, -gender_code, -shs, -swls), "EBICglasso")
+owl <- qgraph::qgraph(network1$graph, layout = "spring")
+# the above shows that happiness and life satisfaction form a connection. 
+
+ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), iter = 1000)
+# the above shows us that life satisfaction and happiness are independent constructs. 
+
+```
+
+So - we have a new netowrk graph that teasing out any connectinos between the importance scale: 
+
+```{r network for mot, echo=FALSE}
+
+# this shows that there are 3 seperate constructs for motivation. 
+
+df10 <- df %>%
+  select(age_clean, gender_code, importance_1, importance_2, importance_3, importance_4, importance_5, importance_6, importance_7, importance_8, importance_9, importance_10, importance_11, importance_12, importance_13, importance_14, motsad, mothap, motref)
+
+# creating a network map of scale items 
+network3 <- bootnet::estimateNetwork(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), "EBICglasso")
+owl <- qgraph::qgraph(network3$graph, layout = "spring")
+# the above shows that happiness and life satisfaction form a connection. 
+
+ega3 <- EGAnet::bootEGA(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), iter = 1000)
+# the above shows us that life satisfaction and happiness are independent constructs. 
+
+```
+
+
+
+## Results 
+one significant result. mothap with more shs. plus mothap is almost sig with swls - this likely due to the high correlation between shs and swls. so motsad and motref no effect. aka it is about knowing what makes happy, not what makes sad. 
+
+```{r basic model code, include=FALSE}
 
 # SEM to test hypoth
 
@@ -196,61 +300,21 @@ summary(sem_res_mtr, standardize = T, fit = T)
 # once generated these, we looking at the cfi - the differences. 
 
 # Bootstrapping randomly grabs part of your data and makes a new average. Allows confidence intervals. 
-# IV – 3 diff motivations X
-# DV – life sat and happy scores Y
 
 # from this 2x sig (mothap and shs in both). 
 
-# for further analysis see the paper that is saved in 447 folder (from 'How to Run a Multi-Group CFA in R').
+# IV – 3 diff motivations X
+# DV – life sat and happy scores Y
 
 ```
-
-# draft analysis of results 
-one significant result. mothap with more shs. plus mothap is almost sig with swls - this likely due to the high correlation between shs and swls. so motsad and motref no effect. aka it is about knowing what makes happy, not what makes sad. 
-
 
 # The SEM model 
 GOOGLE - what does this mean and how to interpret. 
 
 Measures comparative fit. output of the second SEM means that gender doesn't seem to impact the SEM. So we collapse the model together. Fit doesn't differ. Regression paths identical between groups.
 
+How do I report the above statistics? Just in text??? 
 
-# to add in 
-correlation table of variables in the beginning of the methods. 
-
-
-
-Other Code we have: 
-
-# Create table data for apa format 
-tab_01 = data.frame(
-  scale = c("BAS-T", "SR", "BDI", "ASRM", "M-SRM"),
-  high = c("46.17 (2.87)", "17.94 (1.88)", "7.11 (6.50)", 
-           "6.46 (4.01)", "11.05 (3.36)"),
-  moderate = c("37.99 (1.32)", "11.52 (1.84)", "6.18 (6.09)", 
-               "5.63 (3.69)", "11.76 (2.75)"),
-  p = c("<.001", "<.001", ".254", ".109", ".078")
-)
-
-# apa format of a table 
-kable(
-  tab_01,
-  format = "latex",
-  booktabs = TRUE,
-  escape = FALSE,
-  longtable = TRUE,
-  col.names = c("Scale", "High BAS group", "Moderate BAS group", "\\textit{p}"),
-  align = c("l", "c", "c", "c"),
-  caption = "Means and Standard Deviations of Scores on Baseline Measures"
-  ) %>%
-  row_spec(row = 0, align = "c") %>%
-  kable_styling(full_width = TRUE) %>%
-  footnote(
-    general_title = "Note.",
-    general = "Standard deviations are presented in parentheses. BAS = Behavioral Activation System; BAS-T = Behavioral Activation System-Total sores from the Behavioral Inhibition System/Behavioral Activation System Scales; SR = Sensitivity to Reward scores from the Sensitivity to Punishment and Sensitivity to Reward Questionnaire; BDI = Beck Depression Inventory scores; ASRM = Altman Self-Rating Mania Scale scores; M-SRM = Modified Social Rhythm Metric Regularity scores.",
-    threeparttable = TRUE,
-    footnote_as_chunk = TRUE
-    )
 
 
 
