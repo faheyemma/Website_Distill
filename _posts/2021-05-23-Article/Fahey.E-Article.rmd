@@ -76,8 +76,7 @@ These ideas have been taken a step further by looking at illicit emotional respo
 
 Life satisfaction and happiness are frequently studied together worldwide. The two terms have been used under the heading of subjective wellbeing [@selim2008] and hedonic wellbeing [@difabio2015;@kahneman1999]. Studies include measures of cultural variation, [@bastian2014] in relation to suicide rates [@bray2006], in relation to physical health in elderly populations [@lara2020], in relation to wellbeing trends as populations age [@an2020], and more recently in response to the COVID-19 pandemic [@bozkurt2021]. Happiness in particular is rated as an important characteristic for subjective wellbeing, with college students in one study rating it on average 8.1 out of 9 for importance, compared to other wellbeing characteristics [@kim-prieto2005].
 
-The current study looks at life satisfaction and happiness scores in relation to the importance or motivation to visit a meaningful place. Importance is split up into three subcategories: happy, sad, and reflective reasons to visit a place. The question is if reasons to visit a meaningful place predict subjective wellbeing. Hypotheses include (1) the motivation to visit a meaningful place in a positive mood will relate to higher subjective wellbeing scores. Conversely, if visiting for a negative reason I expect overall
-subjective wellbeing to be lower. (2) Consistent with Korpela et al. (2020), life satisfaction will be positively associated with sad and happy reasons to visit a place, but not reflective reasons.
+The current study looks at life satisfaction and happiness scores in relation to the importance or motivation to visit a meaningful place. Importance is split up into three subcategories: happy, sad, and reflective reasons to visit a place. The question is if reasons to visit a meaningful place predict subjective wellbeing. Hypotheses include (1) the motivation to visit a meaningful place in a positive mood will relate to higher subjective wellbeing scores. Conversely, if visiting for a negative reason I expect overall subjective wellbeing to be lower. (2) Consistent with Korpela et al. (2020), life satisfaction will be positively associated with sad and happy reasons to visit a place, but not reflective reasons.
 
 ## Method
 
@@ -92,7 +91,7 @@ subjective wellbeing to be lower. (2) Consistent with Korpela et al. (2020), lif
 **Life Satisfaction** was assessed using the Satisfaction with Life Scale (SWLS) [@diener1985]. Participants responded to a likert 7-point scale. The items were preceded by the statement:
 "Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding." The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items.
 
-**Reasons to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020a, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items.) The full scale can be found in the appendix. Items were grouped into the above categories and a sum score was calculated for each category.
+**Reasons to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items.) The full scale can be found in the appendix. Items were grouped into the above categories and a sum score was calculated for each category.
 
 **Scale Statistics**
 
@@ -155,7 +154,7 @@ print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
 
 ```
 
-The main descriptive statistics for each scale can be found in table 1. READ A JOURNAL ARTICLE TO SEE WHAT TO WRITE HERE.
+The main descriptive statistics for each scale can be found in table 1.  
 
 ```{r, echo=FALSE, results='asis'}
 
@@ -180,7 +179,7 @@ kable(
   booktabs = TRUE,
   escape = FALSE,
   longtable = TRUE,
-  col.names = c("Scale", "Mean", "Alpha", "Omega", "Coefficient_H"),
+  col.names = c("Scale", "Mean(SD)", "Alpha", "Omega", "Coefficient_H"),
   align = c("l", "c", "c", "c", "c"),
   caption = "Means, Standard Deviations and reliabilities of Scales"
   ) %>%
@@ -195,24 +194,13 @@ kable(
 
 ```
 
-### Correlation Analysis
+The main descriptive statistics for each scale can be found in table 1. Multiple reliability tests were run to determine the scales alpha, omega and coefficient H. This is because the alpha reliability alone assumes scales are uni-dimensional and normally distributed. Items in each reasons to visit a place subscale were not shown to be normally distributed in figure \@ref(fig:plots) above.
 
-Below is an image of correlations shown in figure \@ref(fig:corr) Correlation is run with Holm adjustment which means that it corrects for type 1 error. CHECK THIS.
-
-```{r corr, echo=FALSE, fig.cap= "Correlation Plot of Scales"}
-
-ggstatsplot::ggcorrmat(df, c("age_clean", "swls", "shs", "motsad", "mothap", "motref"), 
-                       cor.vars.names = c("age", "Life Satisfaction", "Happiness", "Sad Motivation", "Happy Motivation", "Reflective Motivation"))
-
-```
+The initial use of the reasons to visit a place scale had comparable reliability, with cronbach's alpha being reported as 0.93 for sad motivation, 0.87 for happy motivation and 0.8 for alone motivation subscales [@korpela2020].  
 
 ### Networks
 
-The below is two graphs that show the connectedness of the scales used in the study. We can see that life satisfaction and happiness form a connection, as expected. The EGA graph shows that they are still separate constructs however.
-
-But the motivations subscales show that all 3 subscales are viewed as one construct, they are not independent and are strongly related.
-
-Figure play: A distribution of the scales is shown in figure \@ref(fig:net1)
+A network graph, shown in figure \@ref(fig:net1) is used to display the connectedness of the scales used in the current study. As expected, life satisfaction and happiness form a connection. The three subscales of reasons to visit a place form a strong connection.  
 
 ```{r net1, echo=FALSE, fig.cap= "Network Graph"}
 # creating a network map of scale items 
@@ -222,7 +210,8 @@ owl <- qgraph::qgraph(network1$graph, layout = "spring")
 
 ```
 
-Figure play: A distribution of the scales is shown in figure \@ref(fig:networks)
+The exploratory graph analysis in figure \@ref(fig:networks) shows that life satisfaction and happiness are still separate constructs, but that the three subscales of reasons to visit a place may be measuring only one construct. To ensure the new reasons to visit a place subscale were measuring three separate constructs, a second exploratory graph analysis is run (see appendix \@ref(fig:appen1)). This shows that the subscales are connected, yet independent constructs. A
+network graph is also run for the new subscales to ensure that items selected to mean happy, sad, and reflective are most connected to each other. This was found to be accurate (see appendix \@ref(fig:appen2)).
 
 ```{r networks, echo=FALSE, fig.cap= "EGA Graph"}
 
@@ -232,21 +221,22 @@ ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), iter 
 
 ```
 
-Due to this, we ran an additional network map (see figure \@ref(fig:appen1)) and exploratory graph analysis (see figure \@ref(fig:appen2)) to see connections between the importance scale. This revealed that there are three clear constructs in the data - mothappy, motsad and motref.
+### Correlation Analysis
 
-### Model Description
+Figure \@ref(fig:corr) depicts correlations between scales. All correlations are run with Holm adjustment, this reduces the possiblilty of a statistically significant result, or type 1 error when performing multiple tests. This correction is more statistically powerful than a Bonferroni adjustment (ADD CITE ONCE SYNCHED).
 
-To test between x and y - we fit a xxxx model. We expected xxxxxx. We further tested a bootstrap...
+```{r corr, echo=FALSE, fig.cap= "Correlation Plot of Scales"}
 
-The IV was the three different motivations to visit a place. The DV was the life satisfaction and happiness scales.
+ggstatsplot::ggcorrmat(df, c("age_clean", "swls", "shs", "motsad", "mothap", "motref"), 
+                       cor.vars.names = c("age", "Life Satisfaction", "Happiness", "Sad Motivation", "Happy Motivation", "Reflective Motivation"))
 
-Report the model and the model stats in text.
+```
 
-GOOGLE - what does this mean and how to interpret.
+Life satisfaction and happiness correlate significantly. All three reasons for visiting a place correlate, with reflective and sad being the strongest. These results are comparable with those of @korpela2020 that found sad and reflective to correlate at 0.68, sad and happy to correlate at 0.32, and reflective and happy to correlate 0.35.   
 
-Measures comparative fit. output of the second SEM means that gender doesn't seem to impact the SEM. So we collapse the model together. Fit doesn't differ. Regression paths identical between groups.
+### Model Selection
 
-How do I report the above statistics? Just in text???
+A structural equation model is run in this study to analyse reasons to visit a meaningful place against life satisfaction and happiness. The (ML) is employed, which presumes multivariate normality of the variables. As stated previously and depicted in figure \@ref(fig:plots), the motivations to visit a place subscales were not normally distributed, so a bootstrap adjustment was fitted to the model. This runs the same analysis 1,000 times to get an average which creates more reliable and robust results, particularly when considering non-normality.  
 
 ## Results
 
@@ -306,24 +296,23 @@ Scales
 
 Figure play: A distribution of the scales is shown in figure \@ref(fig:appen1)
 
-```{r appen1, echo=FALSE, fig.cap= "Importance Graph"}
+```{r appen1, echo=TRUE, fig.cap= "Subscale EGA"}
 
-# this shows that there are 3 seperate constructs for motivation. 
+library(dplyr)
 
 df10 <- df %>%
   select(age_clean, gender_code, importance_1, importance_2, importance_3, importance_4, importance_5, importance_6, importance_7, importance_8, importance_9, importance_10, importance_11, importance_12, importance_13, importance_14, motsad, mothap, motref)
+
+ega3 <- EGAnet::bootEGA(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), iter = 1000)
+# the above shows us that there are 3 clear independent constructs for motivation.  
+
+```
+
+```{r appen2, echo=FALSE, fig.cap= "Subscale Network Graph"}
 
 # creating a network map of scale items 
 network3 <- bootnet::estimateNetwork(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), "EBICglasso")
 owl <- qgraph::qgraph(network3$graph, layout = "spring")
  
-
-
-```
-
-```{r appen2, echo=TRUE, fig.cap= "Importance EGA"}
-
-ega3 <- EGAnet::bootEGA(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), iter = 1000)
-# the above shows us that there are 3 clear independent constructs. 
 
 ```
