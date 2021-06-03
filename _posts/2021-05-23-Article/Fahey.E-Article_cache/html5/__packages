@@ -37,3 +37,5 @@ gendercoder
 table1
 lavaan
 xtable
+qgraph
+semPlot
