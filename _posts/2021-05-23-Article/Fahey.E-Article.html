@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["Fahey.E-Article_files/anchor-4.2.2/anchor.min.js","Fahey.E-Article_files/bowser-1.9.3/bowser.min.js","Fahey.E-Article_files/distill-2.2.21/template.v2.js","Fahey.E-Article_files/figure-html5/descriptives-1.png","Fahey.E-Article_files/figure-html5/network for mot-1.png","Fahey.E-Article_files/figure-html5/network for mot-2.png","Fahey.E-Article_files/figure-html5/networks-1.png","Fahey.E-Article_files/figure-html5/networks-2.png","Fahey.E-Article_files/figure-html5/plots-1.png","Fahey.E-Article_files/header-attrs-2.8/header-attrs.js","Fahey.E-Article_files/jquery-1.11.3/jquery.min.js","Fahey.E-Article_files/kePrint-0.0.1/kePrint.js","Fahey.E-Article_files/lightable-0.0.1/lightable.css","Fahey.E-Article_files/popper-2.6.0/popper.min.js","Fahey.E-Article_files/table1-1.0/table1_defaults.css","Fahey.E-Article_files/tippy-6.2.7/tippy-bundle.umd.min.js","Fahey.E-Article_files/tippy-6.2.7/tippy-light-border.css","Fahey.E-Article_files/tippy-6.2.7/tippy.css","Fahey.E-Article_files/tippy-6.2.7/tippy.umd.min.js","Fahey.E-Article_files/webcomponents-2.0.0/webcomponents.js","processed_nature.csv"]}
+  {"type":"character","attributes":{},"value":["Fahey.E-Article_files/anchor-4.2.2/anchor.min.js","Fahey.E-Article_files/bowser-1.9.3/bowser.min.js","Fahey.E-Article_files/distill-2.2.21/template.v2.js","Fahey.E-Article_files/figure-html5/corr-1.png","Fahey.E-Article_files/figure-html5/correlation table-1.png","Fahey.E-Article_files/figure-html5/descriptives-1.png","Fahey.E-Article_files/figure-html5/net1-1.png","Fahey.E-Article_files/figure-html5/network for mot-1.png","Fahey.E-Article_files/figure-html5/network for mot-2.png","Fahey.E-Article_files/figure-html5/networks-1.png","Fahey.E-Article_files/figure-html5/networks-2.png","Fahey.E-Article_files/figure-html5/new plot-1.png","Fahey.E-Article_files/figure-html5/plots-1.png","Fahey.E-Article_files/header-attrs-2.8/header-attrs.js","Fahey.E-Article_files/jquery-1.11.3/jquery.min.js","Fahey.E-Article_files/kePrint-0.0.1/kePrint.js","Fahey.E-Article_files/lightable-0.0.1/lightable.css","Fahey.E-Article_files/popper-2.6.0/popper.min.js","Fahey.E-Article_files/table1-1.0/table1_defaults.css","Fahey.E-Article_files/tippy-6.2.7/tippy-bundle.umd.min.js","Fahey.E-Article_files/tippy-6.2.7/tippy-light-border.css","Fahey.E-Article_files/tippy-6.2.7/tippy.css","Fahey.E-Article_files/tippy-6.2.7/tippy.umd.min.js","Fahey.E-Article_files/webcomponents-2.0.0/webcomponents.js","processed_nature.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1484,20 +1484,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h2 id="introduction">Introduction</h2>
 <p>Enter text here once final.</p>
 <h2 id="method">Method</h2>
-<p>Participants (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study. Basic demographics are presented in table 1. (AGE AND GENDER). One outlier was removed from the data set for having an age over 1000.</p>
+<p>Participants (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study.</p>
+<p>Age - Mean is 19.45 (SD = 4.46). Min 17, Max 69. Gender - Female 245 (80.8%), Male 47 (15.5%), non-binary (1%), 8 Missing (2.6%).</p>
+<p>One outlier was removed from the data set for having an age over 1000.</p>
+<p>Add in info about procedure.</p>
 <p>blah, blah - see below for table of scale distributions</p>
-<p>A distribution of the scales is shown in figure <a href="#fig:plots">1</a></p>
+<p>Distributions of the scales is shown in figure <a href="#fig:plots">1</a></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:plots"></span>
-<img src="Fahey.E-Article_files/figure-html5/plots-1.png" alt="test" width="768" />
+<img src="Fahey.E-Article_files/figure-html5/plots-1.png" alt="Distribution of Scales" width="768" />
 <p class="caption">
-Figure 1: test
+Figure 1: Distribution of Scales
 </p>
 </div>
 </div>
-<p>x</p>
-<h2 id="table-of-demographics">Table of Demographics</h2>
-<p>A table of the main demographics can be found here:</p>
+<p>The main descriptive statistics for each scale can be found in table 1. READ A JOURNAL ARTICLE TO SEE WHAT TO WRITE HERE.</p>
 <div class="layout-chunk" data-layout="l-body">
 <table class="table" style="margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption>
@@ -1619,66 +1620,57 @@ MotRef
 </table>
 </div>
 <h2 id="correlations">Correlations</h2>
+<p>Below is an image of correlations shown in figure <a href="#fig:corr">2</a> Correlation is run with Holm adjustment which means that it corrects for type 1 error. CHECK THIS.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code># A tibble: 6 x 6
-  age_clean  swls   shs motsad mothap motref
-      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1        18   4.6  4.5    4.57   7      3   
-2        19   5.2  5.5    2.86   7      2.33
-3        20   4.6  5      1.14   4      1.67
-4        18   3.6  4.25   1      5.75   2   
-5        18   6    3.75   4      4      4   
-6        24   4.2  2.5    2.29   5.5    4.33</code></pre>
-<pre><code>          age_clean swls shs motsad mothap motref
-age_clean         1   NA  NA     NA     NA     NA
-swls             NA    1  NA     NA     NA     NA
-shs              NA   NA   1     NA     NA     NA
-motsad           NA   NA  NA      1     NA     NA
-mothap           NA   NA  NA     NA      1     NA
-motref           NA   NA  NA     NA     NA      1</code></pre>
-<pre><code>      [,1]  [,2]  [,3]  [,4]  [,5]  [,6]
-[1,] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
-[2,] FALSE FALSE  TRUE  TRUE  TRUE  TRUE
-[3,] FALSE FALSE FALSE  TRUE  TRUE  TRUE
-[4,] FALSE FALSE FALSE FALSE  TRUE  TRUE
-[5,] FALSE FALSE FALSE FALSE FALSE  TRUE
-[6,] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<pre><code>          age_clean swls  shs motsad mothap motref
-age_clean         1                               
-swls           &lt;NA&gt;    1                          
-shs            &lt;NA&gt; &lt;NA&gt;    1                     
-motsad         &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;      1              
-mothap         &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;   &lt;NA&gt;      1       
-motref         &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;      1</code></pre>
-<pre><code>&lt;!-- html table generated in R 4.0.4 by xtable 1.8-4 package --&gt;
-&lt;!-- Thu Jun 03 14:36:43 2021 --&gt;
-&lt;table border=1&gt;
-&lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; age_clean &lt;/th&gt; &lt;th&gt; swls &lt;/th&gt; &lt;th&gt; shs &lt;/th&gt; &lt;th&gt; motsad &lt;/th&gt; &lt;th&gt; mothap &lt;/th&gt; &lt;th&gt; motref &lt;/th&gt;  &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; age_clean &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; swls &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; shs &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; motsad &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; mothap &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;/tr&gt;
-  &lt;tr&gt; &lt;td align=&quot;right&quot;&gt; motref &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt;  &lt;/td&gt; &lt;td&gt; 1 &lt;/td&gt; &lt;/tr&gt;
-   &lt;/table&gt;</code></pre>
+<div class="figure"><span id="fig:corr"></span>
+<img src="Fahey.E-Article_files/figure-html5/corr-1.png" alt="Correlation Plot of Scales" width="768" />
+<p class="caption">
+Figure 2: Correlation Plot of Scales
+</p>
+</div>
 </div>
 <h3 id="networks">Networks</h3>
-<p>The below is two graphs that show the connectedness of the scales used in the study. We can see that life satisfaction and happiness form a connection, as expected. The ega graph shows that they are still seperate constructs however.</p>
-<p>But the motivations subscales show that all 3 subscales are viewed as one construct, they are not independant and are strongly related.</p>
+<p>The below is two graphs that show the connectedness of the scales used in the study. We can see that life satisfaction and happiness form a connection, as expected. The EGA graph shows that they are still separate constructs however.</p>
+<p>But the motivations subscales show that all 3 subscales are viewed as one construct, they are not independent and are strongly related.</p>
+<p>Figure play: A distribution of the scales is shown in figure <a href="#fig:net1">3</a></p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="Fahey.E-Article_files/figure-html5/networks-1.png" width="768" /><img src="Fahey.E-Article_files/figure-html5/networks-2.png" width="768" /></p>
+<div class="figure"><span id="fig:net1"></span>
+<img src="Fahey.E-Article_files/figure-html5/net1-1.png" alt="Network Graph" width="768" />
+<p class="caption">
+Figure 3: Network Graph
+</p>
 </div>
-<p>So - we have a new netowrk graph that teasing out any connectinos between the importance scale:</p>
+</div>
+<p>Figure play: A distribution of the scales is shown in figure <a href="#fig:networks">4</a></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:networks"></span>
+<img src="Fahey.E-Article_files/figure-html5/networks-1.png" alt="EGA Graph" width="768" />
+<p class="caption">
+Figure 4: EGA Graph
+</p>
+</div>
+</div>
+<p>So - we have a new netowrk graph that teasing out any connectinos between the importance scale. These graphs in the appendix, but talk about them here.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="Fahey.E-Article_files/figure-html5/network%20for%20mot-1.png" width="768" /><img src="Fahey.E-Article_files/figure-html5/network%20for%20mot-2.png" width="768" /></p>
 </div>
-<h2 id="results">Results</h2>
-<p>one significant result. mothap with more shs. plus mothap is almost sig with swls - this likely due to the high correlation between shs and swls. so motsad and motref no effect. aka it is about knowing what makes happy, not what makes sad.</p>
-<h1 id="the-sem-model">The SEM model</h1>
+<h2 id="description-of-model">Description of Model</h2>
+<p>To test between x and y - we fit a xxxx model. We expected xxxxxx. We further tested a bootstrap…</p>
+<p>The IV was the three different motivations to visit a place. The DV was the life satisfaction and happiness scales.</p>
+<h2 id="the-sem-model">The SEM model</h2>
+<p>Report the model and the model stats in text.</p>
 <p>GOOGLE - what does this mean and how to interpret.</p>
 <p>Measures comparative fit. output of the second SEM means that gender doesn’t seem to impact the SEM. So we collapse the model together. Fit doesn’t differ. Regression paths identical between groups.</p>
 <p>How do I report the above statistics? Just in text???</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="results">Results</h2>
+<p>one significant result. mothap with more shs. plus mothap is almost sig with swls - this likely due to the high correlation between shs and swls. so motsad and motref no effect. aka it is about knowing what makes happy, not what makes sad.</p>
+<h2 id="discussion">Discussion</h2>
+<p>Enter here.</p>
+<h3 id="limitations-and-future-research">Limitations and Future Research</h3>
+<p>Enter here from word.</p>
+<h2 id="appendix">Appendix</h2>
+<p>Enter the other EGA graphs here.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

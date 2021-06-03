@@ -11,8 +11,6 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-
 
 # this code can be used for each chunk where applicable 
 # code does or doesn’t display inline (echo setting)
@@ -27,30 +25,13 @@ knitr::opts_chunk$set(fig.width=8, fig.height=5,
 
 ```
 
+
 ```{r libraries and import, include=FALSE}
 
 ### Libraries - delete those uneeded. 
-library("tidyverse")
-library("patchwork")
-library("lubridate")
-library("kableExtra")
-library("gtsummary")
-library("lubridate")
-library("equatiomatic")
-library("ggdag")
-library("brms")
-library("rstan")
-library("rstanarm")
-library("bayesplot")
-library("easystats")
-library("kableExtra")
-library("broom")
-library("tidybayes")
-library("bmlm")
-library("gendercoder")
-library("table1")
-library("ggplot2")
-library("lavaan")
+library(gendercoder)
+
+
 
 # rstan options
 rstan_options(auto_write = TRUE)
@@ -80,7 +61,8 @@ df$mothap <- rowMeans(df[paste0("importance_", 8:11)], na.rm = T)
 df$motref <- rowMeans(df[paste0("importance_", 12:14)], na.rm = T)
 df$swls <- rowMeans(df[paste0("swl_", 1:5)], na.rm = T) 
 df$shs <- rowMeans(df[paste0("shs_", 1:4, "_1")], na.rm = T) 
-mean(df$age_clean)
+
+mean(df$age_clean, na.rm = T)
 
 ```
 
@@ -90,7 +72,14 @@ Enter text here once final.
 
 ## Method 
 
-Participants (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study. Basic demographics are presented in table 1. (AGE AND GENDER). One outlier was removed from the data set for having an age over 1000. 
+Participants (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study.  
+
+Age - Mean is 19.45 (SD = 4.46). Min 17, Max 69. 
+Gender - Female 245 (80.8%), Male 47 (15.5%), non-binary (1%), 8 Missing (2.6%). 
+
+One outlier was removed from the data set for having an age over 1000. 
+
+Add in info about procedure. 
 
 blah, blah - see below for table of scale distributions 
 
@@ -128,14 +117,13 @@ p1 + p2 + p3 + p4 + p5
 
 ```
 
-A distribution of the scales is shown in figure \@ref(fig:plots)
+Distributions of the scales is shown in figure \@ref(fig:plots)
  
-```{r plots, echo=FALSE, fig.cap= "test"}
+```{r plots, echo=FALSE, fig.cap= "Distribution of Scales"}
 plot(p1 + p2 + p3 + p4 + p5)
 ```
 
-x   
-
+   
 ```{r reliabilities, include=FALSE}
 
 # alpha reliability calculation 
@@ -156,8 +144,8 @@ print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
 
 ```
 
-## Table of Demographics 
-A table of the main demographics can be found here: 
+The main descriptive statistics for each scale can be found in table 1. 
+READ A JOURNAL ARTICLE TO SEE WHAT TO WRITE HERE. 
 
 ```{r, echo=FALSE, results='asis'}
 
@@ -195,52 +183,47 @@ kable(
 
 ```
 
-## Correlations 
+## Correlations
 
-```{r correlation table, echo=FALSE}
+Below is an image of correlations shown in figure \@ref(fig:corr)
+Correlation is run with Holm adjustment which means that it corrects for type 1 error. CHECK THIS. 
 
-# selecting what we want to correlate 
-df3 <- df %>%
-  select(age_clean, swls, shs, motsad, mothap, motref)
-head(df3) # checking the variables 
 
-cortab <- round(cor(df3),2)
-cortab
+```{r corr, echo=FALSE, fig.cap= "Correlation Plot of Scales"}
 
-# make clearner - hide the upper triangle (replication)
-upper.tri(cortab)
-
-upper <- cortab
-upper[upper.tri(cortab)] <- ""
-upper <- as.data.frame(upper)
-upper
-
-library(xtable)
-print(xtable(upper), type="html")
+ggstatsplot::ggcorrmat(df, c("age_clean", "swls", "shs", "motsad", "mothap", "motref"), 
+                       cor.vars.names = c("age", "Life Satisfaction", "Happiness", "Sad Motivation", "Happy Motivation", "Reflective Motivation"))
 
 ```
 
-
-
 ### Networks 
 
-The below is two graphs that show the connectedness of the scales used in the study. We can see that life satisfaction and happiness form a connection, as expected. The ega graph shows that they are still seperate constructs however. 
+The below is two graphs that show the connectedness of the scales used in the study. We can see that life satisfaction and happiness form a connection, as expected. The EGA graph shows that they are still separate constructs however. 
 
-But the motivations subscales show that all 3 subscales are viewed as one construct, they are not independant and are strongly related. 
+But the motivations subscales show that all 3 subscales are viewed as one construct, they are not independent and are strongly related. 
 
 
-```{r networks, echo=FALSE}
+Figure play: A distribution of the scales is shown in figure \@ref(fig:net1)
+ 
+```{r net1, echo=FALSE, fig.cap= "Network Graph"}
 # creating a network map of scale items 
 network1 <- bootnet::estimateNetwork(select(df2, -age_clean, -gender_code, -shs, -swls), "EBICglasso")
 owl <- qgraph::qgraph(network1$graph, layout = "spring")
 # the above shows that happiness and life satisfaction form a connection. 
 
+```
+
+Figure play: A distribution of the scales is shown in figure \@ref(fig:networks)
+
+```{r networks, echo=FALSE, fig.cap= "EGA Graph"}
+
 ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), iter = 1000)
+
 # the above shows us that life satisfaction and happiness are independent constructs. 
 
 ```
 
-So - we have a new netowrk graph that teasing out any connectinos between the importance scale:
+So - we have a new netowrk graph that teasing out any connectinos between the importance scale. These graphs in the appendix, but talk about them here. 
 
 ```{r network for mot, echo=FALSE}
 
@@ -259,7 +242,22 @@ ega3 <- EGAnet::bootEGA(select(df10, -age_clean, -gender_code, -motsad, -mothap,
 
 ```
 
+## Description of Model 
+To test between x and y - we fit a xxxx model. We expected xxxxxx. We further tested a bootstrap... 
 
+The IV was the three different motivations to visit a place. 
+The DV was the life satisfaction and happiness scales. 
+
+## The SEM model 
+
+Report the model and the model stats in text. 
+
+
+GOOGLE - what does this mean and how to interpret. 
+
+Measures comparative fit. output of the second SEM means that gender doesn't seem to impact the SEM. So we collapse the model together. Fit doesn't differ. Regression paths identical between groups.
+
+How do I report the above statistics? Just in text??? 
 
 ## Results 
 one significant result. mothap with more shs. plus mothap is almost sig with swls - this likely due to the high correlation between shs and swls. so motsad and motref no effect. aka it is about knowing what makes happy, not what makes sad. 
@@ -272,7 +270,7 @@ mdl_sem <- 'swls ~ motsad + mothap + motref
 	shs ~ motsad + mothap + motref' # this is the model 
 
 sem_res_strap <- sem(mdl_sem, df, se = "bootstrap", estimator = "ML")  
-summary(sem_res_strap, standardize = T) # this is running a bootstrap version of the model. 
+summary(sem_res_strap, standardize = T, fit = T) # this is running a bootstrap version of the above model. 
 
 
 # second one - this sees if the model differs per gender. 
@@ -290,18 +288,23 @@ summary(sem_res_mtr, standardize = T, fit = T)
 
 # from this 2x sig (mothap and shs in both). 
 
-# IV – 3 diff motivations X
-# DV – life sat and happy scores Y
+```
+
+```{r references, include=FALSE}
+
+# content for the references 
+report::cite_packages()
+
+# add this in later. 
 
 ```
 
-# The SEM model 
-GOOGLE - what does this mean and how to interpret. 
+## Discussion 
+Enter here. 
 
-Measures comparative fit. output of the second SEM means that gender doesn't seem to impact the SEM. So we collapse the model together. Fit doesn't differ. Regression paths identical between groups.
+### Limitations and Future Research 
+Enter here from word. 
 
-How do I report the above statistics? Just in text??? 
-
-
-
+## Appendix 
+Enter the other EGA graphs here. 
 
