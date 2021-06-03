@@ -128,28 +128,13 @@ p1 + p2 + p3 + p4 + p5
 
 ```
 
-```{r functions, include=FALSE}
-# A function for captioning and referencing images
-fig <- local({
-    i <- 0
-    ref <- list()
-    list(
-        cap=function(refName, text) {
-            i <<- i + 1
-            ref[[refName]] <<- i
-            paste("Figure ", i, ": ", text, sep="")
-        },
-        ref=function(refName) {
-            ref[[refName]]
-        })
-})
-```
-```{r plots, echo=FALSE, fig.cap=fig$cap("figs", "Distribution of Scales.")}
+A distribution of the scales is shown in figure \@ref(fig:plots)
+ 
+```{r plots, echo=FALSE, fig.cap= "test"}
 plot(p1 + p2 + p3 + p4 + p5)
 ```
 
-A distribution of the scales is shown in figure`r fig$ref("figs")`
-
+x   
 
 ```{r reliabilities, include=FALSE}
 
@@ -174,9 +159,10 @@ print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
 ## Table of Demographics 
 A table of the main demographics can be found here: 
 
-```{r apa table}
+```{r, echo=FALSE, results='asis'}
 
 # Create table data for apa format 
+
 tab_01 = data.frame(
   scale = c("SHS", "SWLS", "MotHap", "MotSad", "MotRef"),
   Mean = c("4.27 (0.76)", "4.49 (1.27)", "5.13 (1.56)", 
@@ -187,14 +173,15 @@ tab_01 = data.frame(
 )
 
 # apa format of a table 
+
 kable(
   tab_01,
-  format = "latex",
+  format = "html",
   booktabs = TRUE,
   escape = FALSE,
   longtable = TRUE,
   col.names = c("Scale", "Mean", "Alpha", "Omega", "Coefficient_H"),
-  align = c("l", "c", "c", "c"),
+  align = c("l", "c", "c", "c", "c"),
   caption = "Means, Standard Deviations and reliabilities of Scales"
   ) %>%
   row_spec(row = 0, align = "c") %>%
@@ -253,7 +240,7 @@ ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), iter 
 
 ```
 
-So - we have a new netowrk graph that teasing out any connectinos between the importance scale: 
+So - we have a new netowrk graph that teasing out any connectinos between the importance scale:
 
 ```{r network for mot, echo=FALSE}
 

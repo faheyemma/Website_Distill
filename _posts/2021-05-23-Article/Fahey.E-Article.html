@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["Fahey.E-Article_files/anchor-4.2.2/anchor.min.js","Fahey.E-Article_files/bowser-1.9.3/bowser.min.js","Fahey.E-Article_files/distill-2.2.21/template.v2.js","Fahey.E-Article_files/figure-html5/descriptives-1.png","Fahey.E-Article_files/figure-html5/network for mot-1.png","Fahey.E-Article_files/figure-html5/network for mot-2.png","Fahey.E-Article_files/figure-html5/networks-1.png","Fahey.E-Article_files/figure-html5/networks-2.png","Fahey.E-Article_files/figure-html5/plots-1.png","Fahey.E-Article_files/header-attrs-2.8/header-attrs.js","Fahey.E-Article_files/jquery-1.11.3/jquery.min.js","Fahey.E-Article_files/popper-2.6.0/popper.min.js","Fahey.E-Article_files/table1-1.0/table1_defaults.css","Fahey.E-Article_files/tippy-6.2.7/tippy-bundle.umd.min.js","Fahey.E-Article_files/tippy-6.2.7/tippy-light-border.css","Fahey.E-Article_files/tippy-6.2.7/tippy.css","Fahey.E-Article_files/tippy-6.2.7/tippy.umd.min.js","Fahey.E-Article_files/webcomponents-2.0.0/webcomponents.js","processed_nature.csv"]}
+  {"type":"character","attributes":{},"value":["Fahey.E-Article_files/anchor-4.2.2/anchor.min.js","Fahey.E-Article_files/bowser-1.9.3/bowser.min.js","Fahey.E-Article_files/distill-2.2.21/template.v2.js","Fahey.E-Article_files/figure-html5/descriptives-1.png","Fahey.E-Article_files/figure-html5/network for mot-1.png","Fahey.E-Article_files/figure-html5/network for mot-2.png","Fahey.E-Article_files/figure-html5/networks-1.png","Fahey.E-Article_files/figure-html5/networks-2.png","Fahey.E-Article_files/figure-html5/plots-1.png","Fahey.E-Article_files/header-attrs-2.8/header-attrs.js","Fahey.E-Article_files/jquery-1.11.3/jquery.min.js","Fahey.E-Article_files/kePrint-0.0.1/kePrint.js","Fahey.E-Article_files/lightable-0.0.1/lightable.css","Fahey.E-Article_files/popper-2.6.0/popper.min.js","Fahey.E-Article_files/table1-1.0/table1_defaults.css","Fahey.E-Article_files/tippy-6.2.7/tippy-bundle.umd.min.js","Fahey.E-Article_files/tippy-6.2.7/tippy-light-border.css","Fahey.E-Article_files/tippy-6.2.7/tippy.css","Fahey.E-Article_files/tippy-6.2.7/tippy.umd.min.js","Fahey.E-Article_files/webcomponents-2.0.0/webcomponents.js","processed_nature.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1436,6 +1436,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_distill-->
   <script src="Fahey.E-Article_files/header-attrs-2.8/header-attrs.js"></script>
   <link href="Fahey.E-Article_files/table1-1.0/table1_defaults.css" rel="stylesheet" />
+  <script src="Fahey.E-Article_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="Fahey.E-Article_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="Fahey.E-Article_files/jquery-1.11.3/jquery.min.js"></script>
   <script src="Fahey.E-Article_files/popper-2.6.0/popper.min.js"></script>
   <link href="Fahey.E-Article_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1484,50 +1486,137 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h2 id="method">Method</h2>
 <p>Participants (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study. Basic demographics are presented in table 1. (AGE AND GENDER). One outlier was removed from the data set for having an age over 1000.</p>
 <p>blah, blah - see below for table of scale distributions</p>
+<p>A distribution of the scales is shown in figure <a href="#fig:plots">1</a></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:plots"></span>
-<img src="Fahey.E-Article_files/figure-html5/plots-1.png" alt="Figure 1: Distribution of Scales." width="768" />
+<img src="Fahey.E-Article_files/figure-html5/plots-1.png" alt="test" width="768" />
 <p class="caption">
-Figure 1: Figure 1: Distribution of Scales.
+Figure 1: test
 </p>
 </div>
 </div>
-<p>A distribution of the scales is shown in figure</p>
+<p>x</p>
 <h2 id="table-of-demographics">Table of Demographics</h2>
 <p>A table of the main demographics can be found here:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Create table data for apa format </span>
-<span class='va'>tab_01</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
-  scale <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"SHS"</span>, <span class='st'>"SWLS"</span>, <span class='st'>"MotHap"</span>, <span class='st'>"MotSad"</span>, <span class='st'>"MotRef"</span><span class='op'>)</span>,
-  Mean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"4.27 (0.76)"</span>, <span class='st'>"4.49 (1.27)"</span>, <span class='st'>"5.13 (1.56)"</span>, 
-           <span class='st'>"4.04 (1.69)"</span>, <span class='st'>"4.73 (1.82)"</span><span class='op'>)</span>,
-  Alpha <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"0.87"</span>, <span class='st'>"0.84"</span>, <span class='st'>"0.90"</span>, <span class='st'>"0.94"</span>, <span class='st'>"0.82"</span><span class='op'>)</span>,
-  Omega <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"0.89"</span>, <span class='st'>"0.88"</span>, <span class='st'>"0.92"</span>, <span class='st'>"0.96"</span>, <span class='st'>"0.83"</span><span class='op'>)</span>, 
-  Coefficient_H <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"0.88"</span>, <span class='st'>"0.87"</span>, <span class='st'>"0.94"</span>, <span class='st'>"0.95"</span>, <span class='st'>"0.85"</span><span class='op'>)</span>
-<span class='op'>)</span>
-
-<span class='co'># apa format of a table </span>
-<span class='fu'>kable</span><span class='op'>(</span>
-  <span class='va'>tab_01</span>,
-  format <span class='op'>=</span> <span class='st'>"latex"</span>,
-  booktabs <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  escape <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  longtable <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Scale"</span>, <span class='st'>"Mean"</span>, <span class='st'>"Alpha"</span>, <span class='st'>"Omega"</span>, <span class='st'>"Coefficient_H"</span><span class='op'>)</span>,
-  align <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"l"</span>, <span class='st'>"c"</span>, <span class='st'>"c"</span>, <span class='st'>"c"</span><span class='op'>)</span>,
-  caption <span class='op'>=</span> <span class='st'>"Means, Standard Deviations and reliabilities of Scales"</span>
-  <span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>row_spec</span><span class='op'>(</span>row <span class='op'>=</span> <span class='fl'>0</span>, align <span class='op'>=</span> <span class='st'>"c"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>kable_styling</span><span class='op'>(</span>full_width <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>footnote</span><span class='op'>(</span>
-    general_title <span class='op'>=</span> <span class='st'>"Note."</span>,
-    general <span class='op'>=</span> <span class='st'>"Standard deviations are in parentheses. SHS = Subjective Happiness Scale; SWLS = Satisfaction with Life Sacle; MotHap = Happy Motivation Scale; MotSad = Sad Motivation Scale; Motref = Refletive Motivation Scale."</span>,
-    threeparttable <span class='op'>=</span> <span class='cn'>TRUE</span>,
-    footnote_as_chunk <span class='op'>=</span> <span class='cn'>TRUE</span>
-    <span class='op'>)</span>
-</code></pre>
-</div>
+<table class="table" style="margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>
+<span id="tab:unnamed-chunk-1">Table 1: </span>Means, Standard Deviations and reliabilities of Scales
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;text-align: center;">
+Scale
+</th>
+<th style="text-align:center;text-align: center;">
+Mean
+</th>
+<th style="text-align:center;text-align: center;">
+Alpha
+</th>
+<th style="text-align:center;text-align: center;">
+Omega
+</th>
+<th style="text-align:center;text-align: center;">
+Coefficient_H
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+SHS
+</td>
+<td style="text-align:center;">
+4.27 (0.76)
+</td>
+<td style="text-align:center;">
+0.87
+</td>
+<td style="text-align:center;">
+0.89
+</td>
+<td style="text-align:center;">
+0.88
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SWLS
+</td>
+<td style="text-align:center;">
+4.49 (1.27)
+</td>
+<td style="text-align:center;">
+0.84
+</td>
+<td style="text-align:center;">
+0.88
+</td>
+<td style="text-align:center;">
+0.87
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MotHap
+</td>
+<td style="text-align:center;">
+5.13 (1.56)
+</td>
+<td style="text-align:center;">
+0.90
+</td>
+<td style="text-align:center;">
+0.92
+</td>
+<td style="text-align:center;">
+0.94
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MotSad
+</td>
+<td style="text-align:center;">
+4.04 (1.69)
+</td>
+<td style="text-align:center;">
+0.94
+</td>
+<td style="text-align:center;">
+0.96
+</td>
+<td style="text-align:center;">
+0.95
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MotRef
+</td>
+<td style="text-align:center;">
+4.73 (1.82)
+</td>
+<td style="text-align:center;">
+0.82
+</td>
+<td style="text-align:center;">
+0.83
+</td>
+<td style="text-align:center;">
+0.85
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">Note.</span> <sup></sup> Standard deviations are in parentheses. SHS = Subjective Happiness Scale; SWLS = Satisfaction with Life Sacle; MotHap = Happy Motivation Scale; MotSad = Sad Motivation Scale; Motref = Refletive Motivation Scale.
+</td>
+</tr>
+</tfoot>
+</table>
 </div>
 <h2 id="correlations">Correlations</h2>
 <div class="layout-chunk" data-layout="l-body">
