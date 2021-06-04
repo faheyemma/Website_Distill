@@ -86,11 +86,11 @@ The current study looks at life satisfaction and happiness scores in relation to
 
 ### Materials
 
-**Happiness** was measured by the measure of subjective happiness scale [@lyubomirsky1999]. This scale consists of 4 items that are rated between 1 and 7. Values of the scale differed for each question. The following statement was provided before commencement "For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you." A mean happiness score for each participant was calculated by summing all items. The full scale can be found in the appendix.
+**Happiness** was measured by the measure of subjective happiness scale [@lyubomirsky1999]. This scale consists of 4 items that are rated between 1 and 7. Values of the scale differed for each question. The following statement was provided before commencement "For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you." A mean happiness score for each participant was calculated by summing all items. The full scale can be found in the appendix \@ref(shs)
 
-**Life Satisfaction** was assessed using the Satisfaction with Life Scale (SWLS) [@diener1985]. Participants responded to a likert 7-point scale. The items were preceded by the statement: "Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding." The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items. The full scale can be found in the appendix.
+**Life Satisfaction** was assessed using the Satisfaction with Life Scale (SWLS) [@diener1985]. Participants responded to a likert 7-point scale. The items were preceded by the statement: "Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding." The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items. The full scale can be found in the appendix \@ref(swls)
 
-**Motivations to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items) motivations. Items were grouped into the above categories and a sum score was calculated for each category. The full scale can be found in the appendix.
+**Motivations to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items) motivations. Items were grouped into the above categories and a sum score was calculated for each category. The full scale can be found in the appendix \@ref(mot)
 
 **Scale Statistics**
 
@@ -322,54 +322,6 @@ Future research could test the scale with different populations and age ranges t
 
 ## Appendix
 
-```{r appendix play, include=FALSE}
-
-# HAVE A LOOK AT THIS
-
-#appendix = TRUE on certain code chunks, and ref.label = knitr::all_labels(appendix == TRUE)
-
-```
-
-**Subjective Happiness Scale**
-
-For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you.
-
-1.  In general, I consider myself: 1 (not a very happy person) to 7 (a very happy person)
-2.  Compared with most of my peers, I consider myself: 1 (less happy) to 7 (more happy)
-3.  Some people are generally very happy. They enjoy life regardless of what is going on, getting the most out of everything. To what extent does this characterization describe you? 1 (not at all) to 7 (a great deal)
-4.  Some people are generally not very happy. Although they are not depressed, they never seem as happy as they might be. To what extent does this characterization describe you? 1 (not at all) to 7 (a great deal)
-
-**Satisfaction with Life Scale**
-
-Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding. 
-
-Scale from 1 (strongly disagree) to 7 (strongly agree).
-
-1.  In most ways my life is close to ideal.
-2.  The conditions of my life are excellent.
-3.  I am satisfied with my life.
-4.  So far I have gotten the important things I want in life.
-5.  If I could live my life over, I would change almost nothing.
-
-**Reasons to visit a place scale**
-
-How important are the following situations as reasons to visit the place in the photo? (Rating scale from 1 (not at all) to 7 (very important))
-
-1.  When sad
-2.  When depressed
-3.  Someone has left/rejected me
-4.  After having an argument with someone
-5.  Having had setbacks
-6.  When insecure about myself
-7.  When angry
-8.  When happy
-9.  When everything is going well
-10. When in a good mood
-11. When feeling powerful
-12. When wanting to be alone
-13. When wanting to reflect
-14. When wanting to meditate
-
 Items are grouped into the following three categories and then sum scored within their category. Happy or well (items 8-11), Alone or reflective (items 12-14), Sad or depressed (items 1-7).
 
 The exploratory graph analysis (EGA) in appendix \@ref(fig:appen1) presents items from the motivations to visit a place scale as three separate constructs.
@@ -422,3 +374,43 @@ semPlot::semPaths(sem_res_strap, "est",
 papaja::r_refs("r-references.bib")
 
 ```
+
+### **Subjective Happiness Scale** {#shs}
+
+For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you.
+
+1.  In general, I consider myself: 1 (not a very happy person) to 7 (a very happy person)
+2.  Compared with most of my peers, I consider myself: 1 (less happy) to 7 (more happy)
+3.  Some people are generally very happy. They enjoy life regardless of what is going on, getting the most out of everything. To what extent does this characterization describe you? 1 (not at all) to 7 (a great deal)
+4.  Some people are generally not very happy. Although they are not depressed, they never seem as happy as they might be. To what extent does this characterization describe you? 1 (not at all) to 7 (a great deal)
+
+### **Satisfaction with Life Scale** {#swls}
+
+Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding. 
+
+Scale from 1 (strongly disagree) to 7 (strongly agree).
+
+1.  In most ways my life is close to ideal.
+2.  The conditions of my life are excellent.
+3.  I am satisfied with my life.
+4.  So far I have gotten the important things I want in life.
+5.  If I could live my life over, I would change almost nothing.
+
+### **Motivations to visit a place scale** {#mot}
+
+How important are the following situations as reasons to visit the place in the photo? (Rating scale from 1 (not at all) to 7 (very important))
+
+1.  When sad
+2.  When depressed
+3.  Someone has left/rejected me
+4.  After having an argument with someone
+5.  Having had setbacks
+6.  When insecure about myself
+7.  When angry
+8.  When happy
+9.  When everything is going well
+10. When in a good mood
+11. When feeling powerful
+12. When wanting to be alone
+13. When wanting to reflect
+14. When wanting to meditate
