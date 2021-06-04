@@ -94,7 +94,7 @@ The current study looks at life satisfaction and happiness scores in relation to
 
 **Scale Statistics**
 
-The spread of responses to each scale are shown in figure \@ref(fig:plots). This allows us to check if scale distribution is normal to fit the assumptions of the structural equation model.  
+The spread of responses to each scale are shown in fig \@ref(fig:plots). This allows us to check if scale distribution is normal to fit the assumptions of the structural equation model.  
 
 ```{r descriptives, include=FALSE}
 
@@ -125,11 +125,9 @@ p4 <-
 p5 <- 
   qplot(df$motref, geom = "histogram") + labs(title = "Reflective Motivation") + xlab("motref")
 
-p1 + p2 + p3 + p4 + p5
-
 ```
 
-```{r plots, echo=FALSE, fig.cap= "Distribution of Scales"}
+```{r plots, echo=FALSE, fig.cap= "Distribution of scales in present study"}
 plot(p1 + p2 + p3 + p4 + p5)
 ```
 
@@ -153,7 +151,7 @@ print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
 
 ```
 
-The main descriptive statistics for each scale can be found in table 1.  
+The main descriptive statistics for each scale can be found in table 1 below:  
 
 ```{r, echo=FALSE, results='asis'}
 
@@ -180,26 +178,26 @@ kable(
   longtable = TRUE,
   col.names = c("Scale", "Mean(SD)", "Alpha", "Omega", "Coefficient_H"),
   align = c("l", "c", "c", "c", "c"),
-  caption = "Means, Standard Deviations and reliabilities of Scales"
+  caption = "Descriptive statistics and reliabilities of present study scales, N = 302"
   ) %>%
   row_spec(row = 0, align = "c") %>%
   kable_styling(full_width = TRUE) %>%
   footnote(
     general_title = "Note.",
-    general = "Standard deviations are in parentheses. SHS = Subjective Happiness Scale; SWLS = Satisfaction with Life Sacle; MotHap = Happy Motivation Scale; MotSad = Sad Motivation Scale; Motref = Refletive Motivation Scale.",
+    general = "Standard deviations are in parentheses. SHS = Subjective Happiness Scale; SWLS = Satisfaction with Life Sacle; MotHap = Happy Motivation Subscale; MotSad = Sad Motivation Subscale; Motref = Refletive Motivation Subscale.",
     threeparttable = TRUE,
     footnote_as_chunk = TRUE
     )
 
 ```
 
-The main descriptive statistics for each scale can be found in table 1. Multiple reliability tests were run to determine the scales alpha, omega and coefficient H. This is because the alpha reliability alone assumes scales are uni-dimensional and normally distributed. Items in each reasons to visit a place subscale were not shown to be normally distributed in figure \@ref(fig:plots) above.
+The main descriptive statistics for each scale can be found in table 1. Multiple reliability tests were run to determine the scales alpha, omega and coefficient H. This is because the alpha reliability alone assumes scales are uni-dimensional and normally distributed. Items in each reasons to visit a place subscale were not shown to be normally distributed in fig \@ref(fig:plots) above.
 
 The initial use of the reasons to visit a place scale had comparable reliability, with cronbach's alpha being reported as 0.93 for sad motivation, 0.87 for happy motivation and 0.8 for alone motivation subscales [@korpela2020].  
 
 ### Networks
 
-A network graph, shown in figure \@ref(fig:net1) is used to display the connectedness of the scales used in the current study. As expected, life satisfaction and happiness form a connection. The three subscales of reasons to visit a place form a strong connection.  
+A network graph, shown in fig \@ref(fig:net1) is used to display the connectedness of the scales used in the current study. As expected, life satisfaction and happiness form a connection. The three subscales of reasons to visit a place form a strong connection.  
 
 ```{r net1, echo=FALSE, fig.cap= "Network Graph"}
 # creating a network map of scale items 
@@ -209,7 +207,7 @@ owl <- qgraph::qgraph(network1$graph, layout = "spring")
 
 ```
 
-The exploratory graph analysis in figure \@ref(fig:networks) shows that life satisfaction and happiness are still separate constructs, but that the three subscales of reasons to visit a place may be measuring only one construct. To ensure the new reasons to visit a place subscale were measuring three separate constructs, a second exploratory graph analysis is run (see appendix \@ref(fig:appen1)). This shows that the subscales are connected, yet independent constructs. A network graph is also run for the new subscales to ensure that items selected to mean happy, sad, and reflective are most connected to each other. This was found to be accurate (see appendix \@ref(fig:appen2)).
+The exploratory graph analysis in fig \@ref(fig:networks) shows that life satisfaction and happiness are still separate constructs, but that the three subscales of reasons to visit a place may be measuring only one construct. To ensure the new reasons to visit a place subscale were measuring three separate constructs, a second exploratory graph analysis is run (see appendix \@ref(fig:appen1)). This shows that the subscales are connected, yet independent constructs. A network graph is also run for the new subscales to ensure that items selected to mean happy, sad, and reflective are most connected to each other. This was found to be accurate (see appendix \@ref(fig:appen2)).
 
 ```{r networks, echo=FALSE, fig.cap= "EGA Graph"}
 
@@ -221,7 +219,7 @@ ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), layou
 
 ### Correlation Analysis
 
-Figure \@ref(fig:corr) depicts correlations between scales. All correlations are run with Holm adjustment, this reduces the possiblilty of a statistically significant result, or type 1 error when performing multiple tests. This correction is more statistically powerful than a Bonferroni adjustment (ADD CITE ONCE SYNCHED).
+Fig \@ref(fig:corr) depicts correlations between scales. All correlations are run with Holm adjustment, this reduces the possiblilty of a statistically significant result, or type 1 error when performing multiple tests. This correction is more statistically powerful than a Bonferroni adjustment (ADD CITE ONCE SYNCHED).
 
 ```{r corr, echo=FALSE, fig.cap= "Correlation Plot of Scales"}
 
@@ -247,16 +245,21 @@ sem_res_strap <- sem(mdl_sem, df2, se = "bootstrap", estimator = "ML")  # this i
 
 ```
 
-```{r modsel, echo=FALSE, fig.cap= "Structural Equation Model"}
+```{r modsel, echo=FALSE, fig.cap= "Conceptual structural equation model of the present study"}
 
 # path model of the equation
 semPaths(sem_res_strap, layout = "tree") 
 
 ```
 
-A structural equation model (figure \@ref(fig:modsel)) is run in this study to analyse reasons to visit a meaningful place against life satisfaction and happiness. The (ML) is employed, which presumes multivariate normality of the variables. As stated previously and depicted in figure \@ref(fig:plots), the motivations to visit a place subscales were not normally distributed, so a bootstrap adjustment was fitted to the model. This runs the same analysis 1,000 times to get an average which creates more reliable and robust results, particularly when considering non-normality.  
+A structural equation model (fig \@ref(fig:modsel)) is run in this study to analyse reasons to visit a meaningful place against life satisfaction and happiness. The (ML) is employed, which presumes multivariate normality of the variables. As stated previously and depicted in fig \@ref(fig:plots), the motivations to visit a place subscales were not normally distributed, so a bootstrap adjustment was fitted to the model. This runs the same analysis 1,000 times to get an average which creates more reliable and robust results, particularly when considering non-normality.  
 
 ## Results
+
+The structural equation model (SEM) is fully saturated (CFI = 1) in the initial model. A second model is run to determine if fit differs by gender. The fit does not differ across the two models (CFI = 1 for both). This implies that gender does not impact the model. Regression paths are identical between groups, therefore the model can be confidently collapsed together. 
+
+Table 2 shows the regression estimate paths of each variable. Only one path is significant, between happiness and happy motivation to visit a place (B = 0.139, *p*=0.010). Life satisfaction and happy motivation to visit a place is near significant (B = 0.104, *p*=0.070), this is likely due to the correlation between happiness and life satisfaction shown in fig \@ref(fig:corr). 
+
 
 ```{r basic model code, include=FALSE}
 
@@ -281,6 +284,7 @@ summary(sem_res_mtr, standardize = T, fit = T)
 
 ```
 
+*Table 2*
 ```{r results table, echo=FALSE}
 # to report the above model. FOR RESULTS
 
@@ -289,15 +293,20 @@ parameterestimates(sem_res_strap) %>%
   mutate(B = paste0(round(est,3), "[", round(ci.lower, 3), ", ", round(ci.upper, 3), "]")) %>%
   select(., lhs, rhs, B, pvalue) %>%
   rename(., Outcome = lhs, Predictor = rhs, p = pvalue) %>%
-  papaja::apa_table(.)
+  papaja::apa_table(.,
+                    caption = "Structural equation model results, N = 302",
+                    note = "swls = Life Satisfaction; shs = Happiness; motsad = Sad motivation subscale; mothap = Happy motivation subscale; motref = Reflective motivation subscale")
 
 ```
-
 
 
 ## Discussion
 
 Enter here.
+
+
+
+
 
 ### Limitations and Future Research
 
