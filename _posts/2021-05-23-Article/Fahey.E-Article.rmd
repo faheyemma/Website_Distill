@@ -213,7 +213,7 @@ The exploratory graph analysis in figure \@ref(fig:networks) shows that life sat
 
 ```{r networks, echo=FALSE, fig.cap= "EGA Graph"}
 
-ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), iter = 1000)
+ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), layout = "spring", iter = 1000)
 
 # the above shows us that life satisfaction and happiness are independent constructs. 
 
@@ -234,6 +234,19 @@ Life satisfaction and happiness correlate significantly. All three reasons for v
 
 ### Model Selection
 
+```{r semresmodelcode, include=FALSE}
+
+library(lavaan)
+
+# SEM to test hypoth
+
+mdl_sem <- 'swls ~ motsad + mothap + motref
+	shs ~ motsad + mothap + motref' # this is the model 
+
+sem_res_strap <- sem(mdl_sem, df2, se = "bootstrap", estimator = "ML")  # this is running a bootstrap version of the above model. 
+
+```
+
 ```{r modsel, echo=FALSE, fig.cap= "Structural Equation Model"}
 
 # path model of the equation
@@ -245,23 +258,12 @@ A structural equation model (figure \@ref(fig:modsel)) is run in this study to a
 
 ## Results
 
-
-
-
 ```{r basic model code, include=FALSE}
-library(lavaan)
 
-# SEM to test hypoth
+# first run of the SEM model
+summary(sem_res_strap, standardize = T, fit = T) #this reports the model in a readable format 
 
-mdl_sem <- 'swls ~ motsad + mothap + motref
-	shs ~ motsad + mothap + motref' # this is the model 
-
-sem_res_strap <- sem(mdl_sem, df2, se = "bootstrap", estimator = "ML")  # this is running a bootstrap version of the above model. 
-
-summary(sem_res_strap, standardize = T, fit = T) #this reports the model in a readable format  
-
-
-# second one - this sees if the model differs per gender. 
+# second run of SEM model to see if the model differs per gender. 
 	
 sem_res_1 <- sem(mdl_sem, filter(df2, gender_code %in% c("male", "female")), estimator = "ML", group = "gender_code", se = "bootstrap") 
 sem_res_mtr <- sem(mdl_sem, filter(df2, gender_code %in% c("male", "female")), estimator = "ML", group = "gender_code", group.equal = "regressions", se = "bootstrap")
@@ -279,14 +281,107 @@ summary(sem_res_mtr, standardize = T, fit = T)
 
 ```
 
-Results are depicted in figure \@ref(fig:resdep)
+```{r results table, echo=FALSE}
+# to report the above model. FOR RESULTS
 
+parameterestimates(sem_res_strap) %>%
+  filter(., op == "~") %>%
+  mutate(B = paste0(round(est,3), "[", round(ci.lower, 3), ", ", round(ci.upper, 3), "]")) %>%
+  select(., lhs, rhs, B, pvalue) %>%
+  rename(., Outcome = lhs, Predictor = rhs, p = pvalue) %>%
+  papaja::apa_table(.)
+
+```
+
+
+
+## Discussion
+
+Enter here.
+
+### Limitations and Future Research
+
+Enter here from word.
+
+## Appendix
+
+**Subjective Happiness Scale**
+
+For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you.
+
+1.  In general, I consider myself: 1 (not a very happy person) to 7 (a very happy person)
+2.  Compared with most of my peers, I consider myself: 1 (less happy) to 7 (more happy)
+3.  Some people are generally very happy. They enjoy life regardless of what is going on, getting the most out of everything. To what extent does this characterization describe you? 1 (not at all) to 7 (a great deal)
+4.  Some people are generally not very happy. Although they are not depressed, they never seem as happy as they might be. To what extent does this characterization describe you? 1 (not at all) to 7 (a great deal)
+
+**Satisfaction with Life Scale**
+
+Below are
+five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding. 
+
+Scale from 1 (strongly disagree) to 7 (strongly agree).
+
+1.  In most ways my life is close to ideal.
+2.  The conditions of my life are excellent.
+3.  I am satisfied with my life.
+4.  So far I have gotten the important things I want in life.
+5.  If I could live my life over, I would change almost nothing.
+
+**Reasons to visit a place scale**
+
+How important are the following situations as reasons to visit the place in the
+photo? (Rating scale from 1 (not at all) to 7 (very important))
+
+1.  When sad
+2.  When depressed
+3.  Someone has left/rejected me
+4.  After having an argument with someone
+5.  Having had setbacks
+6.  When insecure about myself
+7.  When angry
+8.  When happy
+9.  When everything is going well
+10. When in a good mood
+11. When feeling powerful
+12. When wanting to be alone
+13. When wanting to reflect
+14. When wanting to meditate
+
+Items are grouped into the following three categories and then sum scored within their category. Happy or well (items 8-11), Alone or reflective (items 12-14), Sad or depressed (items 1-7).
+
+The exploratory graph analysis (EGA) in appendix \@ref(fig:appen1) presents items from the reason to visit a place scale as three separate constructs.
+
+```{r appen1, echo=FALSE, fig.cap= "Subscale EGA"}
+
+library(dplyr)
+
+df10 <- df %>%
+  select(age_clean, gender_code, importance_1, importance_2, importance_3, importance_4, importance_5, importance_6, importance_7, importance_8, importance_9, importance_10, importance_11, importance_12, importance_13, importance_14, motsad, mothap, motref)
+
+ega3 <- EGAnet::bootEGA(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), iter = 1000)
+# the above shows us that there are 3 clear independent constructs for motivation.  
+
+```
+
+The network distribution graph in appendix \@ref(fig:appen2) shows the item correlations of the reasons to visit a place scale. The purpose of this was to see if there were three main groups found to allow for three sub-scales to be created.
+
+```{r appen2, echo=FALSE, fig.cap= "Subscale Network Graph"}
+
+# creating a network map of scale items 
+network3 <- bootnet::estimateNetwork(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), "EBICglasso")
+owl <- qgraph::qgraph(network3$graph, layout = "spring")
+ 
+
+```
+
+###Binned code 
+
+Results are depicted in figure \@ref(fig:resdep)
 
 ```{r resdep, echo=FALSE, fig.cap= "Structural Equation Path Model with Results"}
 
-
 # add to results - to interpret!! 
-semPlot::semPaths(sem_res_strap, "std",
+semPlot::semPaths(sem_res_strap, "est",
                   layout = "spring",
                   exoVar = FALSE,
                   exoCov = FALSE,
@@ -301,42 +396,7 @@ semPlot::semPaths(sem_res_strap, "std",
 # semPlot::semCors(sem_res_strap, include = "observed")
 
 
-
-```
-
-## Discussion
-
-Enter here.
-
-### Limitations and Future Research
-
-Enter here from word.
-
-
-## Appendix
-
-Scales
-
-Figure play: A distribution of the scales is shown in figure \@ref(fig:appen1)
-
-```{r appen1, echo=FALSE, fig.cap= "Subscale EGA"}
-
-library(dplyr)
-
-df10 <- df %>%
-  select(age_clean, gender_code, importance_1, importance_2, importance_3, importance_4, importance_5, importance_6, importance_7, importance_8, importance_9, importance_10, importance_11, importance_12, importance_13, importance_14, motsad, mothap, motref)
-
-ega3 <- EGAnet::bootEGA(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), iter = 1000)
-# the above shows us that there are 3 clear independent constructs for motivation.  
-
-```
-
-```{r appen2, echo=FALSE, fig.cap= "Subscale Network Graph"}
-
-# creating a network map of scale items 
-network3 <- bootnet::estimateNetwork(select(df10, -age_clean, -gender_code, -motsad, -mothap, -motref), "EBICglasso")
-owl <- qgraph::qgraph(network3$graph, layout = "spring")
- 
+# DO A TABLE INSTEAD - TO REPORT all the estimates and p-values. 
 
 ```
 
@@ -350,5 +410,3 @@ owl <- qgraph::qgraph(network3$graph, layout = "spring")
 report::cite_packages()
 
 ```
-
-## References
