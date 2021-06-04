@@ -86,11 +86,11 @@ The current study looks at life satisfaction and happiness scores in relation to
 
 ### Materials
 
-**Happiness** was measured by the measure of subjective happiness scale [@lyubomirsky1999]. This scale consists of 4 items that are rated between 1 and 7. Values of the scale differed for each question. The following statement was provided before commencement "For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you." A mean happiness score for each participant was calculated by summing all items. The full scale can be found in the appendix \@ref(shs)
+**Happiness** was measured by the measure of subjective happiness scale [@lyubomirsky1999]. This scale consists of 4 items that are rated between 1 and 7. Values of the scale differed for each question. The following statement was provided before commencement "For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you." A mean happiness score for each participant was calculated by summing all items (the full scale can be found in the [appendix \@ref(shs)]).
 
-**Life Satisfaction** was assessed using the Satisfaction with Life Scale (SWLS) [@diener1985]. Participants responded to a likert 7-point scale. The items were preceded by the statement: "Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding." The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items. The full scale can be found in the appendix \@ref(swls)
+**Life Satisfaction** was assessed using the Satisfaction with Life Scale (SWLS) [@diener1985]. Participants responded to a likert 7-point scale. The items were preceded by the statement: "Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding." The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items (the full scale can be found in the [appendix \@ref(swls)]).
 
-**Motivations to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items) motivations. Items were grouped into the above categories and a sum score was calculated for each category. The full scale can be found in the appendix \@ref(mot)
+**Motivations to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items) motivations. Items were grouped into the above categories and a sum score was calculated for each category (the full scale can be found in the [appendix \@ref(mot)]).
 
 **Scale Statistics**
 
@@ -221,8 +221,6 @@ ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), layou
 
 Fig \@ref(fig:corr) depicts correlations between scales. All correlations are run with Holm adjustment, this reduces the possiblilty of a statistically significant result, or type 1 error when performing multiple tests. This correction is more statistically powerful than a Bonferroni adjustment
 
-(ADD CITE ONCE SYNCHED).
-
 Life satisfaction and happiness correlate significantly. All three motivations for visiting a place correlate significantly, with reflective and sad being the strongest. These results are comparable with those of @korpela2020 that found sad and reflective to correlate at 0.68, sad and happy to correlate at 0.32, and reflective and happy to correlate 0.35.
 
 ```{r corr, echo=FALSE, fig.cap= "Correlation plot of scales in current study"}
@@ -300,25 +298,26 @@ parameterestimates(sem_res_strap) %>%
 
 ## Discussion
 
-The aim of the current study was to see if motivations to visit a meaningful place could predict subjective wellbeing. I found partial support for the first hypothesis, that the motivation to visit a meaningful place in a positive mood does relate to higher subjective wellbeing scores. This was supported by positive and statistically significant paths between subjective happiness scores and happy motivations to visit a meaningful place. There was also some support for the converse of this, with sad motivations to visit a meaningful place having negative paths to both subjective wellbeing measures, however these were not significant.
+The aim of the current study was to see if motivations to visit a meaningful place could predict subjective wellbeing. I found partial support for the first hypothesis, that motivation to visit a meaningful place in a positive mood relates to higher subjective wellbeing scores. This was supported by positive and statistically significant paths between subjective happiness scores and happy motivations to visit a meaningful place. There was also some support for the converse of this, with sad motivations to visit a meaningful place having negative paths to both subjective wellbeing measures, however these were not significant.
 
-Support was not found for hypothesis two, as life satisfaction was positively associated with happy and reflective reasons, and negatively with sad reasons. None of these paths were significant. This does not support @korpela2020 study.
+Support was not found for hypothesis two, as life satisfaction was positively associated with happy and reflective motivations, and negatively with sad motivations. None of these paths were significant. This does not support @korpela2020's study which found life satisfaction to be positively associated with sad and happy motivations, but negatively with reflective motivations.
 
 **Implications**
 
-Findings from the current study can be extrapolated to wider research in emotion regulation and place attachment.... Inferences can be made that it seems to be about knowing what makes you happy, or going to meaningful place for a happy reason, not a sad or reflective one that has an impact on your subjective wellbeing.
-
-This does support the notion that we have an attachment to places and that they can influence our wellbeing, which supports the topophilia hypothesis (CITE).
+Findings from the current study can be extrapolated to wider research in emotion regulation and place attachment. Inferences can be made that it seems to be about knowing what makes you happy, or going to meaningful place for a happy reason, not a sad or reflective one that has an impact on your subjective wellbeing. This supports ideas that places can have restorative properties [@scannell2017;@ulrich1981], as we seek them when happy. The topophilia hypothesis [@tuan1990] is also supported, as the current study finds attachment to places and those places are influencing our wellbeing.
 
 **Limitations and Future Research**
 
-This research is reliant on participants identification of a meaningful place. As a university sample was used to collect data, there is a fear that answers may not have been accurate, and that there may have been participant response bias (CITE).   ALSO SELF REPORT BIAS.
+The current study is reliant on participants identification of a meaningful place. As a university sample was used to collect data, there is a fear that answers may not have been accurate, and that there may have been participant response bias CITEEEEE (van de Mortel, 2008). A study of 17-to-25 year olds found that wellbeing varies significantly with age and gender [@lópez-madrigal2021a] This may create another limitation of the current study, particularly as the SEM was run on different genders. The results of this study do not reflect wider cultural or age demographics and should be interpreted with caution if generalising across these areas.   
 
-A study of 17-to-25 year olds found that wellbeing varies significantly with age and gender @lópez-madrigal2021. This may create another limitation of the current study, particularly as the SEM was run on different genders.  
+Finally, the current study includes a scale that has not been widely tested on different populations and age groups. It was initially created for the public of Finland and Hungary and has now been tested on an undergraduate population of New Zealand. The results if the current study did not directly replicate those of @korpela2020a, implying that there may be cultural or generational influences affecting the results. It could also be that thinking of a favourite place (as per @korpela2020a) is significantly different to thinking of a meaningful place in the current study. The differences between favourite and meaningful places and their
+individual impact on subjective wellbeing is an area for future research.
 
-Finally, the current study includes a scale that has not been widely tested on different populations and age groups. It was initially created for the public of Finland and Hungary and has now been tested on an undergraduate population of New Zealand. The results of this study do not reflect wider cultural or age demographics and should be interpreted with caution if generalising across these areas.   
+Future research could also test the ideas of meaningful places more empirically (rather than through self-report scales), with open text data or neuroimaging (as per @gatersleben2020) to look at illicit responses when visiting and using meaningful spaces. Further quantification of meaningful places and what they mean to and for us and measuring more than one place and more than two levels of subjective wellbeing could also be explored.
 
-Future research could test the scale with different populations and age ranges to improve its scope and generalisability. The ideas of meaningful places should also be tested more empirically (rather than self-report scales) in the future, with open text data or neuroimaging when visiting meaningful places, or stress responses for example. Further quantification of meaningful places and what they mean to and for us and measuring more than one place and more than two levels of subjective wellbeing should also be explored.
+**Conclusion**
+
+Places it seems are always going to be important to us, and with restrictions from them during COVID-19, it is important to quantify how they can interact with our emotion regulation, stress responses, and coping. The current study gives support to the idea that if you seek out a meaningful place when feeling happy, your subjective wellbeing is greater overall.   
 
 ## Appendix
 
