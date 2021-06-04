@@ -8,9 +8,7 @@ date: "06/04/2021"
 output:
   distill::distill_article:
     self_contained: false
-bibliography: 
-  - references.bib
-  - r-references.bib
+bibliography: [r-references.bib]
 ---
 
 ```{r setup, include=FALSE}
@@ -84,7 +82,7 @@ The current study looks at life satisfaction and happiness scores in relation to
 
 **Participants** (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study. The mean age of participants was 19.45 (SD = 4.46, Min = 17, Max = 69). The majority of participants were female (245, 80.8%), followed by male (47, 15.5%) and non-binary (1%), 8 participants did not supply a gender (2.6%). One outlier was removed from the data set for having an age over 1000.  
 
-**Procedure.** Participants took part in the survey online through Qualtrics. The survey was broken into two sections. Part one contained the upload of a meaningful image to the participant. This was followed by open-field questions to determine the meaning of the place and two scales to determine the places importance and situational meaning. The second part of the survey included self-measures for nature connectedness and a variety of wellbeing measures. The survey took approximately 30 minutes to complete, and participants could withdraw at any time. Only the three scales described below will be used in the current report.   
+**Procedure.** Participants took part in the survey online through Qualtrics. The survey was broken into two sections. Part one contained the upload of a meaningful image to the participant. This was followed by open-field questions to determine the meaning of the place and two scales to determine the places importance and situational meaning. The second part of the survey included self-measures for nature connectedness and a variety of wellbeing measures. The survey took approximately 30 minutes to complete, and participants could withdraw at any time. Only the three scales described below will be used in the current report. For our analysis we used `r papaja::cite_r("r-references.bib", footnote = T)`
 
 ### Materials
 
@@ -155,6 +153,8 @@ print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
 
 The main descriptive statistics for each scale can be found in table 1. Multiple reliability tests were run to determine the scales alpha, omega and coefficient H. This is because the alpha reliability alone assumes scales are uni-dimensional and normally distributed. Items in each motivations to visit a place subscale were not shown to be normally distributed in fig \@ref(fig:plots) above.  
 
+**Table 1**
+
 ```{r, echo=FALSE, results='asis'}
 
 # Create table data for apa format 
@@ -186,7 +186,7 @@ kable(
   kable_styling(full_width = TRUE) %>%
   footnote(
     general_title = "Note.",
-    general = "Standard deviations are in parentheses. SHS = Subjective Happiness Scale; SWLS = Satisfaction with Life Sacle; MotHap = Happy Motivation Subscale; MotSad = Sad Motivation Subscale; Motref = Refletive Motivation Subscale.",
+    general = "SHS = Subjective Happiness Scale; SWLS = Satisfaction with Life Sacle; MotHap = Happy Motivation Subscale; MotSad = Sad Motivation Subscale; Motref = Refletive Motivation Subscale.",
     threeparttable = TRUE,
     footnote_as_chunk = TRUE
     )
@@ -199,7 +199,7 @@ The initial use of the motivations to visit a place scale had comparable reliabi
 
 A network graph, shown in fig \@ref(fig:net1) is used to display the connectedness of the scales used in the current study. As expected, life satisfaction and happiness form a connection. The three subscales of motivations to visit a place form a strong connection.  
 
-```{r net1, echo=FALSE, fig.cap= "Network Graph"}
+```{r net1, echo=FALSE, fig.cap= "Network graph of the current studies scales"}
 # creating a network map of scale items 
 network1 <- bootnet::estimateNetwork(select(df2, -age_clean, -gender_code, -shs, -swls), "EBICglasso")
 owl <- qgraph::qgraph(network1$graph, layout = "spring")
@@ -207,9 +207,9 @@ owl <- qgraph::qgraph(network1$graph, layout = "spring")
 
 ```
 
-The exploratory graph analysis in fig \@ref(fig:networks) shows that life satisfaction and happiness are still separate constructs, but that the three subscales of reasons to visit a place may be measuring only one construct. To ensure the new motivations to visit a place subscales were measuring three separate constructs, a second exploratory graph analysis is run (see appendix \@ref(fig:appen1)). This shows that the subscales are connected, yet independent constructs. A network graph is also run for the new subscales to ensure that items selected to mean happy, sad, and reflective are most connected to each other. This was found to be accurate (see appendix \@ref(fig:appen2)).
+The exploratory graph analysis (EGA) in fig \@ref(fig:networks) shows that life satisfaction and happiness are still separate constructs, but that the three subscales of reasons to visit a place may be measuring only one construct. To ensure the new motivations to visit a place subscales were measuring three separate constructs, a second exploratory graph analysis is run (see appendix \@ref(fig:appen1)). This shows that the subscales are connected, yet independent constructs. A network graph is also run for the new subscales to ensure that items selected to mean happy, sad, and reflective are most connected to each other. This was found to be accurate (see appendix \@ref(fig:appen2)).
 
-```{r networks, echo=FALSE, fig.cap= "EGA Graph"}
+```{r networks, echo=FALSE, fig.cap= "EGA graph of current studies scales showing three seperate constructs"}
 
 ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), layout = "spring", iter = 1000)
 
@@ -219,16 +219,18 @@ ega <- EGAnet::bootEGA(select(df2, -age_clean, -gender_code, -shs, -swls), layou
 
 ### Correlation Analysis
 
-Fig \@ref(fig:corr) depicts correlations between scales. All correlations are run with Holm adjustment, this reduces the possiblilty of a statistically significant result, or type 1 error when performing multiple tests. This correction is more statistically powerful than a Bonferroni adjustment (ADD CITE ONCE SYNCHED).
+Fig \@ref(fig:corr) depicts correlations between scales. All correlations are run with Holm adjustment, this reduces the possiblilty of a statistically significant result, or type 1 error when performing multiple tests. This correction is more statistically powerful than a Bonferroni adjustment
 
-```{r corr, echo=FALSE, fig.cap= "Correlation Plot of Scales"}
+(ADD CITE ONCE SYNCHED).
+
+Life satisfaction and happiness correlate significantly. All three motivations for visiting a place correlate significantly, with reflective and sad being the strongest. These results are comparable with those of @korpela2020 that found sad and reflective to correlate at 0.68, sad and happy to correlate at 0.32, and reflective and happy to correlate 0.35.
+
+```{r corr, echo=FALSE, fig.cap= "Correlation plot of scales in current study"}
 
 ggstatsplot::ggcorrmat(df, c("age_clean", "swls", "shs", "motsad", "mothap", "motref"), 
                        cor.vars.names = c("age", "Life Satisfaction", "Happiness", "Sad Motivation", "Happy Motivation", "Reflective Motivation"))
 
 ```
-
-Life satisfaction and happiness correlate significantly. All three motivations for visiting a place correlate, with reflective and sad being the strongest. These results are comparable with those of @korpela2020 that found sad and reflective to correlate at 0.68, sad and happy to correlate at 0.32, and reflective and happy to correlate 0.35.   
 
 ### Model Selection
 
@@ -245,7 +247,7 @@ sem_res_strap <- sem(mdl_sem, df2, se = "bootstrap", estimator = "ML")  # this i
 
 ```
 
-```{r modsel, echo=FALSE, fig.cap= "Conceptual structural equation model of the present study"}
+```{r modsel, echo=FALSE, fig.cap= "Conceptual structural equation model of the present study. mts = sad motivation subscale; mth = happy motivation subscale; mtr = reflective motivation subscale; swl = satisfaction with life scale; shs = subjective happiness scale"}
 
 # path model of the equation
 semPaths(sem_res_strap, layout = "tree") 
@@ -258,7 +260,7 @@ A structural equation model (SEM) (fig \@ref(fig:modsel)) is run in this study t
 
 The structural equation model (SEM) is fully saturated (CFI = 1). Therefore, a second model to determine if model fit differs by gender is run. Regression paths are identical between groups (CFI = 1 for both), which implies that gender does not impact the model. This allows the model to be confidently collapsed together.
 
-The main model is depicted in table 2 and shows that only happy motivations to visit and happiness scores were significant (B = 0.139, *p*=0.010). However, happy motivation and life satisfaction scores were near significance (B = 0.104, *p*=0.070), this is likely due to the correlation between happiness and life satisfaction. Reflective motivations to visit a place on subjective wellbeing were non-significant but positive (B = 0.033 - 0.043), whereas sad motivations for visiting a meaningful place on subjective wellbeing were non-significant and negative (B = -0.065 - -0.067).
+The main model is depicted in table 2 and shows that only happy motivations to visit and happiness scores were significant (B = 0.139, *p*=0.010). However, happy motivation and life satisfaction scores were near significance (B = 0.104, *p*=0.070), this is likely due to the correlation between happiness and life satisfaction. Reflective motivations to visit a place on subjective wellbeing were non-significant but positive (B = 0.033 - 0.043), whereas sad motivations for visiting a meaningful place on subjective wellbeing were non-significant and negative (B = -0.065 - -0.067). A model depiction of the results can be found in appendix \@ref(fig:resdep).
 
 ```{r basic model code, include=FALSE}
 
@@ -283,10 +285,7 @@ summary(sem_res_mtr, standardize = T, fit = T)
 
 ```
 
-**Table 2**
-
-```{r results table, echo=FALSE}
-# to report the above model. FOR RESULTS
+```{r rtab, echo=FALSE}
 
 parameterestimates(sem_res_strap) %>%
   filter(., op == "~") %>%
@@ -295,7 +294,7 @@ parameterestimates(sem_res_strap) %>%
   rename(., Outcome = lhs, Predictor = rhs, p = pvalue) %>%
   papaja::apa_table(.,
                     caption = "Structural equation model results, N = 302",
-                    note = "swls = Life Satisfaction; shs = Happiness; motsad = Sad motivation subscale; mothap = Happy motivation subscale; motref = Reflective motivation subscale")
+                    note = "swls = life satisfaction scale; shs = happiness scale; motsad = sad motivation subscale; mothap = happy motivation subscale; motref = reflective motivation subscale")
 
 ```
 
@@ -384,11 +383,9 @@ owl <- qgraph::qgraph(network3$graph, layout = "spring")
 
 ```
 
-\#\#\#Binned code
+The results to the structural equation path mode are also depicted in fig \@ref(fig:resdep).
 
-Results are depicted in figure \@ref(fig:resdep)
-
-```{r resdep, echo=FALSE, fig.cap= "Structural Equation Path Model with Results"}
+```{r resdep, echo=FALSE, fig.cap= "Structural equation path model of current study. Note. positive paths are green, negative are red. All values reported are the unstandardised beta. The only paths with significance in this model are between swl and shs and shs and mothap."}
 
 # add to results - to interpret!! 
 semPlot::semPaths(sem_res_strap, "est",
@@ -411,7 +408,3 @@ semPlot::semPaths(sem_res_strap, "est",
 papaja::r_refs("r-references.bib")
 
 ```
-
-### R Packages used
-
-We used `r papaja::cite_r("r-references.bib")` for all our analyses.

@@ -126,7 +126,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Can reasons you visit a meaningful place predict your subjective wellbeing?"]},{"type":"character","attributes":{},"value":["Final Report for PSYC447 - Word Count = 2025.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Emma Fahey"]}]}]},{"type":"character","attributes":{},"value":["06/04/2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["references.bib"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Can reasons you visit a meaningful place predict your subjective wellbeing?"]},{"type":"character","attributes":{},"value":["Final Report for PSYC447 - Word Count = 2025.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Emma Fahey"]}]}]},{"type":"character","attributes":{},"value":["06/04/2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["r-references.bib"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1503,7 +1503,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>The current study looks at life satisfaction and happiness scores in relation to the importance or motivation to visit a meaningful place. Importance is split up into three subcategories: happy, sad, and reflective reasons to visit a place. The question is if motivations to visit a meaningful place predict subjective wellbeing. Hypotheses include (1) the motivation to visit a meaningful place in a positive mood will relate to higher subjective wellbeing scores. Conversely, the motivation to visit for a negative reason will relate to lower overall subjective wellbeing. (2) Consistent with <span class="citation" data-cites="korpela2020"><a href="#ref-korpela2020" role="doc-biblioref">K. Korpela et al.</a> (<a href="#ref-korpela2020" role="doc-biblioref">2020</a>)</span>, life satisfaction will be positively associated with sad and happy motivations to visit a place, but not reflective motivations.</p>
 <h2 id="method">Method</h2>
 <p><strong>Participants</strong> (n = 303) were recruited through an undergraduate introduction to psychology course at Victoria University, Wellington, New Zealand. Participants were awarded course credit for taking part in the study. The mean age of participants was 19.45 (SD = 4.46, Min = 17, Max = 69). The majority of participants were female (245, 80.8%), followed by male (47, 15.5%) and non-binary (1%), 8 participants did not supply a gender (2.6%). One outlier was removed from the data set for having an age over 1000.  </p>
-<p><strong>Procedure.</strong> Participants took part in the survey online through Qualtrics. The survey was broken into two sections. Part one contained the upload of a meaningful image to the participant. This was followed by open-field questions to determine the meaning of the place and two scales to determine the places importance and situational meaning. The second part of the survey included self-measures for nature connectedness and a variety of wellbeing measures. The survey took approximately 30 minutes to complete, and participants could withdraw at any time. Only the three scales described below will be used in the current report.   </p>
+<p><strong>Procedure.</strong> Participants took part in the survey online through Qualtrics. The survey was broken into two sections. Part one contained the upload of a meaningful image to the participant. This was followed by open-field questions to determine the meaning of the place and two scales to determine the places importance and situational meaning. The second part of the survey included self-measures for nature connectedness and a variety of wellbeing measures. The survey took approximately 30 minutes to complete, and participants could withdraw at any time. Only the three scales described below will be used in the current report. For our analysis we used R [Version 4.0.4; <span class="citation" data-cites="R-base"><a href="#ref-R-base" role="doc-biblioref">R Core Team</a> (<a href="#ref-R-base" role="doc-biblioref">2021</a>)</span>]<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>,</p>
 <h3 id="materials">Materials</h3>
 <p><strong>Happiness</strong> was measured by the measure of subjective happiness scale <span class="citation" data-cites="lyubomirsky1999">(<a href="#ref-lyubomirsky1999" role="doc-biblioref">Lyubomirsky and Lepper 1999</a>)</span>. This scale consists of 4 items that are rated between 1 and 7. Values of the scale differed for each question. The following statement was provided before commencement “For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you.” A mean happiness score for each participant was calculated by summing all items. The full scale can be found in the appendix.</p>
 <p><strong>Life Satisfaction</strong> was assessed using the Satisfaction with Life Scale (SWLS) <span class="citation" data-cites="diener1985">(<a href="#ref-diener1985" role="doc-biblioref">Diener et al. 1985</a>)</span>. Participants responded to a likert 7-point scale. The items were preceded by the statement: “Below are five statements that you may agree or disagree with. Using the 1 – 7 scale below indicate your agreement with each item. Please be open and honest in your responding.” The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items. The full scale can be found in the appendix.</p>
@@ -1519,6 +1519,7 @@ Figure 1: Distribution of scales in present study
 </div>
 </div>
 <p>The main descriptive statistics for each scale can be found in table 1. Multiple reliability tests were run to determine the scales alpha, omega and coefficient H. This is because the alpha reliability alone assumes scales are uni-dimensional and normally distributed. Items in each motivations to visit a place subscale were not shown to be normally distributed in fig <a href="#fig:plots">1</a> above.  </p>
+<p><strong>Table 1</strong></p>
 <div class="layout-chunk" data-layout="l-body">
 <table class="table" style="margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption>
@@ -1633,7 +1634,7 @@ MotRef
 <tfoot>
 <tr>
 <td style="padding: 0; " colspan="100%">
-<span style="font-style: italic;">Note.</span> <sup></sup> Standard deviations are in parentheses. SHS = Subjective Happiness Scale; SWLS = Satisfaction with Life Sacle; MotHap = Happy Motivation Subscale; MotSad = Sad Motivation Subscale; Motref = Refletive Motivation Subscale.
+<span style="font-style: italic;">Note.</span> <sup></sup> SHS = Subjective Happiness Scale; SWLS = Satisfaction with Life Sacle; MotHap = Happy Motivation Subscale; MotSad = Sad Motivation Subscale; Motref = Refletive Motivation Subscale.
 </td>
 </tr>
 </tfoot>
@@ -1644,49 +1645,49 @@ MotRef
 <p>A network graph, shown in fig <a href="#fig:net1">2</a> is used to display the connectedness of the scales used in the current study. As expected, life satisfaction and happiness form a connection. The three subscales of motivations to visit a place form a strong connection.  </p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:net1"></span>
-<img src="Fahey.E-Article_files/figure-html5/net1-1.png" alt="Network Graph" width="768" />
+<img src="Fahey.E-Article_files/figure-html5/net1-1.png" alt="Network graph of the current studies scales" width="768" />
 <p class="caption">
-Figure 2: Network Graph
+Figure 2: Network graph of the current studies scales
 </p>
 </div>
 </div>
-<p>The exploratory graph analysis in fig <a href="#fig:networks">3</a> shows that life satisfaction and happiness are still separate constructs, but that the three subscales of reasons to visit a place may be measuring only one construct. To ensure the new motivations to visit a place subscales were measuring three separate constructs, a second exploratory graph analysis is run (see appendix <a href="#fig:appen1">6</a>). This shows that the subscales are connected, yet independent constructs. A network graph is also run for the new subscales to ensure that items selected to mean happy, sad, and reflective are most connected to each other. This was found to be accurate (see appendix <a href="#fig:appen2">7</a>).</p>
+<p>The exploratory graph analysis (EGA) in fig <a href="#fig:networks">3</a> shows that life satisfaction and happiness are still separate constructs, but that the three subscales of reasons to visit a place may be measuring only one construct. To ensure the new motivations to visit a place subscales were measuring three separate constructs, a second exploratory graph analysis is run (see appendix <a href="#fig:appen1">6</a>). This shows that the subscales are connected, yet independent constructs. A network graph is also run for the new subscales to ensure that items selected to mean happy, sad, and reflective are most connected to each other. This was found to be accurate (see appendix <a href="#fig:appen2">7</a>).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:networks"></span>
-<img src="Fahey.E-Article_files/figure-html5/networks-1.png" alt="EGA Graph" width="768" />
+<img src="Fahey.E-Article_files/figure-html5/networks-1.png" alt="EGA graph of current studies scales showing three seperate constructs" width="768" />
 <p class="caption">
-Figure 3: EGA Graph
+Figure 3: EGA graph of current studies scales showing three seperate constructs
 </p>
 </div>
 </div>
 <h3 id="correlation-analysis">Correlation Analysis</h3>
-<p>Fig <a href="#fig:corr">4</a> depicts correlations between scales. All correlations are run with Holm adjustment, this reduces the possiblilty of a statistically significant result, or type 1 error when performing multiple tests. This correction is more statistically powerful than a Bonferroni adjustment (ADD CITE ONCE SYNCHED).</p>
+<p>Fig <a href="#fig:corr">4</a> depicts correlations between scales. All correlations are run with Holm adjustment, this reduces the possiblilty of a statistically significant result, or type 1 error when performing multiple tests. This correction is more statistically powerful than a Bonferroni adjustment</p>
+<p>(ADD CITE ONCE SYNCHED).</p>
+<p>Life satisfaction and happiness correlate significantly. All three motivations for visiting a place correlate significantly, with reflective and sad being the strongest. These results are comparable with those of <span class="citation" data-cites="korpela2020"><a href="#ref-korpela2020" role="doc-biblioref">K. Korpela et al.</a> (<a href="#ref-korpela2020" role="doc-biblioref">2020</a>)</span> that found sad and reflective to correlate at 0.68, sad and happy to correlate at 0.32, and reflective and happy to correlate 0.35.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:corr"></span>
-<img src="Fahey.E-Article_files/figure-html5/corr-1.png" alt="Correlation Plot of Scales" width="768" />
+<img src="Fahey.E-Article_files/figure-html5/corr-1.png" alt="Correlation plot of scales in current study" width="768" />
 <p class="caption">
-Figure 4: Correlation Plot of Scales
+Figure 4: Correlation plot of scales in current study
 </p>
 </div>
 </div>
-<p>Life satisfaction and happiness correlate significantly. All three motivations for visiting a place correlate, with reflective and sad being the strongest. These results are comparable with those of <span class="citation" data-cites="korpela2020"><a href="#ref-korpela2020" role="doc-biblioref">K. Korpela et al.</a> (<a href="#ref-korpela2020" role="doc-biblioref">2020</a>)</span> that found sad and reflective to correlate at 0.68, sad and happy to correlate at 0.32, and reflective and happy to correlate 0.35.   </p>
 <h3 id="model-selection">Model Selection</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:modsel"></span>
-<img src="Fahey.E-Article_files/figure-html5/modsel-1.png" alt="Conceptual structural equation model of the present study" width="768" />
+<img src="Fahey.E-Article_files/figure-html5/modsel-1.png" alt="Conceptual structural equation model of the present study. mts = sad motivation subscale; mth = happy motivation subscale; mtr = reflective motivation subscale; swl = satisfaction with life scale; shs = subjective happiness scale" width="768" />
 <p class="caption">
-Figure 5: Conceptual structural equation model of the present study
+Figure 5: Conceptual structural equation model of the present study. mts = sad motivation subscale; mth = happy motivation subscale; mtr = reflective motivation subscale; swl = satisfaction with life scale; shs = subjective happiness scale
 </p>
 </div>
 </div>
 <p>A structural equation model (SEM) (fig <a href="#fig:modsel">5</a>) is run in this study to analyse motivations to visit a meaningful place against life satisfaction and happiness. The maximum likelihood estimation (ML) is employed, which presumes multivariate normality of the variables. As stated previously, and depicted in fig <a href="#fig:plots">1</a>, the motivations to visit a place subscales were not normally distributed, so a bootstrap adjustment was fitted to the model. This runs the same analysis 1,000 times to get an average which creates more reliable and robust results, particularly when considering non-normality. </p>
 <h2 id="results">Results</h2>
 <p>The structural equation model (SEM) is fully saturated (CFI = 1). Therefore, a second model to determine if model fit differs by gender is run. Regression paths are identical between groups (CFI = 1 for both), which implies that gender does not impact the model. This allows the model to be confidently collapsed together.</p>
-<p>The main model is depicted in table 2 and shows that only happy motivations to visit and happiness scores were significant (B = 0.139, <em>p</em>=0.010). However, happy motivation and life satisfaction scores were near significance (B = 0.104, <em>p</em>=0.070), this is likely due to the correlation between happiness and life satisfaction. Reflective motivations to visit a place on subjective wellbeing were non-significant but positive (B = 0.033 - 0.043), whereas sad motivations for visiting a meaningful place on subjective wellbeing were non-significant and negative (B = -0.065 - -0.067).</p>
-<p><strong>Table 2</strong></p>
+<p>The main model is depicted in table 2 and shows that only happy motivations to visit and happiness scores were significant (B = 0.139, <em>p</em>=0.010). However, happy motivation and life satisfaction scores were near significance (B = 0.104, <em>p</em>=0.070), this is likely due to the correlation between happiness and life satisfaction. Reflective motivations to visit a place on subjective wellbeing were non-significant but positive (B = 0.033 - 0.043), whereas sad motivations for visiting a meaningful place on subjective wellbeing were non-significant and negative (B = -0.065 - -0.067). A model depiction of the results can be found in appendix <a href="#fig:resdep">8</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <caption>
-(#tab:results table)
+<span id="tab:rtab">Table 2: </span>
 </caption>
 <div data-custom-style="Table Caption">
 <em>Structural equation model results, N = 302</em>
@@ -1740,7 +1741,7 @@ Figure 5: Conceptual structural equation model of the present study
 </tbody>
 </table>
 <div data-custom-style="Compact">
-<p><em>Note.</em> swls = Life Satisfaction; shs = Happiness; motsad = Sad motivation subscale; mothap = Happy motivation subscale; motref = Reflective motivation subscale</p>
+<p><em>Note.</em> swls = life satisfaction scale; shs = happiness scale; motsad = sad motivation subscale; mothap = happy motivation subscale; motref = reflective motivation subscale</p>
 </div>
 <p> </p>
 </div>
@@ -1808,25 +1809,34 @@ Figure 7: Subscale Network Graph
 </p>
 </div>
 </div>
-<p>###Binned code</p>
-<p>Results are depicted in figure <a href="#fig:resdep">8</a></p>
+<p>The results to the structural equation path mode are also depicted in fig <a href="#fig:resdep">8</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span id="fig:resdep"></span>
-<img src="Fahey.E-Article_files/figure-html5/resdep-1.png" alt="Structural Equation Path Model with Results" width="768" />
+<img src="Fahey.E-Article_files/figure-html5/resdep-1.png" alt="Structural equation path model of current study. Note. positive paths are green, negative are red. All values reported are the unstandardised beta. The only paths with significance in this model are between swl and shs and shs and mothap." width="768" />
 <p class="caption">
-Figure 8: Structural Equation Path Model with Results
+Figure 8: Structural equation path model of current study. Note. positive paths are green, negative are red. All values reported are the unstandardised beta. The only paths with significance in this model are between swl and shs and shs and mothap.
 </p>
 </div>
 </div>
-<h3 id="r-packages-used">R Packages used</h3>
-<p>We used R [Version 4.0.4; <span class="citation" data-cites="R-base">(<a href="#ref-R-base" role="doc-biblioref"><strong>R-base?</strong></a>)</span>] and the R-packages <em>bayesplot</em> [Version 1.8.0; <span class="citation" data-cites="R-bayesplot">(<a href="#ref-R-bayesplot" role="doc-biblioref"><strong>R-bayesplot?</strong></a>)</span>], <em>bayestestR</em> [Version 0.9.0; <span class="citation" data-cites="R-bayestestR">(<a href="#ref-R-bayestestR" role="doc-biblioref"><strong>R-bayestestR?</strong></a>)</span>], <em>bmlm</em> [Version 1.3.11; <span class="citation" data-cites="R-bmlm">(<a href="#ref-R-bmlm" role="doc-biblioref"><strong>R-bmlm?</strong></a>)</span>], <em>brms</em> [Version 2.15.0; <span class="citation" data-cites="R-brms_a">(<a href="#ref-R-brms_a" role="doc-biblioref"><strong>R-brms_a?</strong></a>)</span>; <span class="citation" data-cites="R-brms_b">(<a href="#ref-R-brms_b" role="doc-biblioref"><strong>R-brms_b?</strong></a>)</span>], <em>broom</em> [Version 0.7.5; <span class="citation" data-cites="R-broom">(<a href="#ref-R-broom" role="doc-biblioref"><strong>R-broom?</strong></a>)</span>], <em>correlation</em> [Version 0.6.1; <span class="citation" data-cites="R-correlation">(<a href="#ref-R-correlation" role="doc-biblioref"><strong>R-correlation?</strong></a>)</span>], <em>dplyr</em> [Version 1.0.4; <span class="citation" data-cites="R-dplyr">(<a href="#ref-R-dplyr" role="doc-biblioref"><strong>R-dplyr?</strong></a>)</span>], <em>easystats</em> [Version 0.3.0; <span class="citation" data-cites="R-easystats">(<a href="#ref-R-easystats" role="doc-biblioref"><strong>R-easystats?</strong></a>)</span>], <em>effectsize</em> [Version 0.4.5; <span class="citation" data-cites="R-effectsize">(<a href="#ref-R-effectsize" role="doc-biblioref"><strong>R-effectsize?</strong></a>)</span>], <em>equatiomatic</em> [Version 0.2.0; <span class="citation" data-cites="R-equatiomatic">(<a href="#ref-R-equatiomatic" role="doc-biblioref"><strong>R-equatiomatic?</strong></a>)</span>], <em>forcats</em> [Version 0.5.1; <span class="citation" data-cites="R-forcats">(<a href="#ref-R-forcats" role="doc-biblioref"><strong>R-forcats?</strong></a>)</span>], <em>gendercoder</em> [Version 0.0.0.9000; <span class="citation" data-cites="R-gendercoder">(<a href="#ref-R-gendercoder" role="doc-biblioref"><strong>R-gendercoder?</strong></a>)</span>], <em>ggdag</em> [Version 0.2.3; <span class="citation" data-cites="R-ggdag">(<a href="#ref-R-ggdag" role="doc-biblioref"><strong>R-ggdag?</strong></a>)</span>], <em>ggplot2</em> [Version 3.3.3; <span class="citation" data-cites="R-ggplot2">(<a href="#ref-R-ggplot2" role="doc-biblioref"><strong>R-ggplot2?</strong></a>)</span>], <em>gtsummary</em> [Version 1.3.7; <span class="citation" data-cites="R-gtsummary">(<a href="#ref-R-gtsummary" role="doc-biblioref"><strong>R-gtsummary?</strong></a>)</span>], <em>insight</em> [Version 0.14.1; <span class="citation" data-cites="R-insight">(<a href="#ref-R-insight" role="doc-biblioref"><strong>R-insight?</strong></a>)</span>], <em>kableExtra</em> [Version 1.3.4; <span class="citation" data-cites="R-kableExtra">(<a href="#ref-R-kableExtra" role="doc-biblioref"><strong>R-kableExtra?</strong></a>)</span>], <em>lavaan</em> [Version 0.6.8; <span class="citation" data-cites="R-lavaan">(<a href="#ref-R-lavaan" role="doc-biblioref"><strong>R-lavaan?</strong></a>)</span>], <em>lubridate</em> [Version 1.7.10; <span class="citation" data-cites="R-lubridate">(<a href="#ref-R-lubridate" role="doc-biblioref"><strong>R-lubridate?</strong></a>)</span>], <em>modelbased</em> [Version 0.5.9; <span class="citation" data-cites="R-modelbased">(<a href="#ref-R-modelbased" role="doc-biblioref"><strong>R-modelbased?</strong></a>)</span>], <em>parameters</em> [Version 0.14.0; <span class="citation" data-cites="R-parameters">(<a href="#ref-R-parameters" role="doc-biblioref"><strong>R-parameters?</strong></a>)</span>], <em>patchwork</em> [Version 1.1.1; <span class="citation" data-cites="R-patchwork">(<a href="#ref-R-patchwork" role="doc-biblioref"><strong>R-patchwork?</strong></a>)</span>], <em>performance</em> [Version 0.7.2; <span class="citation" data-cites="R-performance">(<a href="#ref-R-performance" role="doc-biblioref"><strong>R-performance?</strong></a>)</span>], <em>purrr</em> [Version 0.3.4; <span class="citation" data-cites="R-purrr">(<a href="#ref-R-purrr" role="doc-biblioref"><strong>R-purrr?</strong></a>)</span>], <em>qgraph</em> [Version 1.6.9; <span class="citation" data-cites="R-qgraph">(<a href="#ref-R-qgraph" role="doc-biblioref"><strong>R-qgraph?</strong></a>)</span>], <em>Rcpp</em> [Version 1.0.6; <span class="citation" data-cites="R-Rcpp_a">(<a href="#ref-R-Rcpp_a" role="doc-biblioref"><strong>R-Rcpp_a?</strong></a>)</span>; <span class="citation" data-cites="R-Rcpp_b">(<a href="#ref-R-Rcpp_b" role="doc-biblioref"><strong>R-Rcpp_b?</strong></a>)</span>], <em>readr</em> [Version 1.4.0; <span class="citation" data-cites="R-readr">(<a href="#ref-R-readr" role="doc-biblioref"><strong>R-readr?</strong></a>)</span>], <em>report</em> [Version 0.3.0; <span class="citation" data-cites="R-report">(<a href="#ref-R-report" role="doc-biblioref"><strong>R-report?</strong></a>)</span>], <em>rstan</em> [Version 2.21.2; <span class="citation" data-cites="R-rstan">(<a href="#ref-R-rstan" role="doc-biblioref"><strong>R-rstan?</strong></a>)</span>; <span class="citation" data-cites="R-rstanarm">(<a href="#ref-R-rstanarm" role="doc-biblioref"><strong>R-rstanarm?</strong></a>)</span>], <em>rstanarm</em> [Version 2.21.1; <span class="citation" data-cites="R-rstanarm">(<a href="#ref-R-rstanarm" role="doc-biblioref"><strong>R-rstanarm?</strong></a>)</span>], <em>see</em> [Version 0.6.2.1; <span class="citation" data-cites="R-see">(<a href="#ref-R-see" role="doc-biblioref"><strong>R-see?</strong></a>)</span>], <em>semPlot</em> [Version 1.1.2; <span class="citation" data-cites="R-semPlot">(<a href="#ref-R-semPlot" role="doc-biblioref"><strong>R-semPlot?</strong></a>)</span>], <em>semTable</em> [Version 1.8; <span class="citation" data-cites="R-semTable">(<a href="#ref-R-semTable" role="doc-biblioref"><strong>R-semTable?</strong></a>)</span>], <em>StanHeaders</em> [Version 2.21.0.7; <span class="citation" data-cites="R-StanHeaders">(<a href="#ref-R-StanHeaders" role="doc-biblioref"><strong>R-StanHeaders?</strong></a>)</span>], <em>stringr</em> [Version 1.4.0; <span class="citation" data-cites="R-stringr">(<a href="#ref-R-stringr" role="doc-biblioref"><strong>R-stringr?</strong></a>)</span>], <em>table1</em> [Version 1.2.1; <span class="citation" data-cites="R-table1">(<a href="#ref-R-table1" role="doc-biblioref"><strong>R-table1?</strong></a>)</span>], <em>tibble</em> [Version 3.1.0; <span class="citation" data-cites="R-tibble">(<a href="#ref-R-tibble" role="doc-biblioref"><strong>R-tibble?</strong></a>)</span>], <em>tidybayes</em> [Version 2.3.1; <span class="citation" data-cites="R-tidybayes">(<a href="#ref-R-tidybayes" role="doc-biblioref"><strong>R-tidybayes?</strong></a>)</span>], <em>tidyr</em> [Version 1.1.2; <span class="citation" data-cites="R-tidyr">(<a href="#ref-R-tidyr" role="doc-biblioref"><strong>R-tidyr?</strong></a>)</span>], <em>tidyverse</em> [Version 1.3.0; <span class="citation" data-cites="R-tidyverse">(<a href="#ref-R-tidyverse" role="doc-biblioref"><strong>R-tidyverse?</strong></a>)</span>], and <em>xtable</em> [Version 1.8.4; <span class="citation" data-cites="R-xtable">(<a href="#ref-R-xtable" role="doc-biblioref"><strong>R-xtable?</strong></a>)</span>] for all our analyses.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-an2020" class="csl-entry" role="doc-biblioentry">
 An, Hsin-Yu, Wei Chen, Cheng-Wei Wang, Hui-Fei Yang, Wan-Ting Huang, and Sheng-Yu Fan. 2020. <span>“The Relationships Between Physical Activity and Life Satisfaction and Happiness Among Young, Middle-Aged, and Older Adults.”</span> <em>International Journal of Environmental Research and Public Health</em> 17 (13): 4817. <a href="https://doi.org/10.3390/ijerph17134817">https://doi.org/10.3390/ijerph17134817</a>.
 </div>
+<div id="ref-R-equatiomatic" class="csl-entry" role="doc-biblioentry">
+Anderson, Daniel, Andrew Heiss, and Jay Sumners. 2021. <em>Equatiomatic: Transform Models into ’LaTeX’ Equations</em>. <a href="https://CRAN.R-project.org/package=equatiomatic">https://CRAN.R-project.org/package=equatiomatic</a>.
+</div>
+<div id="ref-R-ggdag" class="csl-entry" role="doc-biblioentry">
+Barrett, Malcolm. 2021. <em>Ggdag: Analyze and Create Elegant Directed Acyclic Graphs</em>. <a href="https://CRAN.R-project.org/package=ggdag">https://CRAN.R-project.org/package=ggdag</a>.
+</div>
 <div id="ref-bastian2014" class="csl-entry" role="doc-biblioentry">
 Bastian, Brock, Peter Kuppens, Kim De Roover, and Ed Diener. 2014. <span>“Is Valuing Positive Emotion Associated with Life Satisfaction?”</span> <em>Emotion</em> 14 (4): 639–45. <a href="https://doi.org/10.1037/a0036466">https://doi.org/10.1037/a0036466</a>.
+</div>
+<div id="ref-R-gendercoder" class="csl-entry" role="doc-biblioentry">
+Beaudry, Jennifer, Emily Kothe, Felix Singleton Thorn, Rhydwyn McGuire, Nicholas Tierney, and Mathew Ling. 2021. <em>Gendercoder: Recodes Sex/Gender Descriptions into a Standard Set</em>. <a href="https://github.com/ropenscilabs/gendercoder">https://github.com/ropenscilabs/gendercoder</a>.
+</div>
+<div id="ref-R-effectsize" class="csl-entry" role="doc-biblioentry">
+Ben-Shachar, Mattan S., Daniel Lüdecke, and Dominique Makowski. 2020. <span>“<span class="nocase">e</span>ffectsize: Estimation of Effect Size Indices and Standardized Parameters.”</span> <em>Journal of Open Source Software</em> 5 (56): 2815. <a href="https://doi.org/10.21105/joss.02815">https://doi.org/10.21105/joss.02815</a>.
 </div>
 <div id="ref-bozkurt2021" class="csl-entry" role="doc-biblioentry">
 Bozkurt, Veysel, and Serpil Aytaç. 2021. <span>“Life Satisfaction and Happiness During the Pandemic Period, Veysel Bozkurt &amp; Serpil Aytaç.”</span> In, 259–72.
@@ -1834,17 +1844,56 @@ Bozkurt, Veysel, and Serpil Aytaç. 2021. <span>“Life Satisfaction and Happine
 <div id="ref-bray2006" class="csl-entry" role="doc-biblioentry">
 Bray, Isabelle, and David Gunnell. 2006. <span>“Suicide Rates, Life Satisfaction and Happiness as Markers for Population Mental Health.”</span> <em>Social Psychiatry and Psychiatric Epidemiology</em> 41 (5): 333–37. <a href="https://doi.org/10.1007/s00127-006-0049-z">https://doi.org/10.1007/s00127-006-0049-z</a>.
 </div>
+<div id="ref-R-brms_a" class="csl-entry" role="doc-biblioentry">
+Bürkner, Paul-Christian. 2017. <span>“<span class="nocase">brms</span>: An <span>R</span> Package for <span>Bayesian</span> Multilevel Models Using <span>Stan</span>.”</span> <em>Journal of Statistical Software</em> 80 (1): 1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
+</div>
+<div id="ref-R-brms_b" class="csl-entry" role="doc-biblioentry">
+———. 2018. <span>“Advanced <span>Bayesian</span> Multilevel Modeling with the <span>R</span> Package <span class="nocase">brms</span>.”</span> <em>The R Journal</em> 10 (1): 395–411. <a href="https://doi.org/10.32614/RJ-2018-017">https://doi.org/10.32614/RJ-2018-017</a>.
+</div>
+<div id="ref-R-xtable" class="csl-entry" role="doc-biblioentry">
+Dahl, David B., David Scott, Charles Roosen, Arni Magnusson, and Jonathan Swinton. 2019. <em>Xtable: Export Tables to LaTeX or HTML</em>. <a href="https://CRAN.R-project.org/package=xtable">https://CRAN.R-project.org/package=xtable</a>.
+</div>
 <div id="ref-difabio2015" class="csl-entry" role="doc-biblioentry">
 Di Fabio, Annamaria, and Letizia Palazzeschi. 2015. <span>“Hedonic and Eudaimonic Well-Being: The Role of Resilience Beyond Fluid Intelligence and Personality Traits.”</span> <em>Frontiers in Psychology</em> 6. <a href="https://doi.org/10.3389/fpsyg.2015.01367">https://doi.org/10.3389/fpsyg.2015.01367</a>.
 </div>
 <div id="ref-diener1985" class="csl-entry" role="doc-biblioentry">
 Diener, Ed, Robert A. Emmons, Randy J. Larsen, and Sharon Griffin. 1985. <span>“The Satisfaction with Life Scale.”</span> <em>Journal of Personality Assessment</em> 49 (1): 71–75. <a href="https://doi.org/10.1207/s15327752jpa4901_13">https://doi.org/10.1207/s15327752jpa4901_13</a>.
 </div>
+<div id="ref-R-Rcpp_b" class="csl-entry" role="doc-biblioentry">
+Eddelbuettel, Dirk, and James Joseph Balamuta. 2018. <span>“<span class="nocase">Extending extit<span>R</span> with extit<span>C++</span>: A Brief Introduction to extit<span>Rcpp</span></span>.”</span> <em>The American Statistician</em> 72 (1): 28–36. <a href="https://doi.org/10.1080/00031305.2017.1375990">https://doi.org/10.1080/00031305.2017.1375990</a>.
+</div>
+<div id="ref-R-Rcpp_a" class="csl-entry" role="doc-biblioentry">
+Eddelbuettel, Dirk, and Romain François. 2011. <span>“<span>Rcpp</span>: Seamless <span>R</span> and <span>C++</span> Integration.”</span> <em>Journal of Statistical Software</em> 40 (8): 1–18. <a href="https://doi.org/10.18637/jss.v040.i08">https://doi.org/10.18637/jss.v040.i08</a>.
+</div>
+<div id="ref-R-semPlot" class="csl-entry" role="doc-biblioentry">
+Epskamp, Sacha. 2019. <em>semPlot: Path Diagrams and Visual Analysis of Various SEM Packages’ Output</em>. <a href="https://CRAN.R-project.org/package=semPlot">https://CRAN.R-project.org/package=semPlot</a>.
+</div>
+<div id="ref-R-qgraph" class="csl-entry" role="doc-biblioentry">
+Epskamp, Sacha, Angélique O. J. Cramer, Lourens J. Waldorp, Verena D. Schmittmann, and Denny Borsboom. 2012. <span>“<span class="nocase">qgraph</span>: Network Visualizations of Relationships in Psychometric Data.”</span> <em>Journal of Statistical Software</em> 48 (4): 1–18.
+</div>
+<div id="ref-R-bayesplot" class="csl-entry" role="doc-biblioentry">
+Gabry, Jonah, Daniel Simpson, Aki Vehtari, Michael Betancourt, and Andrew Gelman. 2019. <span>“Visualization in Bayesian Workflow.”</span> <em>J. R. Stat. Soc. A</em> 182: 389–402. <a href="https://doi.org/10.1111/rssa.12378">https://doi.org/10.1111/rssa.12378</a>.
+</div>
 <div id="ref-gatersleben2020" class="csl-entry" role="doc-biblioentry">
 Gatersleben, Birgitta, Kayleigh J. Wyles, Andy Myers, and Bertram Opitz. 2020. <span>“Why Are Places so Special? Uncovering How Our Brain Reacts to Meaningful Places.”</span> <em>Landscape and Urban Planning</em> 197 (May): 103758. <a href="https://doi.org/10.1016/j.landurbplan.2020.103758">https://doi.org/10.1016/j.landurbplan.2020.103758</a>.
 </div>
+<div id="ref-R-rstanarm" class="csl-entry" role="doc-biblioentry">
+Goodrich, Ben, Jonah Gabry, Imad Ali, and Sam Brilleman. 2020. <span>“Rstanarm: <span>Bayesian</span> Applied Regression Modeling via <span>Stan</span>.”</span> <a href="https://mc-stan.org/rstanarm">https://mc-stan.org/rstanarm</a>.
+</div>
+<div id="ref-R-lubridate" class="csl-entry" role="doc-biblioentry">
+Grolemund, Garrett, and Hadley Wickham. 2011. <span>“Dates and Times Made Easy with <span class="nocase">lubridate</span>.”</span> <em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="https://www.jstatsoft.org/v40/i03/">https://www.jstatsoft.org/v40/i03/</a>.
+</div>
+<div id="ref-R-purrr" class="csl-entry" role="doc-biblioentry">
+Henry, Lionel, and Hadley Wickham. 2020. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.
+</div>
+<div id="ref-R-semTable" class="csl-entry" role="doc-biblioentry">
+Johnson, Paul, and Benjamin Kite. 2020. <em>semTable: Structural Equation Modeling Tables</em>. <a href="https://CRAN.R-project.org/package=semTable">https://CRAN.R-project.org/package=semTable</a>.
+</div>
 <div id="ref-kahneman1999" class="csl-entry" role="doc-biblioentry">
 Kahneman, Daniel, Ed Diener, and Norbert Schwarz. 1999. <em>Well-Being: The Foundations of Hedonic Psychology</em>. Well-Being: The Foundations of Hedonic Psychology. New York, NY, US: Russell Sage Foundation.
+</div>
+<div id="ref-R-tidybayes" class="csl-entry" role="doc-biblioentry">
+Kay, Matthew. 2020. <em><span class="nocase">tidybayes</span>: Tidy Data and Geoms for <span>Bayesian</span> Models</em>. <a href="https://doi.org/10.5281/zenodo.1308151">https://doi.org/10.5281/zenodo.1308151</a>.
 </div>
 <div id="ref-kerr1999" class="csl-entry" role="doc-biblioentry">
 Kerr, JOHN H., and PAUL Tacon. 1999. <span>“Psychological Responses to Different Types of Locations and Activities.”</span> <em>Journal of Environmental Psychology</em> 19 (3): 287–94. <a href="https://doi.org/10.1006/jevp.1999.0132">https://doi.org/10.1006/jevp.1999.0132</a>.
@@ -1867,20 +1916,74 @@ Lara, Raquel, M? Luisa Vázquez, Adelaida Ogallar, and Débora Godoy-Izquierdo. 
 <div id="ref-lengen2012" class="csl-entry" role="doc-biblioentry">
 Lengen, Charis, and Thomas Kistemann. 2012. <span>“Sense of Place and Place Identity: Review of Neuroscientific Evidence.”</span> <em>Health &amp; Place</em> 18 (5): 1162–71. <a href="https://doi.org/10.1016/j.healthplace.2012.01.012">https://doi.org/10.1016/j.healthplace.2012.01.012</a>.
 </div>
+<div id="ref-R-parameters" class="csl-entry" role="doc-biblioentry">
+Lüdecke, Daniel, Mattan S. Ben-Shachar, Indrajeet Patil, and Dominique Makowski. 2020. <span>“Extracting, Computing and Exploring the Parameters of Statistical Models Using <span>R</span>.”</span> <em>Journal of Open Source Software</em> 5 (53): 2445. <a href="https://doi.org/10.21105/joss.02445">https://doi.org/10.21105/joss.02445</a>.
+</div>
+<div id="ref-R-performance" class="csl-entry" role="doc-biblioentry">
+Lüdecke, Daniel, Mattan S. Ben-Shachar, Indrajeet Patil, Philip Waggoner, and Dominique Makowski. 2021. <span>“<span class="nocase">performance</span>: An <span>R</span> Package for Assessment, Comparison and Testing of Statistical Models.”</span> <em>Journal of Open Source Software</em> 6 (60): 3139. <a href="https://doi.org/10.21105/joss.03139">https://doi.org/10.21105/joss.03139</a>.
+</div>
+<div id="ref-R-see" class="csl-entry" role="doc-biblioentry">
+Lüdecke, Daniel, Mattan S. Ben-Shachar, Philip Waggoner, and Dominique Makowski. 2020. <span>“See: Visualisation Toolbox for ’Easystats’ and Extra Geoms, Themes and Color Palettes for ’Ggplot2’.”</span> <em>CRAN</em>. <a href="https://doi.org/10.5281/zenodo.3952153">https://doi.org/10.5281/zenodo.3952153</a>.
+</div>
+<div id="ref-R-insight" class="csl-entry" role="doc-biblioentry">
+Lüdecke, Daniel, Philip Waggoner, and Dominique Makowski. 2019. <span>“<span class="nocase">insight</span>: A Unified Interface to Access Information from Model Objects in <span>R</span>.”</span> <em>Journal of Open Source Software</em> 4 (38): 1412. <a href="https://doi.org/10.21105/joss.01412">https://doi.org/10.21105/joss.01412</a>.
+</div>
 <div id="ref-lyubomirsky1999" class="csl-entry" role="doc-biblioentry">
 Lyubomirsky, Sonja, and Heidi S. Lepper. 1999. <span>“A Measure of Subjective Happiness: Preliminary Reliability and Construct Validation.”</span> <em>Social Indicators Research</em> 46 (2): 137–55. <a href="https://doi.org/10.1023/A:1006824100041">https://doi.org/10.1023/A:1006824100041</a>.
+</div>
+<div id="ref-R-bayestestR" class="csl-entry" role="doc-biblioentry">
+Makowski, Dominique, Mattan S. Ben-Shachar, and Daniel Lüdecke. 2019. <span>“bayestestR: Describing Effects and Their Uncertainty, Existence and Significance Within the Bayesian Framework.”</span> <em>Journal of Open Source Software</em> 4 (40): 1541. <a href="https://doi.org/10.21105/joss.01541">https://doi.org/10.21105/joss.01541</a>.
+</div>
+<div id="ref-R-modelbased" class="csl-entry" role="doc-biblioentry">
+———. 2020a. <span>“Estimation of Model-Based Predictions, Contrasts and Means.”</span> <em>CRAN</em>. <a href="https://github.com/easystats/modelbased">https://github.com/easystats/modelbased</a>.
+</div>
+<div id="ref-R-easystats" class="csl-entry" role="doc-biblioentry">
+———. 2020b. <span>“The Easystats Collection of r Packages.”</span> <em>GitHub</em>. <a href="https://github.com/easystats/easystats">https://github.com/easystats/easystats</a>.
+</div>
+<div id="ref-R-correlation" class="csl-entry" role="doc-biblioentry">
+Makowski, Dominique, Mattan S. Ben-Shachar, Indrajeet Patil, and Daniel Lüdecke. 2020. <span>“Methods and Algorithms for Correlation Analysis in r.”</span> <em>Journal of Open Source Software</em> 5 (51): 2306. <a href="https://doi.org/10.21105/joss.02306">https://doi.org/10.21105/joss.02306</a>.
+</div>
+<div id="ref-R-report" class="csl-entry" role="doc-biblioentry">
+———. 2021. <span>“Automated Results Reporting as a Practical Tool to Improve Reproducibility and Methodological Best Practices Adoption.”</span> <em>CRAN</em>. <a href="https://github.com/easystats/report">https://github.com/easystats/report</a>.
+</div>
+<div id="ref-R-tibble" class="csl-entry" role="doc-biblioentry">
+Müller, Kirill, and Hadley Wickham. 2021. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
 </div>
 <div id="ref-panayiotou2021" class="csl-entry" role="doc-biblioentry">
 Panayiotou, Georgia, Maria Panteli, and Chrysanthi Leonidou. 2021. <span>“Coping with the Invisible Enemy: The Role of Emotion Regulation and Awareness in Quality of Life During the COVID-19 Pandemic.”</span> <em>Journal of Contextual Behavioral Science</em> 19 (January): 17–27. <a href="https://doi.org/10.1016/j.jcbs.2020.11.002">https://doi.org/10.1016/j.jcbs.2020.11.002</a>.
 </div>
+<div id="ref-R-patchwork" class="csl-entry" role="doc-biblioentry">
+Pedersen, Thomas Lin. 2020. <em>Patchwork: The Composer of Plots</em>. <a href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a>.
+</div>
+<div id="ref-R-base" class="csl-entry" role="doc-biblioentry">
+R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
 <div id="ref-ratcliffe2018" class="csl-entry" role="doc-biblioentry">
 Ratcliffe, Eleanor, and Kalevi M. Korpela. 2018. <span>“Time- and Self-Related Memories Predict Restorative Perceptions of Favorite Places Via Place Identity.”</span> <em>Environment and Behavior</em> 50 (6): 690–720. <a href="https://doi.org/10.1177/0013916517712002">https://doi.org/10.1177/0013916517712002</a>.
+</div>
+<div id="ref-R-table1" class="csl-entry" role="doc-biblioentry">
+Rich, Benjamin. 2020. <em>Table1: Tables of Descriptive Statistics in HTML</em>. <a href="https://CRAN.R-project.org/package=table1">https://CRAN.R-project.org/package=table1</a>.
+</div>
+<div id="ref-R-broom" class="csl-entry" role="doc-biblioentry">
+Robinson, David, Alex Hayes, and Simon Couch. 2021. <em>Broom: Convert Statistical Objects into Tidy Tibbles</em>. <a href="https://CRAN.R-project.org/package=broom">https://CRAN.R-project.org/package=broom</a>.
+</div>
+<div id="ref-R-lavaan" class="csl-entry" role="doc-biblioentry">
+Rosseel, Yves. 2012. <span>“<span class="nocase">lavaan</span>: An <span>R</span> Package for Structural Equation Modeling.”</span> <em>Journal of Statistical Software</em> 48 (2): 1–36. <a href="https://www.jstatsoft.org/v48/i02/">https://www.jstatsoft.org/v48/i02/</a>.
 </div>
 <div id="ref-scannell2017" class="csl-entry" role="doc-biblioentry">
 Scannell, Leila, and Robert Gifford. 2017. <span>“The Experienced Psychological Benefits of Place Attachment.”</span> <em>Journal of Environmental Psychology</em> 51 (August): 256–69. <a href="https://doi.org/10.1016/j.jenvp.2017.04.001">https://doi.org/10.1016/j.jenvp.2017.04.001</a>.
 </div>
 <div id="ref-selim2008" class="csl-entry" role="doc-biblioentry">
 Selim, Sibel. 2008. <span>“Life Satisfaction and Happiness in Turkey.”</span> <em>Social Indicators Research</em> 88 (3): 531–62. <a href="https://doi.org/10.1007/s11205-007-9218-z">https://doi.org/10.1007/s11205-007-9218-z</a>.
+</div>
+<div id="ref-R-gtsummary" class="csl-entry" role="doc-biblioentry">
+Sjoberg, Daniel D., Michael Curry, Margie Hannum, Karissa Whiting, and Emily C. Zabor. 2021. <em>Gtsummary: Presentation-Ready Data Summary and Analytic Result Tables</em>. <a href="https://CRAN.R-project.org/package=gtsummary">https://CRAN.R-project.org/package=gtsummary</a>.
+</div>
+<div id="ref-R-rstan" class="csl-entry" role="doc-biblioentry">
+Stan Development Team. 2020a. <span>“<span>RStan</span>: The <span>R</span> Interface to <span>Stan</span>.”</span> <a href="http://mc-stan.org/">http://mc-stan.org/</a>.
+</div>
+<div id="ref-R-StanHeaders" class="csl-entry" role="doc-biblioentry">
+———. 2020b. <span>“<span>StanHeaders</span>: Headers for the <span>R</span> Interface to <span>Stan</span>.”</span> <a href="https://mc-stan.org/">https://mc-stan.org/</a>.
 </div>
 <div id="ref-tuan1990" class="csl-entry" role="doc-biblioentry">
 Tuan, Yi-Fu. 1990. <em>Topophilia: A Study of Environmental Perceptions, Attitudes, and Values</em>. Columbia University Press.
@@ -1891,7 +1994,40 @@ Tyra, Alexandra T., Siobhán M. Griffin, Thomas A. Fergus, and Annie T. Ginty. 2
 <div id="ref-ulrich1981" class="csl-entry" role="doc-biblioentry">
 Ulrich, Roger S. 1981. <span>“Natural Versus Urban Scenes: Some Psychophysiological Effects.”</span> <em>Environment and Behavior</em> 13 (5): 523–56. <a href="https://doi.org/10.1177/0013916581135001">https://doi.org/10.1177/0013916581135001</a>.
 </div>
+<div id="ref-R-bmlm" class="csl-entry" role="doc-biblioentry">
+Vuorre, Matti. 2017. <em>Bmlm: Bayesian Multilevel Mediation</em>. <a href="https://cran.r-project.org/package=bmlm">https://cran.r-project.org/package=bmlm</a>.
 </div>
+<div id="ref-R-ggplot2" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-R-stringr" class="csl-entry" role="doc-biblioentry">
+———. 2019. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
+</div>
+<div id="ref-R-tidyr" class="csl-entry" role="doc-biblioentry">
+———. 2020. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
+</div>
+<div id="ref-R-forcats" class="csl-entry" role="doc-biblioentry">
+———. 2021. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>.
+</div>
+<div id="ref-R-tidyverse" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-R-readr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Jim Hester. 2020. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
+</div>
+<div id="ref-R-kableExtra" class="csl-entry" role="doc-biblioentry">
+Zhu, Hao. 2021. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
+</div>
+</div>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>We, furthermore, used the R-packages <em>bayesplot</em> [Version 1.8.0; <span class="citation" data-cites="R-bayesplot"><a href="#ref-R-bayesplot" role="doc-biblioref">Gabry et al.</a> (<a href="#ref-R-bayesplot" role="doc-biblioref">2019</a>)</span>], <em>bayestestR</em> [Version 0.9.0; <span class="citation" data-cites="R-bayestestR"><a href="#ref-R-bayestestR" role="doc-biblioref">Makowski, Ben-Shachar, and Lüdecke</a> (<a href="#ref-R-bayestestR" role="doc-biblioref">2019</a>)</span>], <em>bmlm</em> [Version 1.3.11; <span class="citation" data-cites="R-bmlm"><a href="#ref-R-bmlm" role="doc-biblioref">Vuorre</a> (<a href="#ref-R-bmlm" role="doc-biblioref">2017</a>)</span>], <em>brms</em> [Version 2.15.0; <span class="citation" data-cites="R-brms_a"><a href="#ref-R-brms_a" role="doc-biblioref">Bürkner</a> (<a href="#ref-R-brms_a" role="doc-biblioref">2017</a>)</span>; <span class="citation" data-cites="R-brms_b"><a href="#ref-R-brms_b" role="doc-biblioref">Bürkner</a> (<a href="#ref-R-brms_b" role="doc-biblioref">2018</a>)</span>], <em>broom</em> [Version 0.7.5; <span class="citation" data-cites="R-broom"><a href="#ref-R-broom" role="doc-biblioref">Robinson, Hayes, and Couch</a> (<a href="#ref-R-broom" role="doc-biblioref">2021</a>)</span>], <em>correlation</em> [Version 0.6.1; <span class="citation" data-cites="R-correlation"><a href="#ref-R-correlation" role="doc-biblioref">Makowski et al.</a> (<a href="#ref-R-correlation" role="doc-biblioref">2020</a>)</span>], <em>dplyr</em> [Version 1.0.4; <span class="citation" data-cites="R-dplyr"><a href="#ref-R-dplyr" role="doc-biblioref">Wickham et al.</a> (<a href="#ref-R-dplyr" role="doc-biblioref">2021</a>)</span>], <em>easystats</em> [Version 0.3.0; <span class="citation" data-cites="R-easystats"><a href="#ref-R-easystats" role="doc-biblioref">Makowski, Ben-Shachar, and Lüdecke</a> (<a href="#ref-R-easystats" role="doc-biblioref">2020b</a>)</span>], <em>effectsize</em> [Version 0.4.5; <span class="citation" data-cites="R-effectsize"><a href="#ref-R-effectsize" role="doc-biblioref">Ben-Shachar, Lüdecke, and Makowski</a> (<a href="#ref-R-effectsize" role="doc-biblioref">2020</a>)</span>], <em>equatiomatic</em> [Version 0.2.0; <span class="citation" data-cites="R-equatiomatic"><a href="#ref-R-equatiomatic" role="doc-biblioref">Anderson, Heiss, and Sumners</a> (<a href="#ref-R-equatiomatic" role="doc-biblioref">2021</a>)</span>], <em>forcats</em> [Version 0.5.1; <span class="citation" data-cites="R-forcats"><a href="#ref-R-forcats" role="doc-biblioref">Wickham</a> (<a href="#ref-R-forcats" role="doc-biblioref">2021</a>)</span>], <em>gendercoder</em> [Version 0.0.0.9000; <span class="citation" data-cites="R-gendercoder"><a href="#ref-R-gendercoder" role="doc-biblioref">Beaudry et al.</a> (<a href="#ref-R-gendercoder" role="doc-biblioref">2021</a>)</span>], <em>ggdag</em> [Version 0.2.3; <span class="citation" data-cites="R-ggdag"><a href="#ref-R-ggdag" role="doc-biblioref">Barrett</a> (<a href="#ref-R-ggdag" role="doc-biblioref">2021</a>)</span>], <em>ggplot2</em> [Version 3.3.3; <span class="citation" data-cites="R-ggplot2"><a href="#ref-R-ggplot2" role="doc-biblioref">Wickham</a> (<a href="#ref-R-ggplot2" role="doc-biblioref">2016</a>)</span>], <em>gtsummary</em> [Version 1.3.7; <span class="citation" data-cites="R-gtsummary"><a href="#ref-R-gtsummary" role="doc-biblioref">Sjoberg et al.</a> (<a href="#ref-R-gtsummary" role="doc-biblioref">2021</a>)</span>], <em>insight</em> [Version 0.14.1; <span class="citation" data-cites="R-insight"><a href="#ref-R-insight" role="doc-biblioref">Lüdecke, Waggoner, and Makowski</a> (<a href="#ref-R-insight" role="doc-biblioref">2019</a>)</span>], <em>kableExtra</em> [Version 1.3.4; <span class="citation" data-cites="R-kableExtra"><a href="#ref-R-kableExtra" role="doc-biblioref">Zhu</a> (<a href="#ref-R-kableExtra" role="doc-biblioref">2021</a>)</span>], <em>lavaan</em> [Version 0.6.8; <span class="citation" data-cites="R-lavaan"><a href="#ref-R-lavaan" role="doc-biblioref">Rosseel</a> (<a href="#ref-R-lavaan" role="doc-biblioref">2012</a>)</span>], <em>lubridate</em> [Version 1.7.10; <span class="citation" data-cites="R-lubridate"><a href="#ref-R-lubridate" role="doc-biblioref">Grolemund and Wickham</a> (<a href="#ref-R-lubridate" role="doc-biblioref">2011</a>)</span>], <em>modelbased</em> [Version 0.5.9; <span class="citation" data-cites="R-modelbased"><a href="#ref-R-modelbased" role="doc-biblioref">Makowski, Ben-Shachar, and Lüdecke</a> (<a href="#ref-R-modelbased" role="doc-biblioref">2020a</a>)</span>], <em>parameters</em> [Version 0.14.0; <span class="citation" data-cites="R-parameters"><a href="#ref-R-parameters" role="doc-biblioref">Lüdecke, Ben-Shachar, Patil, et al.</a> (<a href="#ref-R-parameters" role="doc-biblioref">2020</a>)</span>], <em>patchwork</em> [Version 1.1.1; <span class="citation" data-cites="R-patchwork"><a href="#ref-R-patchwork" role="doc-biblioref">Pedersen</a> (<a href="#ref-R-patchwork" role="doc-biblioref">2020</a>)</span>], <em>performance</em> [Version 0.7.2; <span class="citation" data-cites="R-performance"><a href="#ref-R-performance" role="doc-biblioref">Lüdecke et al.</a> (<a href="#ref-R-performance" role="doc-biblioref">2021</a>)</span>], <em>purrr</em> [Version 0.3.4; <span class="citation" data-cites="R-purrr"><a href="#ref-R-purrr" role="doc-biblioref">Henry and Wickham</a> (<a href="#ref-R-purrr" role="doc-biblioref">2020</a>)</span>], <em>qgraph</em> [Version 1.6.9; <span class="citation" data-cites="R-qgraph"><a href="#ref-R-qgraph" role="doc-biblioref">Epskamp et al.</a> (<a href="#ref-R-qgraph" role="doc-biblioref">2012</a>)</span>], <em>Rcpp</em> [Version 1.0.6; <span class="citation" data-cites="R-Rcpp_a"><a href="#ref-R-Rcpp_a" role="doc-biblioref">Eddelbuettel and François</a> (<a href="#ref-R-Rcpp_a" role="doc-biblioref">2011</a>)</span>; <span class="citation" data-cites="R-Rcpp_b"><a href="#ref-R-Rcpp_b" role="doc-biblioref">Eddelbuettel and Balamuta</a> (<a href="#ref-R-Rcpp_b" role="doc-biblioref">2018</a>)</span>], <em>readr</em> [Version 1.4.0; <span class="citation" data-cites="R-readr"><a href="#ref-R-readr" role="doc-biblioref">Wickham and Hester</a> (<a href="#ref-R-readr" role="doc-biblioref">2020</a>)</span>], <em>report</em> [Version 0.3.0; <span class="citation" data-cites="R-report"><a href="#ref-R-report" role="doc-biblioref">Makowski et al.</a> (<a href="#ref-R-report" role="doc-biblioref">2021</a>)</span>], <em>rstan</em> [Version 2.21.2; <span class="citation" data-cites="R-rstan"><a href="#ref-R-rstan" role="doc-biblioref">Stan Development Team</a> (<a href="#ref-R-rstan" role="doc-biblioref">2020a</a>)</span>; <span class="citation" data-cites="R-rstanarm"><a href="#ref-R-rstanarm" role="doc-biblioref">Goodrich et al.</a> (<a href="#ref-R-rstanarm" role="doc-biblioref">2020</a>)</span>], <em>rstanarm</em> [Version 2.21.1; <span class="citation" data-cites="R-rstanarm"><a href="#ref-R-rstanarm" role="doc-biblioref">Goodrich et al.</a> (<a href="#ref-R-rstanarm" role="doc-biblioref">2020</a>)</span>], <em>see</em> [Version 0.6.2.1; <span class="citation" data-cites="R-see"><a href="#ref-R-see" role="doc-biblioref">Lüdecke, Ben-Shachar, Waggoner, et al.</a> (<a href="#ref-R-see" role="doc-biblioref">2020</a>)</span>], <em>semPlot</em> [Version 1.1.2; <span class="citation" data-cites="R-semPlot"><a href="#ref-R-semPlot" role="doc-biblioref">Epskamp</a> (<a href="#ref-R-semPlot" role="doc-biblioref">2019</a>)</span>], <em>semTable</em> [Version 1.8; <span class="citation" data-cites="R-semTable"><a href="#ref-R-semTable" role="doc-biblioref">Johnson and Kite</a> (<a href="#ref-R-semTable" role="doc-biblioref">2020</a>)</span>], <em>StanHeaders</em> [Version 2.21.0.7; <span class="citation" data-cites="R-StanHeaders"><a href="#ref-R-StanHeaders" role="doc-biblioref">Stan Development Team</a> (<a href="#ref-R-StanHeaders" role="doc-biblioref">2020b</a>)</span>], <em>stringr</em> [Version 1.4.0; <span class="citation" data-cites="R-stringr"><a href="#ref-R-stringr" role="doc-biblioref">Wickham</a> (<a href="#ref-R-stringr" role="doc-biblioref">2019</a>)</span>], <em>table1</em> [Version 1.2.1; <span class="citation" data-cites="R-table1"><a href="#ref-R-table1" role="doc-biblioref">Rich</a> (<a href="#ref-R-table1" role="doc-biblioref">2020</a>)</span>], <em>tibble</em> [Version 3.1.0; <span class="citation" data-cites="R-tibble"><a href="#ref-R-tibble" role="doc-biblioref">Müller and Wickham</a> (<a href="#ref-R-tibble" role="doc-biblioref">2021</a>)</span>], <em>tidybayes</em> [Version 2.3.1; <span class="citation" data-cites="R-tidybayes"><a href="#ref-R-tidybayes" role="doc-biblioref">Kay</a> (<a href="#ref-R-tidybayes" role="doc-biblioref">2020</a>)</span>], <em>tidyr</em> [Version 1.1.2; <span class="citation" data-cites="R-tidyr"><a href="#ref-R-tidyr" role="doc-biblioref">Wickham</a> (<a href="#ref-R-tidyr" role="doc-biblioref">2020</a>)</span>], <em>tidyverse</em> [Version 1.3.0; <span class="citation" data-cites="R-tidyverse"><a href="#ref-R-tidyverse" role="doc-biblioref">Wickham et al.</a> (<a href="#ref-R-tidyverse" role="doc-biblioref">2019</a>)</span>], and <em>xtable</em> [Version 1.8.4; <span class="citation" data-cites="R-xtable"><a href="#ref-R-xtable" role="doc-biblioref">Dahl et al.</a> (<a href="#ref-R-xtable" role="doc-biblioref">2019</a>)</span>].<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
