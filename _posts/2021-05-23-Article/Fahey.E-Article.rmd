@@ -1,14 +1,16 @@
 ---
-title: "Brief Title"
+title: "Can reasons you visit a meaningful place predict your subjective wellbeing?"
 description: |
-  Article Actual title will go here.
+  Final Report for PSYC447 - Word Count = 2025.
 author:
   - name: Emma Fahey
 date: "06/04/2021"
 output:
   distill::distill_article:
     self_contained: false
-bibliography: references.bib
+bibliography: 
+  - references.bib
+  - r-references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -76,7 +78,7 @@ These ideas have been taken a step further by looking at illicit emotional respo
 
 Life satisfaction and happiness are frequently studied together worldwide. The two terms have been used under the heading of subjective wellbeing [@selim2008] and hedonic wellbeing [@difabio2015; @kahneman1999]. Studies include measures of cultural variation, [@bastian2014] in relation to suicide rates [@bray2006], in relation to physical health in elderly populations [@lara2020], in relation to wellbeing trends as populations age [@an2020], and more recently in response to the COVID-19 pandemic [@bozkurt2021]. Happiness in particular is rated as an important characteristic for subjective wellbeing, with college students in one study rating it on average 8.1 out of 9 for importance, compared to other wellbeing characteristics [@kim-prieto2005].
 
-The current study looks at life satisfaction and happiness scores in relation to the importance or motivation to visit a meaningful place. Importance is split up into three subcategories: happy, sad, and reflective reasons to visit a place. The question is if reasons to visit a meaningful place predict subjective wellbeing. Hypotheses include (1) the motivation to visit a meaningful place in a positive mood will relate to higher subjective wellbeing scores. Conversely, if visiting for a negative reason I expect overall subjective wellbeing to be lower. (2) Consistent with Korpela et al. (2020), life satisfaction will be positively associated with sad and happy reasons to visit a place, but not reflective reasons.
+The current study looks at life satisfaction and happiness scores in relation to the importance or motivation to visit a meaningful place. Importance is split up into three subcategories: happy, sad, and reflective reasons to visit a place. The question is if motivations to visit a meaningful place predict subjective wellbeing. Hypotheses include (1) the motivation to visit a meaningful place in a positive mood will relate to higher subjective wellbeing scores. Conversely, the motivation to visit for a negative reason will relate to lower overall subjective wellbeing. (2) Consistent with @korpela2020, life satisfaction will be positively associated with sad and happy motivations to visit a place, but not reflective motivations.
 
 ## Method
 
@@ -86,11 +88,11 @@ The current study looks at life satisfaction and happiness scores in relation to
 
 ### Materials
 
-**Happiness** was measured by the measure of subjective happiness scale [@lyubomirsky1999]. This scale consists of 4 items that are rated between 1 and 7. Values of the scale differed for each question. The following statement was provided before commencement "For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you." A mean happiness score for each participant was calculated by summing all items.
+**Happiness** was measured by the measure of subjective happiness scale [@lyubomirsky1999]. This scale consists of 4 items that are rated between 1 and 7. Values of the scale differed for each question. The following statement was provided before commencement "For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you." A mean happiness score for each participant was calculated by summing all items. The full scale can be found in the appendix.
 
-**Life Satisfaction** was assessed using the Satisfaction with Life Scale (SWLS) [@diener1985]. Participants responded to a likert 7-point scale. The items were preceded by the statement: "Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding." The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items.
+**Life Satisfaction** was assessed using the Satisfaction with Life Scale (SWLS) [@diener1985]. Participants responded to a likert 7-point scale. The items were preceded by the statement: "Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding." The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items. The full scale can be found in the appendix.
 
-**Reasons to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items.) The full scale can be found in the appendix. Items were grouped into the above categories and a sum score was calculated for each category.
+**Motivations to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items) motivations. Items were grouped into the above categories and a sum score was calculated for each category. The full scale can be found in the appendix.
 
 **Scale Statistics**
 
@@ -151,7 +153,7 @@ print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
 
 ```
 
-The main descriptive statistics for each scale can be found in table 1 below:  
+The main descriptive statistics for each scale can be found in table 1. Multiple reliability tests were run to determine the scales alpha, omega and coefficient H. This is because the alpha reliability alone assumes scales are uni-dimensional and normally distributed. Items in each motivations to visit a place subscale were not shown to be normally distributed in fig \@ref(fig:plots) above.  
 
 ```{r, echo=FALSE, results='asis'}
 
@@ -191,13 +193,11 @@ kable(
 
 ```
 
-The main descriptive statistics for each scale can be found in table 1. Multiple reliability tests were run to determine the scales alpha, omega and coefficient H. This is because the alpha reliability alone assumes scales are uni-dimensional and normally distributed. Items in each reasons to visit a place subscale were not shown to be normally distributed in fig \@ref(fig:plots) above.
-
-The initial use of the reasons to visit a place scale had comparable reliability, with cronbach's alpha being reported as 0.93 for sad motivation, 0.87 for happy motivation and 0.8 for alone motivation subscales [@korpela2020].  
+The initial use of the motivations to visit a place scale had comparable reliability, with cronbach's alpha being reported as 0.93 for sad motivation, 0.87 for happy motivation and 0.8 for alone motivation subscales [@korpela2020].  
 
 ### Networks
 
-A network graph, shown in fig \@ref(fig:net1) is used to display the connectedness of the scales used in the current study. As expected, life satisfaction and happiness form a connection. The three subscales of reasons to visit a place form a strong connection.  
+A network graph, shown in fig \@ref(fig:net1) is used to display the connectedness of the scales used in the current study. As expected, life satisfaction and happiness form a connection. The three subscales of motivations to visit a place form a strong connection.  
 
 ```{r net1, echo=FALSE, fig.cap= "Network Graph"}
 # creating a network map of scale items 
@@ -207,7 +207,7 @@ owl <- qgraph::qgraph(network1$graph, layout = "spring")
 
 ```
 
-The exploratory graph analysis in fig \@ref(fig:networks) shows that life satisfaction and happiness are still separate constructs, but that the three subscales of reasons to visit a place may be measuring only one construct. To ensure the new reasons to visit a place subscale were measuring three separate constructs, a second exploratory graph analysis is run (see appendix \@ref(fig:appen1)). This shows that the subscales are connected, yet independent constructs. A network graph is also run for the new subscales to ensure that items selected to mean happy, sad, and reflective are most connected to each other. This was found to be accurate (see appendix \@ref(fig:appen2)).
+The exploratory graph analysis in fig \@ref(fig:networks) shows that life satisfaction and happiness are still separate constructs, but that the three subscales of reasons to visit a place may be measuring only one construct. To ensure the new motivations to visit a place subscales were measuring three separate constructs, a second exploratory graph analysis is run (see appendix \@ref(fig:appen1)). This shows that the subscales are connected, yet independent constructs. A network graph is also run for the new subscales to ensure that items selected to mean happy, sad, and reflective are most connected to each other. This was found to be accurate (see appendix \@ref(fig:appen2)).
 
 ```{r networks, echo=FALSE, fig.cap= "EGA Graph"}
 
@@ -228,7 +228,7 @@ ggstatsplot::ggcorrmat(df, c("age_clean", "swls", "shs", "motsad", "mothap", "mo
 
 ```
 
-Life satisfaction and happiness correlate significantly. All three reasons for visiting a place correlate, with reflective and sad being the strongest. These results are comparable with those of @korpela2020 that found sad and reflective to correlate at 0.68, sad and happy to correlate at 0.32, and reflective and happy to correlate 0.35.   
+Life satisfaction and happiness correlate significantly. All three motivations for visiting a place correlate, with reflective and sad being the strongest. These results are comparable with those of @korpela2020 that found sad and reflective to correlate at 0.68, sad and happy to correlate at 0.32, and reflective and happy to correlate 0.35.   
 
 ### Model Selection
 
@@ -252,14 +252,13 @@ semPaths(sem_res_strap, layout = "tree")
 
 ```
 
-A structural equation model (fig \@ref(fig:modsel)) is run in this study to analyse reasons to visit a meaningful place against life satisfaction and happiness. The (ML) is employed, which presumes multivariate normality of the variables. As stated previously and depicted in fig \@ref(fig:plots), the motivations to visit a place subscales were not normally distributed, so a bootstrap adjustment was fitted to the model. This runs the same analysis 1,000 times to get an average which creates more reliable and robust results, particularly when considering non-normality.  
+A structural equation model (SEM) (fig \@ref(fig:modsel)) is run in this study to analyse motivations to visit a meaningful place against life satisfaction and happiness. The maximum likelihood estimation (ML) is employed, which presumes multivariate normality of the variables. As stated previously, and depicted in fig \@ref(fig:plots), the motivations to visit a place subscales were not normally distributed, so a bootstrap adjustment was fitted to the model. This runs the same analysis 1,000 times to get an average which creates more reliable and robust results, particularly when considering non-normality. 
 
 ## Results
 
-The structural equation model (SEM) is fully saturated (CFI = 1) in the initial model. A second model is run to determine if fit differs by gender. The fit does not differ across the two models (CFI = 1 for both). This implies that gender does not impact the model. Regression paths are identical between groups, therefore the model can be confidently collapsed together. 
+The structural equation model (SEM) is fully saturated (CFI = 1). Therefore, a second model to determine if model fit differs by gender is run. Regression paths are identical between groups (CFI = 1 for both), which implies that gender does not impact the model. This allows the model to be confidently collapsed together.
 
-Table 2 shows the regression estimate paths of each variable. Only one path is significant, between happiness and happy motivation to visit a place (B = 0.139, *p*=0.010). Life satisfaction and happy motivation to visit a place is near significant (B = 0.104, *p*=0.070), this is likely due to the correlation between happiness and life satisfaction shown in fig \@ref(fig:corr). 
-
+The main model is depicted in table 2 and shows that only happy motivations to visit and happiness scores were significant (B = 0.139, *p*=0.010). However, happy motivation and life satisfaction scores were near significance (B = 0.104, *p*=0.070), this is likely due to the correlation between happiness and life satisfaction. Reflective motivations to visit a place on subjective wellbeing were non-significant but positive (B = 0.033 - 0.043), whereas sad motivations for visiting a meaningful place on subjective wellbeing were non-significant and negative (B = -0.065 - -0.067).
 
 ```{r basic model code, include=FALSE}
 
@@ -284,7 +283,8 @@ summary(sem_res_mtr, standardize = T, fit = T)
 
 ```
 
-*Table 2*
+**Table 2**
+
 ```{r results table, echo=FALSE}
 # to report the above model. FOR RESULTS
 
@@ -299,18 +299,21 @@ parameterestimates(sem_res_strap) %>%
 
 ```
 
-
 ## Discussion
 
 Enter here.
 
+**Applications**
 
+enter
 
+**Limitations**
 
+enter
 
-### Limitations and Future Research
+**Future Research**
 
-Enter here from word.
+enter
 
 ## Appendix
 
@@ -325,8 +328,7 @@ For each of the following statements and/or questions, please select the point o
 
 **Satisfaction with Life Scale**
 
-Below are
-five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding. 
+Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding. 
 
 Scale from 1 (strongly disagree) to 7 (strongly agree).
 
@@ -338,8 +340,7 @@ Scale from 1 (strongly disagree) to 7 (strongly agree).
 
 **Reasons to visit a place scale**
 
-How important are the following situations as reasons to visit the place in the
-photo? (Rating scale from 1 (not at all) to 7 (very important))
+How important are the following situations as reasons to visit the place in the photo? (Rating scale from 1 (not at all) to 7 (very important))
 
 1.  When sad
 2.  When depressed
@@ -383,7 +384,7 @@ owl <- qgraph::qgraph(network3$graph, layout = "spring")
 
 ```
 
-###Binned code 
+\#\#\#Binned code
 
 Results are depicted in figure \@ref(fig:resdep)
 
@@ -407,15 +408,10 @@ semPlot::semPaths(sem_res_strap, "est",
 
 # DO A TABLE INSTEAD - TO REPORT all the estimates and p-values. 
 
-```
-
-
-
-### R Packages used:
-
-```{r references, echo=FALSE}
-
-# content for the package references 
-report::cite_packages()
+papaja::r_refs("r-references.bib")
 
 ```
+
+### R Packages used
+
+We used `r papaja::cite_r("r-references.bib")` for all our analyses.
