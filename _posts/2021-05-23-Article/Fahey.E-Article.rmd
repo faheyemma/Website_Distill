@@ -234,11 +234,19 @@ Life satisfaction and happiness correlate significantly. All three reasons for v
 
 ### Model Selection
 
-A structural equation model is run in this study to analyse reasons to visit a meaningful place against life satisfaction and happiness. The (ML) is employed, which presumes multivariate normality of the variables. As stated previously and depicted in figure \@ref(fig:plots), the motivations to visit a place subscales were not normally distributed, so a bootstrap adjustment was fitted to the model. This runs the same analysis 1,000 times to get an average which creates more reliable and robust results, particularly when considering non-normality.  
+```{r modsel, echo=FALSE, fig.cap= "Structural Equation Model"}
+
+# path model of the equation
+semPaths(sem_res_strap, layout = "tree") 
+
+```
+
+A structural equation model (figure \@ref(fig:modsel)) is run in this study to analyse reasons to visit a meaningful place against life satisfaction and happiness. The (ML) is employed, which presumes multivariate normality of the variables. As stated previously and depicted in figure \@ref(fig:plots), the motivations to visit a place subscales were not normally distributed, so a bootstrap adjustment was fitted to the model. This runs the same analysis 1,000 times to get an average which creates more reliable and robust results, particularly when considering non-normality.  
 
 ## Results
 
-one significant result. mothap with more shs. plus mothap is almost sig with swls - this likely due to the high correlation between shs and swls. so motsad and motref no effect. aka it is about knowing what makes happy, not what makes sad.
+
+
 
 ```{r basic model code, include=FALSE}
 library(lavaan)
@@ -248,8 +256,9 @@ library(lavaan)
 mdl_sem <- 'swls ~ motsad + mothap + motref
 	shs ~ motsad + mothap + motref' # this is the model 
 
-sem_res_strap <- sem(mdl_sem, df2, se = "bootstrap", estimator = "ML")  
-summary(sem_res_strap, standardize = T, fit = T) # this is running a bootstrap version of the above model. 
+sem_res_strap <- sem(mdl_sem, df2, se = "bootstrap", estimator = "ML")  # this is running a bootstrap version of the above model. 
+
+summary(sem_res_strap, standardize = T, fit = T) #this reports the model in a readable format  
 
 
 # second one - this sees if the model differs per gender. 
@@ -267,21 +276,31 @@ summary(sem_res_mtr, standardize = T, fit = T)
 
 # from this 2x sig (mothap and shs in both). 
 
+
 ```
 
-INCLUDE MODEL PIC SOMEWHERE IN MODEL SECTION!! 
-```{r model depiction, echo=FALSE}
+Results are depicted in figure \@ref(fig:resdep)
 
-semPaths(sem_res_strap) 
 
+```{r resdep, echo=FALSE, fig.cap= "Structural Equation Path Model with Results"}
+
+
+# add to results - to interpret!! 
 semPlot::semPaths(sem_res_strap, "std",
-             sizeMan = 15, sizeInt = 15, sizeLat = 15,
-             edge.label.cex=1.5,
-             fade=FALSE)
+                  layout = "spring",
+                  exoVar = FALSE,
+                  exoCov = FALSE,
+                  sizeMan = 15, sizeInt = 15, sizeLat = 15,
+                  edge.label.cex=1.5,
+                  fade=FALSE)
 
 # std is standard estimates, can also use "par" which would report unstandardised estimates 
-
 # can see that positively are mothap and motref, but neg is motsad, that's good!!!
+
+# the findigs are shown in the below correlation plot. # unsure if needed, Maybe in appendix. 
+# semPlot::semCors(sem_res_strap, include = "observed")
+
+
 
 ```
 
