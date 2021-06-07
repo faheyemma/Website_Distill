@@ -70,13 +70,13 @@ mean(df$age_clean, na.rm = T)
 
 ## Introduction
 
-If I were to tell you to think of a meaningful place right now, would one come to mind? In most cases, the answer to this question would be yes. It is believed that we have an innate connection to certain places, this is defined as topophilia and has been studied for many years [@tuan1990]. Places, particularly natural ones, are known to have restorative psychological effects when visited [@ratcliffe2018; @scannell2017; @ulrich1981]. It is thought that people imbue environments with meaning arising from their current needs and wellbeing [@kerr1999]. Favourite or meaningful places have been studied as a way of environmental self-regulation, a coping mechanism to enhance subjective wellbeing and promote emotional regulation [@korpela1992; @korpela2010].
+If I were to tell you to think of a meaningful place right now, would one come to mind? In most cases, the answer to this question would be yes. It is believed that we have an innate connection to certain places, this is defined as topophilia and has been studied for many years [@tuan1990]. Places, particularly natural ones, are known to have restorative psychological effects when visited [@ratcliffe2018; @scannell2017; @ulrich1981]. It is thought that people imbue environments with meaning arising from their current needs and wellbeing [@kerr1999]. Favourite or meaningful places have been studied as a way of environmental self-regulation, a coping mechanism to enhance subjective wellbeing and promote emotional regulation [@korpela1992;@korpela2010].
 
 These ideas have been taken a step further by looking at illicit emotional responses in the brain in reaction to meaningful places, providing evidence that meaningful places are unique as our brains process images of them differently to other places [@gatersleben2020; @lengen2012]. With places becoming restricted or forbidden during COVID-19, it is an important time to measure how our use of meaningful places might be affecting our wellbeing. Findings of quality of life decreasing during COVID-19 if no emotion regulation was occurring [@panayiotou2021] furthers this point. Emotion dysregulation has also been found to predict greater acute COVID-19 stress and is a vulnerability factor to poor stress responses [@tyra2021].
 
 Life satisfaction and happiness are frequently studied together worldwide. The two terms have been used under the heading of subjective wellbeing [@selim2008] and hedonic wellbeing [@difabio2015; @kahneman1999]. Studies include measures of cultural variation, [@bastian2014] in relation to suicide rates [@bray2006], in relation to physical health in elderly populations [@lara2020], in relation to wellbeing trends as populations age [@an2020], and more recently in response to the COVID-19 pandemic [@bozkurt2021]. Happiness in particular is rated as an important characteristic for subjective wellbeing, with college students in one study rating it on average 8.1 out of 9 for importance, compared to other wellbeing characteristics [@kim-prieto2005].
 
-The current study looks at life satisfaction and happiness scores in relation to the importance or motivation to visit a meaningful place. Importance is split up into three subcategories: happy, sad, and reflective reasons to visit a place. The question is if motivations to visit a meaningful place predict subjective wellbeing. Hypotheses include (1) the motivation to visit a meaningful place in a positive mood will relate to higher subjective wellbeing scores. Conversely, the motivation to visit for a negative reason will relate to lower overall subjective wellbeing. (2) Consistent with @korpela2020, life satisfaction will be positively associated with sad and happy motivations to visit a place, but not reflective motivations.
+The current study looks at life satisfaction and happiness scores in relation to the importance or motivation to visit a meaningful place. Importance is split up into three subcategories: happy, sad, and reflective reasons to visit a place. The aim of the study is to see if motivations to visit a meaningful place can predict subjective wellbeing. Hypotheses include (1) the motivation to visit a meaningful place in a positive mood will relate to higher subjective wellbeing scores. Conversely, the motivation to visit for a negative reason will relate to lower overall subjective wellbeing. (2) Consistent with @korpela2020, life satisfaction will be positively associated with sad and happy motivations to visit a place, but not reflective motivations.
 
 ## Method
 
@@ -86,11 +86,11 @@ The current study looks at life satisfaction and happiness scores in relation to
 
 ### Materials
 
-**Happiness** was measured by the measure of subjective happiness scale [@lyubomirsky1999]. This scale consists of 4 items that are rated between 1 and 7. Values of the scale differed for each question. The following statement was provided before commencement "For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you." A mean happiness score for each participant was calculated by summing all items (the full scale can be found in the [appendix \@ref(shs)]).
+**Happiness** was measured by the measure of subjective happiness scale [@lyubomirsky1999]. This scale consists of 4 items that are rated between 1 and 7. Values of the scale differed for each question. The following statement was provided before commencement "For each of the following statements and/or questions, please select the point on the scale that you feel is most appropriate in describing you." A mean happiness score for each participant was calculated by summing all items (the full scale can be found in the appendix \@ref(shs)).
 
-**Life Satisfaction** was assessed using the Satisfaction with Life Scale (SWLS) [@diener1985]. Participants responded to a likert 7-point scale. The items were preceded by the statement: "Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding." The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items (the full scale can be found in the [appendix \@ref(swls)]).
+**Life Satisfaction** was assessed using the Satisfaction with Life Scale (SWLS) [@diener1985]. Participants responded to a likert 7-point scale. The items were preceded by the statement: "Below are five statements that you may agree or disagree with. Using the 1 -- 7 scale below indicate your agreement with each item. Please be open and honest in your responding." The scale ranged from 1(strongly disagree) to 7(strongly agree). A mean life satisfaction score for each participant was created by summing all items (the full scale can be found in the appendix \@ref(swls)).
 
-**Motivations to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items) motivations. Items were grouped into the above categories and a sum score was calculated for each category (the full scale can be found in the [appendix \@ref(mot)]).
+**Motivations to visit a place.** An amended version of the importance of places scale [@korpela2020] was administered to participants to assess the reasons that place was visited. Participants responded on a likert 7-point scale which ranged from 1 (not at all) to 7 (very important). Due to initial confirmatory factor analysis results from @korpela2020, we amended the scale from 19 items down to 13. We then added the item "when wanting to meditate" to the alone or reflective category. The final 14-item scale was prefaced with the statement: "How important are the following situations as reasons to visit the place in the photo?" These reasons create three subfactors: Happy or well (4-items), alone or reflective (3-items), and sad or depressed (7-items) motivations. Items were grouped into the above categories and a sum score was calculated for each category (the full scale can be found in the appendix \@ref(mot)).
 
 **Scale Statistics**
 
@@ -151,7 +151,7 @@ print(ufs::scaleStructure(df[paste0("importance_", 12:14)]))
 
 ```
 
-The main descriptive statistics for each scale can be found in table 1. Multiple reliability tests were run to determine the scales alpha, omega and coefficient H. This is because the alpha reliability alone assumes scales are uni-dimensional and normally distributed. Items in each motivations to visit a place subscale were not shown to be normally distributed in fig \@ref(fig:plots) above.  
+The main descriptive statistics for each scale can be found in table 1. Multiple reliability tests were run to determine the scales alpha, omega and coefficient H. This is because the alpha reliability alone assumes scales are uni-dimensional and normally distributed. Items in each motivations to visit a place subscale were not shown to be normally distributed in fig \@ref(fig:plots) above, hence the other tests.  
 
 **Table 1**
 
@@ -252,13 +252,13 @@ semPaths(sem_res_strap, layout = "tree")
 
 ```
 
-A structural equation model (SEM) (fig \@ref(fig:modsel)) is run in this study to analyse motivations to visit a meaningful place against life satisfaction and happiness. The maximum likelihood estimation (ML) is employed, which presumes multivariate normality of the variables. As stated previously, and depicted in fig \@ref(fig:plots), the motivations to visit a place subscales were not normally distributed, so a bootstrap adjustment was fitted to the model. This runs the same analysis 1,000 times to get an average which creates more reliable and robust results, particularly when considering non-normality. 
+A structural equation model (SEM) (fig \@ref(fig:modsel)) is run in this study to analyse motivations to visit a meaningful place against life satisfaction and happiness. The maximum likelihood estimation (ML) is employed, which presumes multivariate normality of the variables. As stated previously, and depicted in fig \@ref(fig:plots), the motivations to visit a place subscales were not normally distributed, so a bootstrap adjustment was fitted to the model. This runs the same analysis 1,000 times to get an average which creates more reliable and robust results. 
 
 ## Results
 
 The structural equation model (SEM) is fully saturated (CFI = 1). Therefore, a second model to determine if model fit differs by gender is run. Regression paths are identical between groups (CFI = 1 for both), which implies that gender does not impact the model. This allows the model to be confidently collapsed together.
 
-The main model is depicted in table 2 and shows that only happy motivations to visit and happiness scores were significant (B = 0.139, *p*=0.010). However, happy motivation and life satisfaction scores were near significance (B = 0.104, *p*=0.070), this is likely due to the correlation between happiness and life satisfaction. Reflective motivations to visit a place on subjective wellbeing were non-significant but positive (B = 0.033 - 0.043), whereas sad motivations for visiting a meaningful place on subjective wellbeing were non-significant and negative (B = -0.065 - -0.067). A model depiction of the results can be found in appendix \@ref(fig:resdep).
+The main model is depicted in table 2 and shows that only happy motivations to visit and happiness scores were significant (B = 0.139, *p* = 0.010). However, happy motivation and life satisfaction scores were near significance (B = 0.104, *p* = 0.070), this is likely due to the correlation between happiness and life satisfaction. Reflective motivations to visit a place on subjective wellbeing were non-significant but positive (B = 0.033 - 0.043), whereas sad motivations for visiting a meaningful place on subjective wellbeing were non-significant and negative (B = -0.065 - -0.067). A model depiction of the results can be found in appendix \@ref(fig:resdep).
 
 ```{r basic model code, include=FALSE}
 
@@ -269,14 +269,12 @@ summary(sem_res_strap, standardize = T, fit = T) #this reports the model in a re
 	
 sem_res_1 <- sem(mdl_sem, filter(df2, gender_code %in% c("male", "female")), estimator = "ML", group = "gender_code", se = "bootstrap") 
 sem_res_mtr <- sem(mdl_sem, filter(df2, gender_code %in% c("male", "female")), estimator = "ML", group = "gender_code", group.equal = "regressions", se = "bootstrap")
-# MLR uses approx to multuvariate data and using scaling factor to adjust qui-squared. Like a students t-test. But instead we using ML (the norm), and bootstrap. This runs the analysis 1000 times to get an average answer. 
+# MLR uses approx to multuvariate data and using scaling factor to adjust qui-squared. Like a students t-test. But instead we use ML (the norm), and bootstrap. This runs the analysis 1000 times to get an average answer. 
 
 
 summary(sem_res_1, standardize = T, fit = T) 
 summary(sem_res_mtr, standardize = T, fit = T)
 # once generated these, we looking at the cfi - the differences. 
-
-# Bootstrapping randomly grabs part of your data and makes a new average. Allows confidence intervals. 
 
 # from this 2x sig (mothap and shs in both). 
 
@@ -300,15 +298,15 @@ parameterestimates(sem_res_strap) %>%
 
 The aim of the current study was to see if motivations to visit a meaningful place could predict subjective wellbeing. I found partial support for the first hypothesis, that motivation to visit a meaningful place in a positive mood relates to higher subjective wellbeing scores. This was supported by positive and statistically significant paths between subjective happiness scores and happy motivations to visit a meaningful place. There was also some support for the converse of this, with sad motivations to visit a meaningful place having negative paths to both subjective wellbeing measures, however these were not significant.
 
-Support was not found for hypothesis two, as life satisfaction was positively associated with happy and reflective motivations, and negatively with sad motivations. None of these paths were significant. This does not support @korpela2020's study which found life satisfaction to be positively associated with sad and happy motivations, but negatively with reflective motivations.
+Support was not found for hypothesis two, as life satisfaction was positively associated with happy and reflective motivations, and negatively with sad motivations. None of these paths were significant. This does not support @korpela2020's study which found life satisfaction to be positively associated with sad and happy motivations, but negatively with reflective motivations. This may be accounted for by the addition of the meditation item in our scale as mentioned in the methods section. 
 
 **Implications**
 
-Findings from the current study can be extrapolated to wider research in emotion regulation and place attachment. Inferences can be made that it seems to be about knowing what makes you happy, or going to meaningful place for a happy reason, not a sad or reflective one that has an impact on your subjective wellbeing. This supports ideas that places can have restorative properties [@scannell2017; @ulrich1981], as we seek them when happy. The topophilia hypothesis [@tuan1990] is also supported, as the current study finds attachment to places and those places are influencing our wellbeing.
+Findings from the current study can be extrapolated to wider research in emotion regulation and place attachment. Inferences can be made that it seems to be about knowing what makes you happy, or going to meaningful place for a happy reason, not a sad or reflective one that has an impact on your subjective wellbeing. This supports ideas that places can have restorative properties [@scannell2017; @ulrich1981], as we seek them when happy. The topophilia hypothesis [@tuan1990] is also supported, as the current study finds attachment to places and those places having an influence on our wellbeing.
 
 **Limitations and Future Research**
 
-The current study is reliant on participants identification of a meaningful place. As a university sample was used to collect data, there is a fear that answers may not have been accurate, and that there may have been participant response bias (van de Mortel, 2008). A study of 17-to-25 year olds found that wellbeing varies significantly with age and gender [@lópez-madrigal2021a] This may create another limitation of the current study, particularly as the SEM was run on different genders. The results of this study do not reflect wider cultural or age demographics and should be interpreted with caution if generalising across these areas.   
+The current study is reliant on participants identification of a meaningful place. As a university sample was used to collect data, there is a fear that answers may not have been accurate, and that there may have been participant response bias (van de Mortel, 2008). A study of 17-to-25 year olds found that wellbeing varies significantly with age and gender [@lópez-madrigal2021a], this may create another limitation of the current study, particularly as the SEM was run on different genders. The results of this study do not reflect wider cultural or age demographics and should be interpreted with caution if generalising to other cultures.   
 
 Finally, the current study includes a scale that has not been widely tested on different populations and age groups. It was initially created for the public of Finland and Hungary and has now been tested on an undergraduate population of New Zealand. The results if the current study did not directly replicate those of @korpela2020a, implying that there may be cultural or generational influences affecting the results. It could also be that thinking of a favourite place (as per @korpela2020a) is significantly different to thinking of a meaningful place in the current study. The differences between favourite and meaningful places and their individual impact on subjective wellbeing is an area for future research.
 
@@ -316,13 +314,11 @@ Future research could also test the ideas of meaningful places more empirically 
 
 **Conclusion**
 
-Places it seems are always going to be important to us, and with restrictions from them during COVID-19, it is important to quantify how they can interact with our emotion regulation, stress responses, and coping. The current study gives support to the idea that if you seek out a meaningful place when feeling happy, your subjective wellbeing is greater overall.   
+Places, it seems are always going to be important to us, and with restrictions from them during COVID-19, it is important to quantify how they can interact with our emotion regulation, stress responses, and coping. The current study gives support to the idea that if you seek out a meaningful place when feeling happy, your subjective wellbeing can be greater overall.   
 
 ## Appendix
 
-Items are grouped into the following three categories and then sum scored within their category. Happy or well (items 8-11), Alone or reflective (items 12-14), Sad or depressed (items 1-7).
-
-The exploratory graph analysis (EGA) in appendix \@ref(fig:appen1) presents items from the motivations to visit a place scale as three separate constructs.
+The exploratory graph analysis (EGA) in appendix \@ref(fig:appen1) presents items from the motivations to visit a place scale as three separate constructs. Items were grouped into the following three categories: happy or well (items 8-11), alone or reflective (items 12-14), and sad or depressed (items 1-7).
 
 ```{r appen1, echo=FALSE, fig.cap= "EGA of itema in motivations to visit place subscales in the current study showing three seperate constructs."}
 
@@ -360,14 +356,10 @@ semPlot::semPaths(sem_res_strap, "est",
                   edge.label.cex=1.5,
                   fade=FALSE)
 
-# std is standard estimates, can also use "par" which would report unstandardised estimates 
-# can see that positively are mothap and motref, but neg is motsad, that's good!!!
+# std is standard estimates, can also use "par" which would report unstandardised estimates. using "est" for estimated variances version of numbers (that's what we report in this kinda model).  
+# can see that positively are mothap and motref, but neg is motsad.
 
-# the findigs are shown in the below correlation plot. # unsure if needed, Maybe in appendix. 
-# semPlot::semCors(sem_res_strap, include = "observed")
-
-
-# DO A TABLE INSTEAD - TO REPORT all the estimates and p-values. 
+# this is appendixed as the Sem Plot package is still in development for SEM diagrams, and not all features needed are avaialble at the current time. 
 
 papaja::r_refs("r-references.bib")
 
